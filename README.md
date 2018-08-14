@@ -30,4 +30,4 @@ If you already built a site using Mysidia v1.3.4 or below and plan to use this v
 
 If you're planning to use Mysidia Deluxe for a new site, please use the latest version from the releases section. Releases are finalized and you are less likely to run bugs caused by newly added features.
 
-The [original ToS](http://www.mysidiaadoptables.com/tos.php) still applies here, and you may use this script for a commercial site. **You are not allowed to sell the script itself.**
+This script is completely free to use. The [original ToS](http://www.mysidiaadoptables.com/tos.php) still applies here, and you may use this script for a commercial site. **You are not allowed to sell the script itself.**
