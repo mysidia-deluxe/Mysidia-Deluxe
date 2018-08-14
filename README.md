@@ -2,6 +2,7 @@
 Mysidia Deluxe is an open-source custom version of the [Mysidia Adoptables](http://mysidiaadoptables.com/) framework, based off of v1.3.4 and maintained by the community. This version overhauls and adds many things, including:
 - Bugfixes (like the "rn" issue, and reading other user's PMs)
 - Smoother installation
+- AJAX support
 - Reskinned ACP for a more modern look
 - 4 brand new themes (2 using Bootstrap 4 and 2 using CSS grids)
 - Overhauled trade system
