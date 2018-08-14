@@ -25,7 +25,7 @@ This version overhauls and adds many things, including:
 - (optional) A little PHP knowledge is advised if you wish to expand and add your own features (like custom pages).
 
 ## Download information
-If you already built a site using Mysidia v1.3.4 or below and plan to use this version, it is recommended to backup your old site and use Mysidia Deluxe as a fresh install rather than for feature splicing unless (you have the knowledge to do so), as this may have unexpected results. That being said, all features in this version are compatible with sites running v1.3.4 if you just wish to borrow them.
+If you already built a site using Mysidia v1.3.4 or below and plan to use this version, it is recommended to backup your old site and use Mysidia Deluxe as a fresh install rather than for feature splicing (unless you have the knowledge to do so), as this may have unexpected results. That being said, all features in this version are compatible with sites running v1.3.4 if you just wish to borrow them.
 
 If you're planning to use Mysidia Deluxe for a new site, please use the latest version from the releases section. Releases are finalized and you are less likely to run bugs caused by newly added features.
 
