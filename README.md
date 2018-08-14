@@ -1,5 +1,5 @@
 # Mysidia-Deluxe
-Mysidia Deluxe is a custom version of the [Mysidia Adoptables](http://mysidiaadoptables.com/) framework, based off of v1.3.4. This version overhauls and adds many things, including:
+Mysidia Deluxe is an open-source custom version of the [Mysidia Adoptables](http://mysidiaadoptables.com/) framework, based off of v1.3.4. This version overhauls and adds many things, including:
 - Bugfixes (like the "rn" issue, and reading other user's PMs)
 - Reskinned ACP for a more modern look
 - 4 brand new themes (2 using Bootstrap 4 and 2 using CSS grids)
