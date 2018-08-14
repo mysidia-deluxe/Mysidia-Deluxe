@@ -15,6 +15,7 @@ This version overhauls and adds many things, including:
 - [ ] Bank system
 - [ ] Cronjobs
 - [x] More HTML (no formbuilders or tablebuilders, html will be used instead)
+- [x] More comments in the code, so it's easier to understand what's going on
 - And more to come!
 
 ## Server Requirements
@@ -26,8 +27,11 @@ This version overhauls and adds many things, including:
 - (optional) Cronjob support (won't be able to use cronjob features without it)
 
 ## Download information
-If you already built a site using Mysidia v1.3.4 or below and plan to use this version, it is recommended to backup your old site and use Mysidia Deluxe as a fresh install rather than for feature splicing (unless you have the knowledge to do so), as this may have unexpected results. That being said, all features in this version are compatible with sites running v1.3.4 if you just wish to borrow them.
+If you already built a site using Mysidia v1.3.4 or below and plan to use this version, it is recommended to backup your old site and use Mysidia Deluxe as a fresh install. That being said, all features in this version are compatible with sites running v1.3.4. If you have some PHP knowledge and wish to upgrade without reinstallation, see the "Updating to a new Mysidia Deluxe version" section below.
 
 If you're planning to use Mysidia Deluxe for a new site, please use the latest version from the releases section. Releases are finalized and you are less likely to run bugs caused by newly added features.
+
+## Updating to a new Mysidia Deluxe version (or upgrading from v1.3.4)
+If you used Mysidia Deluxe in the past and a new version is released, you can select the latest branch and use the files to update your own. Make sure you don't forget the related files! It's not really recommended to completely overwrite your old file with the latest one without making a backup, since it will erase any changes that you made to the original code.
 
 This script is completely free to use. The [original ToS](http://www.mysidiaadoptables.com/tos.php) still applies here, and you may use this script for a commercial site. **You are not allowed to sell the script itself.**
