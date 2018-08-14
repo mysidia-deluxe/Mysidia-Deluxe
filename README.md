@@ -32,6 +32,7 @@ If you already built a site using Mysidia v1.3.4 or below and plan to use this v
 If you're planning to use Mysidia Deluxe for a new site, please use the latest version from the releases section. Releases are finalized and you are less likely to run bugs caused by newly added features.
 
 ## Updating to a new Mysidia Deluxe version (or upgrading from v1.3.4)
-If you used Mysidia Deluxe in the past and a new version is released, you can select the latest branch and use the files to update your own. Make sure you don't forget the related files! It's not really recommended to completely overwrite your old file with the latest one without making a backup, since it will erase any changes that you made to the original code.
+If you used Mysidia Deluxe in the past and a new version is released, you can select the latest branch and use the files (or just snippets of code from within the files) to update your own. Make sure you don't forget the related files! It's not really recommended to completely overwrite your old file with the latest one without making a backup, since it will erase any changes that you made to the original code.
 
+## Terms of Service
 This script is completely free to use. The [original ToS](http://www.mysidiaadoptables.com/tos.php) still applies here, and you may use this script for a commercial site. **You are not allowed to sell the script itself.**
