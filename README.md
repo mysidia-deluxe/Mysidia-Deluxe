@@ -17,12 +17,13 @@ This version overhauls and adds many things, including:
 - [x] More HTML (no formbuilders or tablebuilders, html will be used instead)
 - And more to come!
 
-## Requirements
+## Server Requirements
 - PHP 5.3.0+ (5.4 is recommended)
   - *Will not work on PHP 7*
 - PDO support
 - (optional) Imagick support. Layered pet images won't work without it.
 - (optional) A little PHP knowledge is advised if you wish to expand and add your own features (like custom pages).
+- (optional) Cronjob support (won't be able to use cronjob features without it)
 
 ## Download information
 If you already built a site using Mysidia v1.3.4 or below and plan to use this version, it is recommended to backup your old site and use Mysidia Deluxe as a fresh install rather than for feature splicing (unless you have the knowledge to do so), as this may have unexpected results. That being said, all features in this version are compatible with sites running v1.3.4 if you just wish to borrow them.
