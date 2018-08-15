@@ -102,7 +102,7 @@ class Itemshop extends Model{
         $mysidia = Registry::get("mysidia");
 	    if($item->owner != $mysidia->user->username) Throw new NoPermissionException('Something is very very wrong, please contact an admin asap.');
 	    else{
-            $item->quantity = $mysidia->input->post("quantity");
+            $item->quantity = (int) $mysidia->input->post("quantity");
 	        $cost = $item->getcost($this->salestax, $item->quantity);
 		    $moneyleft = $mysidia->user->money - $cost;
 		    if($moneyleft >= 0 and $item->quantity > 0){	

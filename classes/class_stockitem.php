@@ -34,7 +34,7 @@ class StockItem extends Item{
   public function getcost($salestax = 0, $quantity = ""){
       // Get the total cost of this stock item
       $mysidia = Registry::get("mysidia");
-      if(empty($quantity)) $quantity = $mysidia->input->post("quantity");
+      if(empty($quantity)) $quantity = (int) $mysidia->input->post("quantity");
 	  $cost = $this->price*$quantity*(1+$salestax/100);
 	  return $cost;
   }
