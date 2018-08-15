@@ -24,7 +24,6 @@ $purifier = new HTMLPurifier($config);
 function formattext($text){    
     $text = html_entity_decode($text);
     $text = stripslashes($text);
-    $text = str_replace("rn","",$text);
     return $text;
 }
 

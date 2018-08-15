@@ -87,7 +87,6 @@ class ACPContentController extends AppController{
     private function format($text){
          $text = html_entity_decode($text);
          $text = stripslashes($text);
-         $text = str_replace("rn","",$text);
          return $text;
     }
 }
