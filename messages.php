@@ -27,7 +27,7 @@ class MessagesController extends AppController{
             $this->setField("stmt", new DatabaseStatement($stmt)); 
         } 
         catch(MessageNotfoundException $pne){ 
-            $this->setFlagss("nonexist_title", "nonexist"); 
+            $this->setFlags("nonexist_title", "nonexist"); 
         }    
     } 
      
@@ -37,7 +37,7 @@ class MessagesController extends AppController{
             $this->message = new PrivateMessage($mysidia->input->get("id")); 
         } 
         catch(MessageNotfoundException $pne){ 
-            $this->setFlagss("nonexist_title", "nonexist"); 
+            $this->setFlags("nonexist_title", "nonexist"); 
             return; 
         }     
 
@@ -61,7 +61,7 @@ class MessagesController extends AppController{
                 $recipient->getoptions(); 
             } 
             catch(MemberNotfoundException $mne){ 
-                $this->setFlagss("error", "error_user"); 
+                $this->setFlags("error", "error_user"); 
                 return;                 
             } 
              
@@ -91,7 +91,7 @@ class MessagesController extends AppController{
             $this->message->remove(); 
         } 
         catch(MessageNotfoundException $pne){ 
-            $this->setFlagss("nonexist_title", "nonexist"); 
+            $this->setFlags("nonexist_title", "nonexist"); 
         }     
     } 
      
