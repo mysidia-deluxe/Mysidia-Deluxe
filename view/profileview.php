@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class ProfileView extends View{
@@ -31,11 +31,11 @@ class ProfileView extends View{
 		$document->setTitle($this->lang->profile);
 
         $tabsList = new LinkedHashMap;
-        $tabsList->put(new String("Visitor Message"), new String("visitormessage"));
-        $tabsList->put(new String("About Me"), new String("aboutme"));
-        $tabsList->put(new String("Adoptables"), new String("adopts"));
-        $tabsList->put(new String("Friends"), new String("friends"));
-        $tabsList->put(new String("Contact Info"), new String("contactinfo"));
+        $tabsList->put(new Mystring("Visitor Message"), new Mystring("visitormessage"));
+        $tabsList->put(new Mystring("About Me"), new Mystring("aboutme"));
+        $tabsList->put(new Mystring("Adoptables"), new Mystring("adopts"));
+        $tabsList->put(new Mystring("Friends"), new Mystring("friends"));
+        $tabsList->put(new Mystring("Contact Info"), new Mystring("contactinfo"));
         $tabs = new Tab(5, $tabsList, 2);
 	    $tabs->createtab();
 	 

@@ -1,7 +1,7 @@
 <?php
 
 use Resource\Native\Integer;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 
 class MyadoptsController extends AppController{
 
@@ -37,7 +37,7 @@ class MyadoptsController extends AppController{
 	
 	public function manage(){
 	    $this->setField("aid", new Integer($this->adopt->getAdoptID()));
-        $this->setField("name", new String($this->adopt->getName()));	
+        $this->setField("name", new Mystring($this->adopt->getName()));	
 		$this->setField("image", $this->image);		
 	}
 	
@@ -93,7 +93,7 @@ class MyadoptsController extends AppController{
 		}
         $this->setField("aid", new Integer($this->adopt->getAdoptID()));
 		$this->setField("image", $this->image);				
-        $this->setField("message", new String($message));				
+        $this->setField("message", new Mystring($message));				
 	}
 	
 	public function freeze(){
@@ -116,7 +116,7 @@ class MyadoptsController extends AppController{
 	    }	 
         $this->setField("adopt", $this->adopt);
 		$this->setField("image", $this->image);	
-        $this->setField("message", new String($message));			
+        $this->setField("message", new Mystring($message));			
 	}
 }
 ?>

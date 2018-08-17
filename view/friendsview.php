@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class FriendsView extends View{
@@ -33,17 +33,17 @@ class FriendsView extends View{
 		$pmoption = new RadioList("pm");
 		$pmoption->add(new RadioButton("public", "pm", 0));
 		$pmoption->add(new RadioButton("friend-only", "pm", 1));
-		$pmoption->check($optionsMap->get(new String("pmoption"))->getValue());
+		$pmoption->check($optionsMap->get(new Mystring("pmoption"))->getValue());
 		
 		$vmoption = new RadioList("vm");
 		$vmoption->add(new RadioButton("public", "vm", 0));
 		$vmoption->add(new RadioButton("friend-only", "vm", 1));
-		$vmoption->check($optionsMap->get(new String("vmoption"))->getValue());		
+		$vmoption->check($optionsMap->get(new Mystring("vmoption"))->getValue());		
 
 		$tradeoption = new RadioList("trade");
 		$tradeoption->add(new RadioButton("public", "trade", 0));
 		$tradeoption->add(new RadioButton("friend-only", "trade", 1));
-		$tradeoption->check($optionsMap->get(new String("tradeoption"))->getValue());				
+		$tradeoption->check($optionsMap->get(new Mystring("tradeoption"))->getValue());				
 		
 		$optionForm->add(new Comment("PM status: "));
 		$optionForm->add($pmoption);
@@ -80,11 +80,11 @@ class FriendsView extends View{
                 $requestTable->setHelper(new FriendTableHelper);
 				
 				$fields = new LinkedHashMap;
-				$fields->put(new String("fromuser"), new String("getProfileLink"));
-				$fields->put(new String("status"), NULL);
-				$fields->put(new String("offermessage"), NULL);
-				$fields->put(new String("fid::accept"), new String("getAcceptLink"));
-				$fields->put(new String("fid::decline"), new String("getDeclineLink"));
+				$fields->put(new Mystring("fromuser"), new Mystring("getProfileLink"));
+				$fields->put(new Mystring("status"), NULL);
+				$fields->put(new Mystring("offermessage"), NULL);
+				$fields->put(new Mystring("fid::accept"), new Mystring("getAcceptLink"));
+				$fields->put(new Mystring("fid::decline"), new Mystring("getDeclineLink"));
                 $requestTable->buildTable($stmt->get(), $fields);
 				$document->add($requestTable);
         }

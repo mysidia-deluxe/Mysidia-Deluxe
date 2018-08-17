@@ -1,7 +1,7 @@
 <?php
 
 use Resource\Native\Integer;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 
 class DonateController extends AppController{
 
@@ -20,7 +20,7 @@ class DonateController extends AppController{
             elseif($recipient->username == $mysidia->user->username) throw new DonationException("user");
 			else{
 			    $mysidia->user->donate($recipient, $amount);
-				$this->setField("recipient", new String($recipient->username));
+				$this->setField("recipient", new Mystring($recipient->username));
 				$this->setField("amount", new Integer($amount));
 			}	
 			return;

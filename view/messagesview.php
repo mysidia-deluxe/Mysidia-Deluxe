@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class MessagesView extends View{
@@ -26,12 +26,12 @@ class MessagesView extends View{
 		}
 		
 		$fields = new LinkedHashMap;
-		$fields->put(new String("messagetitle"), NULL);
-		$fields->put(new String("fromuser"), new String("getProfile"));
-		$fields->put(new String("status"), new String("getStatus"));
-		$fields->put(new String("datesent"), NULL);
-		$fields->put(new String("id::read"), new String("getReadLink"));
-		$fields->put(new String("id::delete"), new String("getDeleteLink"));
+		$fields->put(new Mystring("messagetitle"), NULL);
+		$fields->put(new Mystring("fromuser"), new Mystring("getProfile"));
+		$fields->put(new Mystring("status"), new Mystring("getStatus"));
+		$fields->put(new Mystring("datesent"), NULL);
+		$fields->put(new Mystring("id::read"), new Mystring("getReadLink"));
+		$fields->put(new Mystring("id::delete"), new Mystring("getDeleteLink"));
 		
 	    $pmTable = new TableBuilder("pmtable", 650);
 		$pmTable->setAlign(new Align("center"));

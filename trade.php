@@ -1,7 +1,7 @@
 <?php
 
 use Resource\Native\Integer;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\ArrayList;
 use Resource\Collection\LinkedHashMap;
 
@@ -30,10 +30,10 @@ class TradeController extends AppController{
 	
 	public function index(){
 	    $additional = new ArrayList;
-		if($this->settings->moderate == "enabled") $additional->add(new String("moderate"));
-		if($this->settings->multiple == "enabled") $additional->add(new String("multiple"));
-		if($this->settings->partial == "enabled") $additional->add(new String("partial"));
-		if($this->settings->public == "enabled") $additional->add(new String("public"));
+		if($this->settings->moderate == "enabled") $additional->add(new Mystring("moderate"));
+		if($this->settings->multiple == "enabled") $additional->add(new Mystring("multiple"));
+		if($this->settings->partial == "enabled") $additional->add(new Mystring("partial"));
+		if($this->settings->public == "enabled") $additional->add(new Mystring("public"));
 		$this->setField("tax", new Integer($this->settings->tax));
 		$this->setField("additional", $additional);
 	}

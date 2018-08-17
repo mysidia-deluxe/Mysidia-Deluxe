@@ -19,10 +19,8 @@ class LevelupView extends View{
         $summary->add($image);	
         $summary->add(new Comment("{$this->lang->gave}{$adopt->getName()} one {$this->lang->unit}."));
         $summary->add(new Comment($this->lang->encourage));
-        if($mysidia->user->username != NULL){ 
-			$summary->add(new Comment("<br> You have earned {$reward} {$mysidia->settings->cost} for leveling up this adoptable. ")); 
-			$summary->add(new Comment("You now have {$mysidia->user->getcash()} {$mysidia->settings->cost}")); 
-        }
+        $summary->add(new Comment("<br> You have earned {$reward} {$mysidia->settings->cost} for leveling up this adoptable. "));
+        $summary->add(new Comment("You now have {$mysidia->user->getcash()} {$mysidia->settings->cost}"));
         $document->add($summary);			
 	}
 
