@@ -199,9 +199,9 @@ abstract class Collection extends Object implements Collective{
      */	
 	public function __toString(){
 	    $iterator = $this->iterator();
-		if(!$iterator->valid()) return new String("[]");
+		if(!$iterator->valid()) return new Mystring("[]");
 		
-		$stringBuilder = new String("[");
+		$stringBuilder = new Mystring("[");
 		while($iterator->hasNext()){
 		    $object = $iterator->next();
 			$stringBuilder->add(($object == $this) ? "(this collection)" : $object);

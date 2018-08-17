@@ -261,7 +261,7 @@ abstract class Map extends Collection implements Mappable{
         $iterator = $this->entrySet()->iterator();
 		if(!$iterator->hasNext()) return "{}";
 		
-		$stringBuilder = new String("{");
+		$stringBuilder = new Mystring("{");
 		while($iterator->hasNext()){
 		    $entry = $iterator->next();
 			$key = $entry->getKey();

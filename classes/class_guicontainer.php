@@ -229,7 +229,7 @@ abstract class GUIContainer extends GUIComponent{
 		$iterator = $this->components->iterator();
 		while($iterator->hasNext()){
 		    $component = $iterator->next();
-		    if($component instanceof $GUIComponent) $components->put(new String($component->getID()), $component);
+		    if($component instanceof $GUIComponent) $components->put(new Mystring($component->getID()), $component);
 		}
 		return $components;
 	}	
@@ -334,7 +334,7 @@ abstract class GUIContainer extends GUIComponent{
 		$iterator = $this->components->iterator();
 		while($iterator->hasNext()){
 		    $component = $iterator->next();
-			if($component instanceof $type) $this->$property->put(new String($component->getID()), $component);
+			if($component instanceof $type) $this->$property->put(new Mystring($component->getID()), $component);
 			if($component instanceof GUIContainer){
                 $this->$property->putAll($component->$method());
             }			
@@ -417,7 +417,7 @@ abstract class GUIContainer extends GUIComponent{
      * @return String
      */
     public function __toString(){
-	    return new String("This is The GUIContainer class.");
+	    return new Mystring("This is The GUIContainer class.");
 	}
 }
 ?>
