@@ -20,7 +20,7 @@ This version overhauls and adds many things, including:
 
 ## Server Requirements
 - PHP 5.3.0+ (5.4 is recommended)
-  - *Will not work on PHP 7*
+  - *Will not work on PHP 7* (switch to the PHP 7 version branch)
 - PDO support
 - (optional) Imagick support. Layered pet images won't work without it.
 - (optional) A little PHP knowledge is advised if you wish to expand and add your own features (like custom pages).
