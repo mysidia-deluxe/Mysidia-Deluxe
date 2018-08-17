@@ -89,7 +89,7 @@ final class Document extends GUIContainer{
      * @return String
      */
     public function __toString(){
-	    return new String("This is a Document object.");
+	    return new Mystring("This is a Document object.");
 	}
 }
 ?>

@@ -1,7 +1,7 @@
 <?php
 
 use Resource\Native\Objective;
-use Resource\Native\Null;
+use Resource\Native\Mynull;
 use Resource\Collection\ArrayList;
 
 class TradeAttributer extends Helper{
@@ -80,11 +80,11 @@ class TradeAttributer extends Helper{
         }
 
 	    $stmt = $mysidia->db->select("owned_adoptables", array("name", "aid"), "owner = '{$mysidia->user->username}' AND tradestatus = 'fortrade'");
-        $adoptOffered = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $adoptOffered = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("adoptOffered", $adoptOffered);
 
 	    $stmt = $mysidia->db->select("inventory", array("itemname", "iid"), "owner = '{$mysidia->user->username}'");
-        $itemOffered = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $itemOffered = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("itemOffered", $itemOffered);		
 	}
 	
@@ -95,11 +95,11 @@ class TradeAttributer extends Helper{
 		$this->setField("recipient", $recipient);
 
 	    $stmt = $mysidia->db->select("owned_adoptables", array("name", "aid"), "owner = '{$recipient->username}' AND tradestatus = 'fortrade'");
-        $adoptWanted = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $adoptWanted = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("adoptWanted", $adoptWanted);
 
 	    $stmt = $mysidia->db->select("inventory", array("itemname", "iid"), "owner = '{$recipient->username}'");
-        $itemWanted = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $itemWanted = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("itemWanted", $itemWanted);		
 	}
 	
@@ -111,11 +111,11 @@ class TradeAttributer extends Helper{
 		$this->setField("recipient", $recipient);
 
 	    $stmt = $mysidia->db->select("owned_adoptables", array("name", "aid"), "owner = '{$recipient->username}' AND tradestatus = 'fortrade'");
-        $adoptWanted = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $adoptWanted = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("adoptWanted", $adoptWanted);
 
 	    $stmt = $mysidia->db->select("inventory", array("itemname", "iid"), "owner = '{$recipient->username}'");
-        $itemWanted = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $itemWanted = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("itemWanted", $itemWanted);		
 	}
 	
@@ -127,25 +127,25 @@ class TradeAttributer extends Helper{
 		$this->setField("recipient", $recipient);
 
 	    $stmt = $mysidia->db->select("owned_adoptables", array("name", "aid"), "owner = '{$recipient->username}' AND tradestatus = 'fortrade'");
-        $adoptWanted = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $adoptWanted = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("adoptWanted", $adoptWanted);
 	    
         $stmt = $mysidia->db->select("inventory", array("itemname", "iid"), "owner = '{$recipient->username}'");
-        $itemWanted = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $itemWanted = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("itemWanted", $itemWanted);		
 	}
 
     private function setNullAttributes(){
         $mysidia = Registry::get("mysidia");
 	    $this->setCommonAttributes();
-		$this->setField("recipient", new Null);
+		$this->setField("recipient", new Mynull);
         
         $stmt = $mysidia->db->select("adoptables", array("type", "id"));
-        $adoptWanted = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $adoptWanted = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("adoptWanted", $adoptWanted);
 
         $stmt = $mysidia->db->select("items", array("itemname", "id"));
-        $itemWanted = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $itemWanted = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("itemWanted", $itemWanted);
     }
 
@@ -157,11 +157,11 @@ class TradeAttributer extends Helper{
 		$this->setField("recipient", $recipient);
 
 	    $stmt = $mysidia->db->select("owned_adoptables", array("name", "aid"), "owner = '{$recipient->username}' AND tradestatus = 'fortrade'");
-        $adoptWanted = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $adoptWanted = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("adoptWanted", $adoptWanted);
 
 	    $stmt = $mysidia->db->select("inventory", array("itemname", "iid"), "owner = '{$recipient->username}'");
-        $itemWanted = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $itemWanted = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("itemWanted", $itemWanted);	
     }
 
@@ -172,19 +172,19 @@ class TradeAttributer extends Helper{
         $this->setField("recipient", $recipient);
         
 	    $stmt = $mysidia->db->select("owned_adoptables", array("name", "aid"), $this->getPublicQueries($offer->getAdoptWanted(), "adopt"));
-        $adoptOffered = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $adoptOffered = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("adoptOffered", $adoptOffered);
 
         $adoptWanted = $offer->getAdoptOffered();
-        if($adoptWanted  == NULL) $adoptWanted = new Null;
+        if($adoptWanted  == NULL) $adoptWanted = new Mynull;
 		$this->setField("adoptWanted", $adoptWanted);
 
 	    $stmt = $mysidia->db->select("inventory", array("itemname", "iid"), $this->getPublicQueries($offer->getItemWanted(), "item"));
-        $itemOffered = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $itemOffered = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("itemOffered", $itemOffered);
 
         $itemWanted = $offer->getItemOffered();
-        if($itemWanted  == NULL) $itemWanted = new Null;
+        if($itemWanted  == NULL) $itemWanted = new Mynull;
 		$this->setField("itemWanted", $itemWanted);	
     }
 
@@ -217,19 +217,19 @@ class TradeAttributer extends Helper{
         $this->setField("recipient", $recipient);
         
 	    $stmt = $mysidia->db->select("owned_adoptables", array("name", "aid"), "owner = '{$mysidia->user->username}' AND tradestatus = 'fortrade'");
-        $adoptOffered = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $adoptOffered = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("adoptOffered", $adoptOffered);
 
 	    $stmt = $mysidia->db->select("owned_adoptables", array("name", "aid"), "owner = '{$recipient->username}' AND tradestatus = 'fortrade'");
-        $adoptWanted = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $adoptWanted = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("adoptWanted", $adoptWanted);
 
 	    $stmt = $mysidia->db->select("inventory", array("itemname", "iid"), "owner = '{$mysidia->user->username}'");
-        $itemOffered = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $itemOffered = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("itemOffered", $itemOffered);
 
 	    $stmt = $mysidia->db->select("inventory", array("itemname", "iid"), "owner = '{$recipient->username}'");
-        $itemWanted = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $itemWanted = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("itemWanted", $itemWanted);	
     }		
 }

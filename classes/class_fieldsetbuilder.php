@@ -101,7 +101,7 @@ class FieldSetBuilder extends Fieldset{
      * @return String
      */
     public function __toString(){
-	    return new String("This is The FieldSetBuilder class.");
+	    return new Mystring("This is The FieldSetBuilder class.");
 	}
 }
 ?>

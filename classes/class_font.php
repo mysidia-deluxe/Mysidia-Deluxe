@@ -150,7 +150,7 @@ class Font extends GUIElement{
      * @return String
      */
     public function __toString(){
-	    return new String("This is an instance of Mysidia Font class.");
+	    return new Mystring("This is an instance of Mysidia Font class.");
 	}    
 } 
 ?>

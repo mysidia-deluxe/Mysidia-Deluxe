@@ -1,7 +1,7 @@
 <?php
 
 use Resource\Native\Object;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 
 /**
  * The DatabaseStatement Class, it is part of the utility package and extends from the Object Class.
@@ -68,6 +68,6 @@ class DatabaseStatement extends Object{
      * @return String
      */
     public function __toString(){
-	    return new String("This is The DatabaseStatement Class.");
+	    return new Mystring("This is The DatabaseStatement Class.");
 	}	
 }

@@ -93,7 +93,7 @@ final class Input extends Core implements Initializable{
         if(!$this->post) return NULL;
         elseif(empty($key)) return $this->post;
         else{
-		    $value = $this->post->get(new String($key));
+		    $value = $this->post->get(new Mystring($key));
 		    return ($value == NULL)?NULL:$this->autoboxer->unwrap($value);
         }
     }

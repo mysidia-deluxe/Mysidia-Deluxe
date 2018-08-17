@@ -64,7 +64,7 @@ class Margin extends Spacing{
      * @return String
      */
     public function __toString(){
-	    return new String("This is an instance of Mysidia Margin class.");
+	    return new Mystring("This is an instance of Mysidia Margin class.");
 	}    
 } 
 ?>

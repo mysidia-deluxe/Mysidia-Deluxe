@@ -1,7 +1,7 @@
 <?php
 
 use Resource\Native\Integer;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\ArrayList;
 
 class TradeOffer extends Model{

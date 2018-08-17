@@ -69,7 +69,7 @@ class LinksList extends GUIContainer{
      * @return String
      */
     public function __toString(){
-	    return new String("This is The CommentList class.");
+	    return new Mystring("This is The CommentList class.");
 	}
 }
 ?>

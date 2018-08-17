@@ -169,7 +169,7 @@ class FormHelper extends GUIHelper{
      * @return String
      */
     public function __toString(){
-	    return new String("This is an instance of Mysidia FormHelper class.");
+	    return new Mystring("This is an instance of Mysidia FormHelper class.");
 	}    
 } 
 ?>

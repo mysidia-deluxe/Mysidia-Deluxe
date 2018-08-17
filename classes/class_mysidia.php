@@ -345,7 +345,7 @@ final class Mysidia extends Core{
 	        $this->request = "get";
 	    }	
 	    
-		Registry::set(new String("request"), $this->request, TRUE, TRUE);
+		Registry::set(new Mystring("request"), $this->request, TRUE, TRUE);
 		return (!$this->request)?FALSE:TRUE;
     }
   

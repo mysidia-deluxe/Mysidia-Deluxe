@@ -32,7 +32,7 @@ abstract class SubController extends Controller{
      * @return String
      */
     public function __toString(){
-	    return new String("This is an instance of Mysidia SubController class.");
+	    return new Mystring("This is an instance of Mysidia SubController class.");
 	}
 }
 ?>

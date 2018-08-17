@@ -131,7 +131,7 @@ class Division extends Paragraph{
      * @return String
      */
     public function __toString(){
-	    return new String("This is The Division class.");
+	    return new Mystring("This is The Division class.");
 	}
 }
 ?>

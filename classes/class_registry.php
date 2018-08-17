@@ -98,7 +98,7 @@ class Registry{
 		
 		$objects = new HashMap;
 	    foreach($keys as $key){
-		    $objects->put(new String($key), self::get($key));
+		    $objects->put(new Mystring($key), self::get($key));
 	    }
 		return $objects;
     }    

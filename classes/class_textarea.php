@@ -163,7 +163,7 @@ class TextArea extends TextComponent{
      * @return String
      */
     public function __toString(){
-	    return new String("This is an instance of Mysidia TextArea class.");
+	    return new Mystring("This is an instance of Mysidia TextArea class.");
 	}    
 }
     

@@ -306,7 +306,7 @@ abstract class View extends Object{
      * @return String
      */
     public function __toString(){
-	    return new String("This is an instance of Mysidia View class.");
+	    return new Mystring("This is an instance of Mysidia View class.");
 	}
 }
 ?>

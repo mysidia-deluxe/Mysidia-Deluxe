@@ -70,7 +70,7 @@ class FieldSet extends GUIContainer{
      * @return String
      */
     public function __toString(){
-	    return new String("This is an instance of Mysidia FieldSet class.");
+	    return new Mystring("This is an instance of Mysidia FieldSet class.");
 	}    
 }
     
