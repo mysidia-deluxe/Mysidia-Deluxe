@@ -84,7 +84,7 @@ class File extends SplFileInfo implements Objective, Initializable{
      * @return String
      */
     public function getClassName(){
-        return new String(get_class($this));
+        return new Mystring(get_class($this));
     }
 
 	/**

@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\Collective;
 use Resource\Collection\LinkedList;
 use Resource\Collection\LinkedHashMap;
@@ -179,7 +179,7 @@ class DropdownList extends GUIContainer{
      * @return String
      */
     public function __toString(){
-	    return new String("This is an instance of Mysidia DropDownList class.");
+	    return new Mystring("This is an instance of Mysidia DropDownList class.");
 	}    
 }    
 ?>

@@ -104,7 +104,7 @@ final class Initializer extends Object{
         $loader = new Loader($this->dir);
 
         $registry = Registry::getInstance();
-        Registry::set(new mystring("loader"), $loader, TRUE, TRUE);
+        Registry::set(new Mystring("loader"), $loader, TRUE, TRUE);
 		
         $mysidia = new Mysidia;		
 		$router = new Router($this->uri);
@@ -114,7 +114,7 @@ final class Initializer extends Object{
 
         $wol = new Online;
         $wol->update();
-        Registry::set(new mystring("wol"), $wol);
+        Registry::set(new Mystring("wol"), $wol);
     }
 }
 ?>
