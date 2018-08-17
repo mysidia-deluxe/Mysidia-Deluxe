@@ -98,25 +98,22 @@ class Itemshop extends Model{
 	  return new StockItem($itemname);
     }
   
-    public function purchase(Item $item){ 
-    $mysidia = Registry::get("mysidia"); 
-    if ($item->shop != $this->shopname) Throw new NoPermissionException('Did you really think this item could be bought at this shop?');   
-    else {   
-        if($item->owner != $mysidia->user->username) Throw new NoPermissionException('Something is very very wrong, please contact an admin asap.'); 
-        else{ 
-            $item->quantity = (int) $mysidia->input->post("quantity"); 
-            $cost = $item->getcost($this->salestax, $item->quantity); 
-            $moneyleft = $mysidia->user->money - $cost; 
-            if($moneyleft >= 0 and $item->quantity > 0){     
-                $purchase = $item->append($item->quantity, $item->owner); 
-                $mysidia->db->update("users", array("money" => $moneyleft), "username = '{$item->owner}'");             
-                $status = TRUE; 
-            }             
-            else throw new InvalidActionException($mysidia->lang->money); 
-        } 
-    } 
-    return $status; 
-}
+    public function purchase(Item $item){
+        $mysidia = Registry::get("mysidia");
+	    if($item->owner != $mysidia->user->username) Throw new NoPermissionException('Something is very very wrong, please contact an admin asap.');
+	    else{
+            $item->quantity = $mysidia->input->post("quantity");
+	        $cost = $item->getcost($this->salestax, $item->quantity);
+		    $moneyleft = $mysidia->user->money - $cost;
+		    if($moneyleft >= 0 and $item->quantity > 0){	
+                $purchase = $item->append($item->quantity, $item->owner);
+                $mysidia->db->update("users", array("money" => $moneyleft), "username = '{$item->owner}'");			
+                $status = TRUE;
+            }			
+	        else throw new InvalidActionException($mysidia->lang->money);
+	    }
+	    return $status;
+    }
   
     public function rent($item, $period){
 

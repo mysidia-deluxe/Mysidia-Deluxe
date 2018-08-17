@@ -1,7 +1,7 @@
 <?php
 
 use Resource\Native\Object;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\HashMap;
 
 /**
@@ -62,18 +62,18 @@ final class Dispatcher extends Object{
 		$this->map = new HashMap;
 		
         $frontcontroller = $this->router->getFrontController();	
-        $this->map->put(new String("frontcontroller"), new String($mysidia->input->secure($frontcontroller)));		
+        $this->map->put(new Mystring("frontcontroller"), new Mystring($mysidia->input->secure($frontcontroller)));		
 		
 		$appcontroller = $this->router->getAppController();	
-        $this->map->put(new String("appcontroller"), new String($mysidia->input->secure($appcontroller)));		
+        $this->map->put(new Mystring("appcontroller"), new Mystring($mysidia->input->secure($appcontroller)));		
 		
 		$action = $this->router->getAction();
-		$this->map->put(new String("action"), new String($mysidia->input->secure($action)));
+		$this->map->put(new Mystring("action"), new Mystring($mysidia->input->secure($action)));
 		
 		$params = $this->router->getParams();
 		if($params){
 		    foreach($params as $key => $param){
-			    $this->map->put(new String($key), new String($mysidia->input->secure($param)));
+			    $this->map->put(new Mystring($key), new Mystring($mysidia->input->secure($param)));
 			}
 		}
 		
@@ -84,7 +84,7 @@ final class Dispatcher extends Object{
 		
         $action = $input->getProperty("action");
 		$action->setAccessible(TRUE);
-		$action->setValue($mysidia->input, $this->map->get(new String("action")));	
+		$action->setValue($mysidia->input, $this->map->get(new Mystring("action")));	
 		$mysidia->lang->load();
 	}
 }     

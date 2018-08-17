@@ -4,7 +4,7 @@ namespace Resource\Collection;
 use Countable, IteratorAggregate;
 use Resource\Native\Objective;
 use Resource\Native\Object;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 
 /**
  * The Collective Interface, extending from the Objective interface.

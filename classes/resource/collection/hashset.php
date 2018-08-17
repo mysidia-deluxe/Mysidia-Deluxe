@@ -2,7 +2,7 @@
 
 namespace Resource\Collection;
 use Resource\Native\Objective; 
-use Resource\Native\Null;
+use Resource\Native\Mynull;
 use Resource\Exception\IllegalArgumentException;
 use Resource\Exception\UnsupportedOperationException; 
 
@@ -50,7 +50,7 @@ class HashSet extends MapSet{
 			$this->addAll($param);
 		}
 		else throw new IllegalArgumentException("Invalid Argument specified.");
-		$this->dummy = new Null;
+		$this->dummy = new Mynull;
 	}	
 
  	/**

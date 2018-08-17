@@ -59,7 +59,7 @@ class Path extends Core implements Initializable{
      */	
     public function __construct(){
 		$this->absolute = "http://".DOMAIN.SCRIPTPATH."/";
-        $this->root = getenv('DOCUMENT_ROOT').SCRIPTPATH."/";
+		$this->root = getenv('DOCUMENT_ROOT').SCRIPTPATH."/";
         $this->tempRoot = SCRIPTPATH."/";
         $this->path = new ArrayObject(array("{$this->root}classes/core", "{$this->root}classes/exception", "{$this->root}classes/user", "{$this->root}classes/message", "{$this->root}classes/item", "{$this->root}classes/shop"));	
         // MVC structure has yet been established, for now comment out the include path setup.

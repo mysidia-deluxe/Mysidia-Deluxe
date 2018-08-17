@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\ArrayList;
 use Resource\Collection\LinkedHashMap;
 

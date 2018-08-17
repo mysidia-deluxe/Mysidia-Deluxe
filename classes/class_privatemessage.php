@@ -178,6 +178,7 @@ class PrivateMessage extends Model implements Message{
     public function format($text){
         $text = html_entity_decode($text);
         $text = stripslashes($text);
+        $text = str_replace("rn","",$text);
         $text = str_replace("&nbsp;","",$text);
         return $text;
     }

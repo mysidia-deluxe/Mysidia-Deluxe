@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\ArrayList;
 
 /**
@@ -117,7 +117,7 @@ class Header extends Widget{
      * @return Void
      */
     public function addStyle($style){
-	    $this->styles->add(new String($style));	
+	    $this->styles->add(new Mystring($style));	
     }
 	
 	/**
@@ -169,7 +169,7 @@ class Header extends Widget{
      * @return Void
      */
     public function addScript($script){
-	    $this->styles->add(new String($script));
+	    $this->styles->add(new Mystring($script));
     }
 	
 	/**

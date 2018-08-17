@@ -1,7 +1,7 @@
 <?php
 
 use Resource\Native\Objective;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 
 /**
  * The Template Class, extending from the parent Smarty class and implementing Objective Interface.
@@ -91,9 +91,11 @@ class Template extends Smarty implements Objective{
 		$this->assign("cash",$mysidia->user->getcash());
 		$messages = $mysidia->db->select("messages", array(), "touser='{$mysidia->user->username}' and status='unread'")->rowCount(); 
 		$this->assign("messages",$messages);
-		$profile = $mysidia->db->select("users_profile", array("uid", "avatar"), "username = '{$mysidia->user->username}'")->fetchObject();
-		$img = "<img src=$profile->avatar class='avatar' style='width:200px;height:auto; border-radius:50px;'>";
-        $this->assign("avatar",$img);
+		if($mysidia->user->isloggedin){
+			$profile = $mysidia->db->select("users_profile", array("uid", "avatar"), "username = '{$mysidia->user->username}'")->fetchObject();
+			$img = "<img src={$profile->avatar} class='avatar' style='width:200px;height:auto; border-radius:50px;'>";
+			$this->assign("avatar",$img);
+		}
 		$online = $mysidia->db->select("online", array(), "username != 'Visitor'")->rowCount();
 	    $offline = $mysidia->db->select("online", array(), "username = 'Visitor'")->rowCount();
 		$this->assign("users",$online); 
@@ -125,7 +127,7 @@ class Template extends Smarty implements Objective{
      * @return String
      */
     public function getClassName(){
-        return new String(get_class($this));
+        return new Mystring(get_class($this));
     }
 
 	/**
@@ -223,7 +225,7 @@ class Template extends Smarty implements Objective{
      * @return String
      */
     public function __toString(){
-        return new String("This is an instance of the Mysidia Template class.");
+        return new Mystring("This is an instance of the Mysidia Template class.");
     }    
 }   
 ?>

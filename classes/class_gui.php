@@ -1,7 +1,7 @@
 <?php
 
 use Resource\Native\Object;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\HashSet;
 
 /**
@@ -133,7 +133,7 @@ abstract class GUI extends Object{
      */
 	public function setAttributes($attributes){
 	    if(!$this->attributes) $this->attributes = new HashSet;
-		$this->attributes->add(new String($attributes));
+		$this->attributes->add(new Mystring($attributes));
 	}
 	
 	/**
@@ -161,7 +161,7 @@ abstract class GUI extends Object{
      * @return String
      */
     public function __toString(){
-	    return new String("This is The base GUI Class.");
+	    return new Mystring("This is The base GUI Class.");
 	}
 }
 ?>

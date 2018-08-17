@@ -2,7 +2,7 @@
 
 namespace Resource\Collection;
 use Resource\Native\Objective;
-use Resource\Native\String; 
+use Resource\Native\Mystring; 
 use Resource\Exception\UnsupportedOperationException;
 
 /**

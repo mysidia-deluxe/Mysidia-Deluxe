@@ -160,8 +160,7 @@ class MessageTableHelper extends TableHelper{
         $vmField->add(new Link("profile/view/{$vmessage->fromuser}", $vmessage->fromuser));
         $vmField->add(new Comment("({$date})", FALSE));
         $vmField->add(new Link("vmessage/view/{$vmessage->touser}/{$vmessage->fromuser}", new Image("templates/icons/status.gif"), TRUE));
-        $msg = stripslashes($vmessage->vmtext); 
-		$vmField->add(new Comment($msg));  
+        $vmField->add(new Comment($vmessage->vmtext));
         return $vmField;
     }
 

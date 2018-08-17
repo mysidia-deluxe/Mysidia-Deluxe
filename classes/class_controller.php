@@ -1,7 +1,7 @@
 <?php
 
 use Resource\Native\Object;
-use Resource\Native\String;
+use Resource\Native\mystring;
 use Resource\Collection\MapEntry;
 
 /**
@@ -130,7 +130,7 @@ abstract class Controller extends Object{
      * @access public
      * @return View
      */	
-	public function loadView(String $name){
+	public function loadView(Mystring $name){
 		$view = $name->capitalize()->concat("View")->getValue();
 		$this->view = new $view($this);
 	}
