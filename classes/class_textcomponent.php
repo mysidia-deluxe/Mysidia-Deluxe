@@ -100,7 +100,7 @@ abstract class TextComponent extends InputComponent{
      * @return String
      */
     public function __toString(){
-	    return new String("This is the TextComponent Class.");
+	    return new Mystring("This is the TextComponent Class.");
 	}
 }
 ?>

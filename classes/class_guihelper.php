@@ -57,7 +57,7 @@ abstract class GUIHelper extends GUI{
      * @return String
      */
     public function __toString(){
-	    return new String("This is the GUIHelper Class.");
+	    return new Mystring("This is the GUIHelper Class.");
 	}
 }
 ?>

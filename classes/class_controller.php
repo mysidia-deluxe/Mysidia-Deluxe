@@ -1,7 +1,7 @@
 <?php
 
 use Resource\Native\Object;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\MapEntry;
 
 /**
@@ -130,7 +130,7 @@ abstract class Controller extends Object{
      * @access public
      * @return View
      */	
-	public function loadView(String $name){
+	public function loadView(string $name){
 		$view = $name->capitalize()->concat("View")->getValue();
 		$this->view = new $view($this);
 	}
@@ -154,7 +154,7 @@ abstract class Controller extends Object{
      */		
 	public function setFlags($param, $param2 = NULL){
 	    if(!$param2) $param2 = $param;
-        $this->flags = new MapEntry(new String($param), new String($param2));
+        $this->flags = new MapEntry(new Mystring($param), new Mystring($param2));
 	}
 	
 	/**

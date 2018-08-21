@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedList;
 
 class StatsView extends View{
@@ -28,7 +28,7 @@ class StatsView extends View{
 			$cells->add(new TCell($table->getHelper()->getLevelupLink($adopt)));
 		    $cells->add(new TCell($adopt->getName()));
 			$cells->add(new TCell($table->getHelper()->getOwnerProfile($adopt->getOwner())));
-			$cells->add(new String($adopt->getTotalClicks()));
+			$cells->add(new Mystring($adopt->getTotalClicks()));
 			$cells->add(new TCell($adopt->getCurrentLevel()));
             $table->buildRow($cells);			
 		}

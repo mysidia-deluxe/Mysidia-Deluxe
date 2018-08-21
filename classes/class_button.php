@@ -92,7 +92,7 @@ class Button extends ButtonComponent{
      * @return String
      */
     public function __toString(){
-	    return new String("This is an instance of Mysidia Button class.");
+	    return new Mystring("This is an instance of Mysidia Button class.");
 	}    
 }
     

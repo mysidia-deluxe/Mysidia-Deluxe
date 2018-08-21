@@ -2,7 +2,7 @@
 
 namespace Resource\Collection;
 use Resource\Native\Objective; 
-use Resource\Native\Null;
+use Resource\Native\Mynull;
 use Resource\Utility\Comparative;
 use Resource\Exception\NosuchElementException;
 use Resource\Exception\UnsupportedOperationException;
@@ -102,7 +102,7 @@ class TreeMap extends Map implements NavigableMappable{
             }
             else $this->putAll($map);			
 		}
-		$this->dummy = new Null;
+		$this->dummy = new Mynull;
 	}
 
 	/**

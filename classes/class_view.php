@@ -1,7 +1,7 @@
 <?php
 
 use Resource\Native\Object;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\MapEntry;
 
 /**
@@ -163,7 +163,7 @@ abstract class View extends Object{
      * @return Objective
      */		
 	public function getField($key){
-        return $this->fields->get(new String($key)); 
+        return $this->fields->get(new Mystring($key)); 
 	}	
 	
 	/**
@@ -306,7 +306,7 @@ abstract class View extends Object{
      * @return String
      */
     public function __toString(){
-	    return new String("This is an instance of Mysidia View class.");
+	    return new Mystring("This is an instance of Mysidia View class.");
 	}
 }
 ?>

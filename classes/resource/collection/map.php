@@ -2,7 +2,7 @@
 
 namespace Resource\Collection;
 use Resource\Native\Objective;
-use Resource\Native\String; 
+use Resource\Native\Mystring; 
 use Resource\Exception\UnsupportedOperationException;
 
 /**
@@ -261,7 +261,7 @@ abstract class Map extends Collection implements Mappable{
         $iterator = $this->entrySet()->iterator();
 		if(!$iterator->hasNext()) return "{}";
 		
-		$stringBuilder = new String("{");
+		$stringBuilder = new Mystring("{");
 		while($iterator->hasNext()){
 		    $entry = $iterator->next();
 			$key = $entry->getKey();

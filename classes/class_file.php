@@ -1,7 +1,7 @@
 <?php
 
 use Resource\Native\Objective;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 
 /**
  * The File Class, extending from SplFileInfo class. It is one of Mysidia system core classes.
@@ -84,7 +84,7 @@ class File extends SplFileInfo implements Objective, Initializable{
      * @return String
      */
     public function getClassName(){
-        return new String(get_class($this));
+        return new Mystring(get_class($this));
     }
 
 	/**

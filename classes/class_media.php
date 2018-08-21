@@ -182,7 +182,7 @@ class Media extends GUIAccessory implements Resizable{
      * @return String
      */
     public function __toString(){
-	    return new String("This is an instance of Mysidia Media class.");
+	    return new Mystring("This is an instance of Mysidia Media class.");
 	}    
 } 
 ?>

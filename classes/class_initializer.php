@@ -1,7 +1,7 @@
 <?php
 
 use \Resource\Native\Object;
-use \Resource\Native\String;
+use \Resource\Native\Mystring; 
 
 /**
  * The Initializer Class, it is responsible for the basic bootstraping of the system.
@@ -23,14 +23,14 @@ final class Initializer extends Object{
     /**
 	 * The dir property, defines relative directory for Bootstraping process.
 	 * @access private
-	 * @var String
+	 * @var Mystring
     */
 	private $dir; 
 
     /**
 	 * The uri property, stores a reference of the URI from server variables.
 	 * @access private
-	 * @var String
+	 * @var Mystring
     */
     private $uri;   
 
@@ -104,7 +104,7 @@ final class Initializer extends Object{
         $loader = new Loader($this->dir);
 
         $registry = Registry::getInstance();
-        Registry::set(new String("loader"), $loader, TRUE, TRUE);
+        Registry::set(new Mystring("loader"), $loader, TRUE, TRUE);
 		
         $mysidia = new Mysidia;		
 		$router = new Router($this->uri);
@@ -114,7 +114,7 @@ final class Initializer extends Object{
 
         $wol = new Online;
         $wol->update();
-        Registry::set(new String("wol"), $wol);
+        Registry::set(new Mystring("wol"), $wol);
     }
 }
 ?>

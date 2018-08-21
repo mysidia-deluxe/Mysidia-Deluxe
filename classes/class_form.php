@@ -182,7 +182,7 @@ class Form extends GUIContainer{
      * @return String
      */
     public function __toString(){
-	    return new String("This is The Form class.");
+	    return new Mystring("This is The Form class.");
 	}
 }
 ?>

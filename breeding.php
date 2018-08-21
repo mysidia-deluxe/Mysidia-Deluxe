@@ -1,8 +1,8 @@
 <?php
 
 use Resource\Native\Integer;
-use Resource\Native\String;
-use Resource\Native\Null;
+use Resource\Native\Mystring;
+use Resource\Native\Mynull;
 use Resource\Collection\LinkedList;
 
 class BreedingController extends AppController{
@@ -56,7 +56,7 @@ class BreedingController extends AppController{
                 }
 				$this->setField("links", $links);
 			}
-            else $this->setField("links", new Null);
+            else $this->setField("links", new Mynull);
             $this->setField("breeding", $breeding);		
 			return;
 		}
@@ -66,11 +66,11 @@ class BreedingController extends AppController{
 		$lasttime = $current->getTimestamp() - (($settings->interval) * 24 * 60 * 60);
 				
 	    $stmt = $mysidia->db->select("owned_adoptables", array("name", "aid"), "owner = '{$mysidia->user->username}' AND gender = 'f' AND currentlevel >= {$settings->level} AND lastbred <= '{$lasttime}'");
-        $female = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+        $female = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("femaleMap", $female);
   
         $stmt = $mysidia->db->select("owned_adoptables", array("name", "aid"), "owner = '{$mysidia->user->username}' AND gender = 'm' AND currentlevel >= {$settings->level} AND lastbred <= '{$lasttime}'");
-		$male = ($stmt->rowcount() == 0)?new Null:$mysidia->db->fetchMap($stmt);
+		$male = ($stmt->rowcount() == 0)?new Mynull:$mysidia->db->fetchMap($stmt);
 		$this->setField("maleMap", $male);
 	}
 }

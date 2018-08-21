@@ -119,7 +119,7 @@ class FileField extends TextField{
      * @return String
      */
     public function __toString(){
-	    return new String("This is an instance of Mysidia FileField class.");
+	    return new Mystring("This is an instance of Mysidia FileField class.");
 	}    
 }
     

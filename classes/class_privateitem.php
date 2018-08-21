@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 
 class PrivateItem extends Item{
   // The PrivateItem class, which defines functionalities for items that belong to specific users
@@ -90,7 +90,7 @@ class PrivateItem extends Item{
 		 default:
             throw new ItemException("The item function is invalid");		 
       }
-	  return new String($message);
+	  return new Mystring($message);
   }  
 
   public function add($quantity = 1, $owner){

@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedList;
 use Resource\Collection\LinkedHashMap;
 
@@ -76,10 +76,10 @@ class MyadoptsView extends View{
         $document->addLangvar("<h2>{$adopt->getName()}'s Voters:</h2><br>{$this->lang->voters}<br><br>");	
 		
         $fields = new LinkedHashMap;
-		$fields->put(new String("username"), new String("getUsername"));
-		$fields->put(new String("date"), NULL);
-		$fields->put(new String("username::profile"), new String("getProfileImage"));
-		$fields->put(new String("username::message"), new String("getPMImage"));
+		$fields->put(new Mystring("username"), new Mystring("getUsername"));
+		$fields->put(new Mystring("date"), NULL);
+		$fields->put(new Mystring("username::profile"), new Mystring("getProfileImage"));
+		$fields->put(new Mystring("username::message"), new Mystring("getPMImage"));
 		
 	    $voterTable = new TableBuilder("voters", 500);
 		$voterTable->setAlign(new Align("center"));

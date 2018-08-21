@@ -106,7 +106,7 @@ abstract class Spacing extends GUIElement{
      * @return String
      */
     public function __toString(){
-	    return new String("This is an instance of Mysidia Spacing class.");
+	    return new Mystring("This is an instance of Mysidia Spacing class.");
 	}    
 } 
 ?>

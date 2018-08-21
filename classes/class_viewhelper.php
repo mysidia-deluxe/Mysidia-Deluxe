@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 
 /**
  * The ViewHelper Class, extends from abstract helper class.
@@ -139,7 +139,7 @@ class ViewHelper extends Helper{
      * @return String
      */
     public function __toString(){
-	    return new String("This is an instance of Mysidia ViewHelper class.");
+	    return new Mystring("This is an instance of Mysidia ViewHelper class.");
 	}
 }
 ?>

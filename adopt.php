@@ -1,9 +1,9 @@
 <?php
 
 use Resource\Native\Integer;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Native\Arrays;
-use Resource\Native\Null;
+use Resource\Native\Mynull;
 
 class AdoptController extends AppController{
 
@@ -36,8 +36,8 @@ class AdoptController extends AppController{
 		    			
 			$aid = $mysidia->db->select("owned_adoptables", array("aid"), "code='{$code}' and owner='{$mysidia->user->username}'")->fetchColumn();
 			$this->setField("aid", new Integer($aid));
-            $this->setField("name", new String($name));			
-			$this->setField("eggImage", new String($adopt->getEggImage()));
+            $this->setField("name", new Mystring($name));			
+			$this->setField("eggImage", new Mystring($adopt->getEggImage()));
 		    return;
 		}
 		
@@ -45,7 +45,7 @@ class AdoptController extends AppController{
         $ids = $mysidia->db->select("adoptables", array("id"), "shop='none'")->fetchAll(PDO::FETCH_COLUMN);
         $total = ($ids)?count($ids):0;
 		
-		if($total == 0) $adopts = new Null;
+		if($total == 0) $adopts = new Mynull;
 		else{		
 		    $adopts = new Arrays($total);
 			$available = 0;
@@ -56,10 +56,10 @@ class AdoptController extends AppController{
       			if($conditions->checkConditions()) $adopts[$available++] = $adopt;	
             }
 			
-            if($available == 0) $adopts = new Null;
+            if($available == 0) $adopts = new Mynull;
             else $adopts->setSize($available);			
 		}		
-		if($adopts instanceof Null) throw new InvalidActionException("adopt_none");
+		if($adopts instanceof Mynull) throw new InvalidActionException("adopt_none");
 		$this->setField("adopts", $adopts);
 	}
 }

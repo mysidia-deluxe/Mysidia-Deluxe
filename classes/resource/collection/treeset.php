@@ -2,7 +2,7 @@
 
 namespace Resource\Collection;
 use Resource\Native\Objective;
-use Resource\Native\Null;
+use Resource\Native\Mynull;
 use Resource\Utility\Comparative;
 
 /**
@@ -45,7 +45,7 @@ class TreeSet extends MapSet implements NavigableSettable{
 		    $this->map = new TreeMap($collection, $comparator);
 			if($collection != NULL) $this->addAll($collection);
 		}
-		$this->dummy = new Null;
+		$this->dummy = new Mynull;
 	}	
 
  	/**

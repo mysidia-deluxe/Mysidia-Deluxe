@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\Null;
+use Resource\Native\Mynull;
 use Resource\Collection\ArrayList;
 
 class TradeHelper extends Helper{
@@ -42,7 +42,7 @@ class TradeHelper extends Helper{
         $this->gui = new Division(NULL, "recipient");
         $this->gui->add(new Image("templates/icons/warning.gif"));
 
-		if($recipient instanceof Null) $this->gui->add(new Comment($lang->recipient_none, TRUE, "b"));
+		if($recipient instanceof Mynull) $this->gui->add(new Comment($lang->recipient_none, TRUE, "b"));
 		else{
             $this->gui->add(new Comment($lang->recipient.$recipient->username, TRUE, "b"));
             $this->gui->add(new PasswordField("hidden", "recipient", $recipient->username));
@@ -53,9 +53,9 @@ class TradeHelper extends Helper{
 	public function getAdoptOffered(ArrayList $adopts = NULL){
 	    $lang = $this->view->getLangvars();
 		$adoptOffered = $this->view->getField("adoptOffered");
-        $this->gui = new Division(Null, "adoptoffered");
+        $this->gui = new Division(Mynull, "adoptoffered");
 
-		if($adoptOffered instanceof Null) $this->gui->add(new Comment($lang->adopt_offered_none));
+		if($adoptOffered instanceof Mynull) $this->gui->add(new Comment($lang->adopt_offered_none));
 		else{
 		    $list = ($this->settings->multiple == "enabled")?new SelectionList("adoptOffered[]", TRUE):new DropdownList("adoptOffered");
             $list->add(new Option("None Selected", "none"));          
@@ -73,9 +73,9 @@ class TradeHelper extends Helper{
 	    $lang = $this->view->getLangvars();
         $recipient = $this->view->getField("recipient");
 	    $adoptWanted = $this->view->getField("adoptWanted");
-        $this->gui = new Division(Null, "adoptwanted");
+        $this->gui = new Division(Mynull, "adoptwanted");
 
-		if($adoptWanted instanceof Null) $this->gui->add(new Comment($lang->adopt_wanted_none));
+		if($adoptWanted instanceof Mynull) $this->gui->add(new Comment($lang->adopt_wanted_none));
         else{
  		    $list = ($this->settings->multiple == "enabled")?new SelectionList("adoptWanted[]", TRUE):new DropdownList("adoptWanted");
             $list->add(new Option("None Selected", "none"));            
@@ -93,9 +93,9 @@ class TradeHelper extends Helper{
 	    $lang = $this->view->getLangvars();
         $recipient = $this->view->getField("recipient");
 	    $adoptOffered = $this->view->getField("adoptOffered");
-        $this->gui = new Division(Null, "adoptoffered");
+        $this->gui = new Division(Mynull, "adoptoffered");
 
-		if($recipient instanceof Null or $adoptOffered instanceof Null) $this->gui->add(new Comment($lang->adopt_offered_none));
+		if($recipient instanceof Mynull or $adoptOffered instanceof Mynull) $this->gui->add(new Comment($lang->adopt_offered_none));
         else{
 		    $list = ($this->settings->multiple == "enabled")?new SelectionList("adoptOffered[]", TRUE):new DropdownList("adoptOffered");
             $list->add(new Option("None Selected", "none"));          
@@ -112,9 +112,9 @@ class TradeHelper extends Helper{
 	    $lang = $this->view->getLangvars();
         $recipient = $this->view->getField("recipient");
 	    $adoptWanted = $this->view->getField("adoptWanted");
-        $this->gui = new Division(Null, "adoptwanted");
+        $this->gui = new Division(Mynull, "adoptwanted");
 
-		if($adoptWanted instanceof Null) $this->gui->add(new Comment($lang->adopt_wanted_none));
+		if($adoptWanted instanceof Mynull) $this->gui->add(new Comment($lang->adopt_wanted_none));
         else{
             $this->gui->add(new Image("templates/icons/next.gif"));
             $this->gui->add(new Comment($lang->adopt_wanted_public));
@@ -134,9 +134,9 @@ class TradeHelper extends Helper{
 	public function getItemOffered(ArrayList $items = NULL){
 	    $lang = $this->view->getLangvars();
 		$itemOffered = $this->view->getField("itemOffered");
-        $this->gui = new Division(Null, "itemoffered");
+        $this->gui = new Division(Mynull, "itemoffered");
 
-		if($itemOffered instanceof Null) $this->gui->add(new Comment($lang->item_offered_none));
+		if($itemOffered instanceof Mynull) $this->gui->add(new Comment($lang->item_offered_none));
 		else{
 		    $list = ($this->settings->multiple == "enabled")?new SelectionList("itemOffered[]", TRUE):new DropdownList("itemOffered");
             $list->add(new Option("None Selected", "none"));            
@@ -154,9 +154,9 @@ class TradeHelper extends Helper{
 	    $lang = $this->view->getLangvars();
 		$recipient = $this->view->getField("recipient");
 	    $itemWanted = $this->view->getField("itemWanted");
-        $this->gui = new Division(Null, "itemwanted");
+        $this->gui = new Division(Mynull, "itemwanted");
 
-        if($itemWanted instanceof Null) $this->gui->add(new Comment($lang->item_wanted_none));
+        if($itemWanted instanceof Mynull) $this->gui->add(new Comment($lang->item_wanted_none));
         else{
  		    $list = ($this->settings->multiple == "enabled")?new SelectionList("itemWanted[]", TRUE):new DropdownList("itemWanted");
             $list->add(new Option("None Selected", "none"));            
@@ -174,9 +174,9 @@ class TradeHelper extends Helper{
 	    $lang = $this->view->getLangvars();
         $recipient = $this->view->getField("recipient");
 	    $itemOffered = $this->view->getField("itemOffered");
-        $this->gui = new Division(Null, "itemwanted");
+        $this->gui = new Division(Mynull, "itemwanted");
 
-		if($recipient instanceof Null or $itemOffered instanceof Null) $this->gui->add(new Comment($lang->item_offered_none));
+		if($recipient instanceof Mynull or $itemOffered instanceof Mynull) $this->gui->add(new Comment($lang->item_offered_none));
         else{
 		    $list = ($this->settings->multiple == "enabled")?new SelectionList("itemOffered[]", TRUE):new DropdownList("itemOffered");
             $list->add(new Option("None Selected", "none"));          
@@ -193,9 +193,9 @@ class TradeHelper extends Helper{
 	    $lang = $this->view->getLangvars();
         $recipient = $this->view->getField("recipient");
 	    $itemWanted = $this->view->getField("itemWanted");
-        $this->gui = new Division(Null, "itemwanted");
+        $this->gui = new Division(Mynull, "itemwanted");
 
-		if($recipient instanceof Null or $itemWanted instanceof Null) $this->gui->add(new Comment($lang->item_wanted_none));
+		if($recipient instanceof Mynull or $itemWanted instanceof Mynull) $this->gui->add(new Comment($lang->item_wanted_none));
         else{
             $this->gui->add(new Image("templates/icons/next.gif"));
             $this->gui->add(new Comment($lang->item_wanted_public));
@@ -215,9 +215,9 @@ class TradeHelper extends Helper{
     public function getPublicOffer(){
 	    $lang = $this->view->getLangvars();
         $recipient = $this->view->getField("recipient");
-        if($this->settings->public != "enabled" or !($recipient instanceof Null)) return new Comment;
+        if($this->settings->public != "enabled" or !($recipient instanceof Mynull)) return new Comment;
         $checkbox = new CheckBox("This is a public trade offer", "public", "yes");
-        if($recipient instanceof Null) $checkbox->setChecked(TRUE);
+        if($recipient instanceof Mynull) $checkbox->setChecked(TRUE);
 
         $this->gui = new Division(NULL, "publics");
 		$this->gui->add($checkbox);
@@ -229,7 +229,7 @@ class TradeHelper extends Helper{
     public function getPartialOffer(){
 	    $lang = $this->view->getLangvars();
         $recipient = $this->view->getField("recipient");
-        if($this->settings->partial != "enabled" or $recipient instanceof Null) return new Comment;
+        if($this->settings->partial != "enabled" or $recipient instanceof Mynull) return new Comment;
         $checkbox = new CheckBox("This is a partial trade offer", "partial", "yes");
 
         $this->gui = new Division(NULL, "partials");

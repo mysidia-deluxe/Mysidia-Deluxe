@@ -1,7 +1,7 @@
 <?php
 
 use Resource\Native\Integer;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\HashMap;
 
 class FriendsController extends AppController{
@@ -30,7 +30,7 @@ class FriendsController extends AppController{
 		$friend = new Friend(new Member($mysidia->input->get("id")), $this->friendlist);
 		
         if(!$friend->isfriend){	  
-	        if($friend->sendrequest()) $this->setField("friend", new String($friend->username));
+	        if($friend->sendrequest()) $this->setField("friend", new Mystring($friend->username));
 			else throw new DuplicateIDException("<br>Invalid Action! This is a duplicate friend request between you and {$friend->username}.");
 		}
         else throw new InvalidIDException("<br>Invalid Action! The user {$friend->username} is already on your friendlist.");
@@ -46,9 +46,9 @@ class FriendsController extends AppController{
 		}
 		
 		$optionsMap = new HashMap;
-		$optionsMap->put(new String("pmoption"), new Integer($options->pmstatus));
-		$optionsMap->put(new String("vmoption"), new Integer($options->vmstatus));
-		$optionsMap->put(new String("tradeoption"), new Integer($options->tradestatus));		
+		$optionsMap->put(new Mystring("pmoption"), new Integer($options->pmstatus));
+		$optionsMap->put(new Mystring("vmoption"), new Integer($options->vmstatus));
+		$optionsMap->put(new Mystring("tradeoption"), new Integer($options->tradestatus));		
 		$this->setField("optionsMap", $optionsMap);	
 	}
 	
@@ -63,12 +63,12 @@ class FriendsController extends AppController{
 		        $sender->append($mysidia->user->uid);				
 		        $recipient = new Friend($mysidia->user, $sender->getfriendlist());     
 		        $recipient->append($sender->uid);	
-                $this->setField("fromuser", new String($friendrequest->fromuser));				
+                $this->setField("fromuser", new Mystring($friendrequest->fromuser));				
 	            break;
 	        case "decline":
 				$friendrequest = new FriendRequest($mysidia->input->get("id"));	
 		        $friendrequest->setstatus("declined");
-                $this->setField("fromuser", new String($friendrequest->fromuser));					
+                $this->setField("fromuser", new Mystring($friendrequest->fromuser));					
                 break;
 	        default:
 			    $stmt = $mysidia->db->select("friend_requests", array(), "touser='{$mysidia->user->username}' and status='pending'");

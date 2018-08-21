@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\ArrayList;
 
 class AccountController extends AppController{
@@ -73,13 +73,13 @@ class AccountController extends AppController{
 		}
         
         $contactList = new ArrayList;	
-		$contactList->add(new String("website"));
-		$contactList->add(new String("facebook"));
-		$contactList->add(new String("twitter"));	
-		$contactList->add(new String("msn"));
-		$contactList->add(new String("aim"));
-		$contactList->add(new String("yim"));
-		$contactList->add(new String("skype"));	
+		$contactList->add(new Mystring("website"));
+		$contactList->add(new Mystring("facebook"));
+		$contactList->add(new Mystring("twitter"));	
+		$contactList->add(new Mystring("msn"));
+		$contactList->add(new Mystring("aim"));
+		$contactList->add(new Mystring("yim"));
+		$contactList->add(new Mystring("skype"));	
 		$this->setField("contactList", $contactList);
 	}
 }

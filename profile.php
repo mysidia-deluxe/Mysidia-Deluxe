@@ -1,7 +1,7 @@
 <?php
 
 use Resource\Native\Integer;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class ProfileController extends AppController{
@@ -32,7 +32,7 @@ class ProfileController extends AppController{
 		$stmt = $mysidia->db->select("users", array("username", "usergroup"), "1 ORDER BY uid ASC LIMIT {$pagination->getLimit()},{$pagination->getRowsperPage()}");	
 		$users = new LinkedHashMap;
 		while($user = $stmt->fetchObject()){
-		    $users->put(new String($user->username), new Integer($user->usergroup));  
+		    $users->put(new Mystring($user->username), new Integer($user->usergroup));  
 		}
 		$this->setField("pagination", $pagination);
         $this->setField("users", $users);

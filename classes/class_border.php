@@ -118,7 +118,7 @@ class Border extends Spacing{
      * @return String
      */
     public function __toString(){
-	    return new String("This is an instance of Mysidia Border class.");
+	    return new Mystring("This is an instance of Mysidia Border class.");
 	}    
 } 
 ?>

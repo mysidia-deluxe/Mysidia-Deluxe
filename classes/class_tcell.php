@@ -200,7 +200,7 @@ class TCell extends TableContainer{
      * @return String
      */
     public function __toString(){
-	    return new String("This is The Table Cell class.");
+	    return new Mystring("This is The Table Cell class.");
 	}
 }
 ?>

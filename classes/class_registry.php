@@ -2,7 +2,7 @@
 
 use Resource\Native\Objective;
 use Resource\Native\Object;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\Collective;
 use Resource\Collection\ArrayList;
 use Resource\Collection\HashMap;
@@ -98,7 +98,7 @@ class Registry{
 		
 		$objects = new HashMap;
 	    foreach($keys as $key){
-		    $objects->put(new String($key), self::get($key));
+		    $objects->put(new Mystring($key), self::get($key));
 	    }
 		return $objects;
     }    
@@ -111,7 +111,7 @@ class Registry{
 	 * @static
      */
     public static function get($key){
-        $key = new String($key);
+        $key = new Mystring($key);
 	    if(!self::contains($key)) throw new Exception("Cannot retrieve registered object");
 	    return self::$instance->getObjects()->get($key);
     }

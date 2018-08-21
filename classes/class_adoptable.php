@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 
 class Adoptable extends Model{
 
@@ -20,7 +20,7 @@ class Adoptable extends Model{
   
     public function __construct($adoptinfo){	  
 	    $mysidia = Registry::get("mysidia");
-	    if($adoptinfo instanceof String) $adoptinfo = $adoptinfo->getValue();		
+	    if($adoptinfo instanceof Mystring) $adoptinfo = $adoptinfo->getValue();		
 	    $whereClause = (is_numeric($adoptinfo))?"id ='{$adoptinfo}'":"type ='{$adoptinfo}'";
 	    $row = $mysidia->db->select("adoptables", array(), $whereClause)->fetchObject();
         if(!is_object($row)) throw new AdoptNotfoundException("Adoptable {$adoptinfo} does not exist...");

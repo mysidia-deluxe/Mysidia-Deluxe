@@ -1,7 +1,7 @@
 <?php
 
 use Resource\Native\Object;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedList;
 use Resource\Collection\LinkedHashMap;
 
@@ -34,7 +34,7 @@ class Shoplist extends Object implements Container{
 		$shops = new LinkedHashMap;
 		
 		while($shop = $stmt->fetchObject()){
-		   $shops->put(new String($shop->shopname), new String($shop->shoptype));
+		   $shops->put(new Mystring($shop->shopname), new Mystring($shop->shoptype));
 		}
 		return $shops;
 	 }

@@ -110,7 +110,7 @@ final class Autoboxer extends Native\Object{
 	 * @return Null
      */	
 	private function wrapNULL(){
-	    return new Native\Null($this->var);    
+	    return new Native\Mynull($this->var);    
 	}		
 	
     /**
@@ -119,7 +119,7 @@ final class Autoboxer extends Native\Object{
 	 * @return String
      */	
 	private function wrapString(){
-	    return new Native\String($this->var);    
+	    return new Native\Mystring($this->var);    
 	}			
 }
 ?>

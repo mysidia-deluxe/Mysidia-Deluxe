@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class Member extends User{
@@ -22,7 +22,7 @@ class Member extends User{
 	  // Fetch the basic member properties for users
 	  
 	  $mysidia = Registry::get("mysidia");
-	  if($userinfo instanceof String) $userinfo = $userinfo->getValue();
+	  if($userinfo instanceof Mystring) $userinfo = $userinfo->getValue();
 	  $userinfo = ($userinfo == "SYSTEM")?$mysidia->settings->systemuser:$userinfo;
 	  $whereclause = (is_numeric($userinfo))?"uid ='{$userinfo}'":"username ='{$userinfo}'";
 	  $row = $mysidia->db->select("users", array(), $whereclause)->fetchObject();
@@ -170,12 +170,12 @@ class Member extends User{
 	  if($stmt->rowCount() == 0) throw new MessageNotfoundException;				  
 	  else{
 		  $fields = new LinkedHashMap;
-		  $fields->put(new String("messagetitle"), NULL);
-		  $fields->put(new String("fromuser"), new String("getProfile"));
-		  $fields->put(new String("touser"), new String("getProfile"));
-		  $fields->put(new String("datesent"), NULL);
-		  $fields->put(new String("mid::read"), new String(($folder == "outbox")?"getOutboxReadLink":"getDraftReadLink"));
-		  $fields->put(new String("mid::delete"), new String(($folder == "outbox")?"getOutboxDeleteLink":"getDraftDeleteLink"));
+		  $fields->put(new Mystring("messagetitle"), NULL);
+		  $fields->put(new Mystring("fromuser"), new Mystring("getProfile"));
+		  $fields->put(new Mystring("touser"), new Mystring("getProfile"));
+		  $fields->put(new Mystring("datesent"), NULL);
+		  $fields->put(new Mystring("mid::read"), new Mystring(($folder == "outbox")?"getOutboxReadLink":"getDraftReadLink"));
+		  $fields->put(new Mystring("mid::delete"), new Mystring(($folder == "outbox")?"getOutboxDeleteLink":"getDraftDeleteLink"));
 		  
 	      $folderTable = new TableBuilder($folder);		  
 		  $folderTable->setAlign(new Align("center"));

@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\HashSet;
 
 /**
@@ -220,7 +220,7 @@ abstract class GUIComponent extends GUI implements Renderable{
      */
 	protected function setCSS($css){		
 	    if(!$this->css) $this->css = new HashSet;
-	    $this->css->add(new String($css));
+	    $this->css->add(new Mystring($css));
 	}
 	
 	/**
@@ -309,7 +309,7 @@ abstract class GUIComponent extends GUI implements Renderable{
      * @return String
      */
     public function __toString(){
-	    return new String("This is The GUIComponent Class.");
+	    return new Mystring("This is The GUIComponent Class.");
 	}
 }
 ?>

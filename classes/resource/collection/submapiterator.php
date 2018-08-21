@@ -67,7 +67,7 @@ abstract class SubMapIterator extends CollectionIterator{
 	public function __construct(SubMap $map, TreeMapEntry $first = NULL, TreeMapEntry $fence = NULL){
 	    $this->map = $map;
 		$this->next = $first;
-		$this->dummy = new Null;
+		$this->dummy = new Mynull;
 		$this->fenceKey = ($fence == NULL)?$this->dummy:$fence->getKey();
 	}	
 

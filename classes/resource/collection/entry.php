@@ -3,7 +3,7 @@
 namespace Resource\Collection;
 use Resource\Native\Objective;
 use Resource\Native\Object; 
-use Resource\Native\String; 
+use Resource\Native\Mystring; 
 use Resource\Exception\UnsupportedOperationException; 
 
 /**
@@ -112,7 +112,7 @@ abstract class Entry extends Object{
      * @return String
      */	
 	public function __toString(){
-        return new String("{$this->key} => {$this->value}");
+        return new Mystring("{$this->key} => {$this->value}");
 	}	
 }
 ?>

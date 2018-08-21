@@ -172,7 +172,7 @@ class TableHelper extends GUIHelper{
      * @return String
      */
     public function __toString(){
-	    return new String("This is an instance of Mysidia TableHelper class.");
+	    return new Mystring("This is an instance of Mysidia TableHelper class.");
 	}    
 } 
 ?>
