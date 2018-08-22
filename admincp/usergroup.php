@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class ACPUsergroupController extends AppController{
@@ -54,7 +54,7 @@ class ACPUsergroupController extends AppController{
 		else{
             $checkBoxes = new LinkedHashMap; 			
 			foreach($permissions as $permission){ 
-				$checkBoxes->put(new String($permission), new CheckBox($mysidia->lang->{$permission}, $permission, "yes", $usergroup->$permission == "yes"));
+				$checkBoxes->put(new Mystring($permission), new CheckBox($mysidia->lang->{$permission}, $permission, "yes", $usergroup->$permission == "yes"));
 			}
 			$this->setField("checkBoxes", $checkBoxes);	 
 		}

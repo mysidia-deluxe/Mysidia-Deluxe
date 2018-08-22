@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedList;
 use Resource\Collection\LinkedHashMap;
 
@@ -12,14 +12,14 @@ class ACPTradeView extends View{
 		$stmt = $this->getField("stmt")->get();		
 		$document = $this->document;
         $fields = new LinkedHashMap;
-		$fields->put(new String("tid"), NULL);
-		$fields->put(new String("type"), NULL);
-		$fields->put(new String("sender"), NULL);
-		$fields->put(new String("recipient"), new String("getText"));
-		$fields->put(new String("message"), NULL);			
-		$fields->put(new String("status"), NULL);		
-		$fields->put(new String("tid::edit"), new String("getEditLink"));
-		$fields->put(new String("tid::delete"), new String("getDeleteLink"));	
+		$fields->put(new Mystring("tid"), NULL);
+		$fields->put(new Mystring("type"), NULL);
+		$fields->put(new Mystring("sender"), NULL);
+		$fields->put(new Mystring("recipient"), new Mystring("getText"));
+		$fields->put(new Mystring("message"), NULL);			
+		$fields->put(new Mystring("status"), NULL);		
+		$fields->put(new Mystring("tid::edit"), new Mystring("getEditLink"));
+		$fields->put(new Mystring("tid::delete"), new Mystring("getDeleteLink"));	
 		
 		$tradeTable = new TableBuilder("trade");
 		$tradeTable->setAlign(new Align("center", "middle"));
@@ -42,9 +42,9 @@ class ACPTradeView extends View{
 		$document->addLangvar($this->lang->add);
 		$tradeForm = new FormBuilder("addform", "add", "post");
         $tradeTypes = new LinkedHashMap;
-		$tradeTypes->put(new String("Private"), new String("private"));
-		$tradeTypes->put(new String("Public"), new String("public"));
-		$tradeTypes->put(new String("Partial"), new String("partial"));			
+		$tradeTypes->put(new Mystring("Private"), new Mystring("private"));
+		$tradeTypes->put(new Mystring("Public"), new Mystring("public"));
+		$tradeTypes->put(new Mystring("Partial"), new Mystring("partial"));			
         $date = new DateTime;
 		
         $tradeForm->add(new Comment("<hr>Basic Information:", TRUE, "b"));		
@@ -106,9 +106,9 @@ class ACPTradeView extends View{
 			$document->addLangvar($this->lang->edit);
 		    $tradeForm = new FormBuilder("editform", $mysidia->input->get("tid"), "post");
             $tradeTypes = new LinkedHashMap;
-		    $tradeTypes->put(new String("Private"), new String("private"));
-		    $tradeTypes->put(new String("Public"), new String("public"));
-		    $tradeTypes->put(new String("Partial"), new String("partial"));			
+		    $tradeTypes->put(new Mystring("Private"), new Mystring("private"));
+		    $tradeTypes->put(new Mystring("Public"), new Mystring("public"));
+		    $tradeTypes->put(new Mystring("Partial"), new Mystring("partial"));			
 		
             $tradeForm->add(new Comment("<hr>Basic Information:", TRUE, "b"));		
 		    $tradeForm->add(new Comment("Sender: ", FALSE, "i"));
@@ -169,7 +169,7 @@ class ACPTradeView extends View{
 	    if($mysidia->input->get("tid")){
 		    // A trade offer has been selected for moderation, let's go over it!
 		    if($mysidia->input->post("submit")){
-			    $status = (string)$this->getField("status", new String("status"));
+			    $status = (string)$this->getField("status", new Mystring("status"));
 				$document->setTitle($this->lang->moderated_title);
 				$document->addLangvar($this->lang->{$status});
                 return;				
@@ -179,8 +179,8 @@ class ACPTradeView extends View{
             $tradeHelper = $this->getField("tradeHelper");
             $tradeHelper->setView($this);
             $statusTypes = new LinkedHashMap;
-		    $statusTypes->put(new String("Approve"), new String("pending"));
-		    $statusTypes->put(new String("Disapprove"), new String("canceled"));			
+		    $statusTypes->put(new Mystring("Approve"), new Mystring("pending"));
+		    $statusTypes->put(new Mystring("Disapprove"), new Mystring("canceled"));			
 			
 			$document->setTitle($this->lang->moderate_title);
 			$document->addLangvar($this->lang->review);
@@ -212,13 +212,13 @@ class ACPTradeView extends View{
 		$document->addLangvar($this->lang->moderate);
 		$stmt = $this->getField("stmt")->get();
         $fields = new LinkedHashMap;
-		$fields->put(new String("tid"), NULL);
-		$fields->put(new String("type"), NULL);
-		$fields->put(new String("sender"), NULL);
-		$fields->put(new String("recipient"), new String("getText"));
-		$fields->put(new String("message"), NULL);			
-		$fields->put(new String("status"), NULL);		
-		$fields->put(new String("tid::moderate"), new String("getModerateLink"));	
+		$fields->put(new Mystring("tid"), NULL);
+		$fields->put(new Mystring("type"), NULL);
+		$fields->put(new Mystring("sender"), NULL);
+		$fields->put(new Mystring("recipient"), new Mystring("getText"));
+		$fields->put(new Mystring("message"), NULL);			
+		$fields->put(new Mystring("status"), NULL);		
+		$fields->put(new Mystring("tid::moderate"), new Mystring("getModerateLink"));	
 		
 		$tradeTable = new TableBuilder("item");
 		$tradeTable->setAlign(new Align("center", "middle"));
@@ -242,8 +242,8 @@ class ACPTradeView extends View{
 		$document->addLangvar($this->lang->settings);
 		$settingsForm = new FormBuilder("settingsform", "settings", "post");
 		$tradeSystem = new LinkedHashMap;
-		$tradeSystem->put(new String("Enabled"), new String("enabled"));
-		$tradeSystem->put(new String("Disabled"), new String("disabled"));
+		$tradeSystem->put(new Mystring("Enabled"), new Mystring("enabled"));
+		$tradeSystem->put(new Mystring("Disabled"), new Mystring("disabled"));
         $tradeMultiple = clone $tradeSystem;
 		$tradePartial = clone $tradeSystem;		
 		$tradePublic = clone $tradeSystem;	

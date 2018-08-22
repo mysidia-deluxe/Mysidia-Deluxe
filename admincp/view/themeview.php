@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedList;
 use Resource\Collection\LinkedHashMap;
 
@@ -13,11 +13,11 @@ class ACPThemeView extends View{
 		$document = $this->document;		
 
         $fields = new LinkedHashMap;
-		$fields->put(new String("id"), NULL);
-		$fields->put(new String("themename"), NULL);
-		$fields->put(new String("themefolder"), NULL);	
-		$fields->put(new String("id::edit"), new String("getEditLink"));
-		$fields->put(new String("id::delete"), new String("getDeleteLink"));	
+		$fields->put(new Mystring("id"), NULL);
+		$fields->put(new Mystring("themename"), NULL);
+		$fields->put(new Mystring("themefolder"), NULL);	
+		$fields->put(new Mystring("id::edit"), new Mystring("getEditLink"));
+		$fields->put(new Mystring("id::delete"), new Mystring("getDeleteLink"));	
 		
 		$themeTable = new TableBuilder("themes");
 		$themeTable->setAlign(new Align("center", "middle"));

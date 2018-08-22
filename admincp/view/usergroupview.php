@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class ACPUsergroupView extends View{
@@ -12,13 +12,13 @@ class ACPUsergroupView extends View{
 		$stmt = $this->getField("stmt")->get();
 		
         $fields = new LinkedHashMap;
-		$fields->put(new String("gid"), NULL);
-		$fields->put(new String("groupname"), NULL);
-		$fields->put(new String("canadopt"), new String("getPermissionImage"));
-		$fields->put(new String("canpm"), new String("getPermissionImage"));	
-		$fields->put(new String("cancp"), new String("getPermissionImage"));			
-		$fields->put(new String("gid::edit"), new String("getEditLink"));
-		$fields->put(new String("gid::delete"), new String("getDeleteLink"));	
+		$fields->put(new Mystring("gid"), NULL);
+		$fields->put(new Mystring("groupname"), NULL);
+		$fields->put(new Mystring("canadopt"), new Mystring("getPermissionImage"));
+		$fields->put(new Mystring("canpm"), new Mystring("getPermissionImage"));	
+		$fields->put(new Mystring("cancp"), new Mystring("getPermissionImage"));			
+		$fields->put(new Mystring("gid::edit"), new Mystring("getEditLink"));
+		$fields->put(new Mystring("gid::delete"), new Mystring("getDeleteLink"));	
 		
 		$usergroupTable = new TableBuilder("user");
 		$usergroupTable->setAlign(new Align("center", "middle"));
@@ -64,16 +64,16 @@ class ACPUsergroupView extends View{
 		    $document->addlangvar($this->lang->edit); 			
 			
 			$usergroupForm = new Form("editform", $mysidia->input->get("group"), "post");
-			$usergroupForm->add($checkBoxes->get(new String("canadopt")));
-			$usergroupForm->add($checkBoxes->get(new String("canpm")));
+			$usergroupForm->add($checkBoxes->get(new Mystring("canadopt")));
+			$usergroupForm->add($checkBoxes->get(new Mystring("canpm")));
 			$usergroupForm->add(new Comment("<u>Admin Settings: </u>", TRUE, "b"));
-			$usergroupForm->add($checkBoxes->get(new String("cancp")));
-			$usergroupForm->add($checkBoxes->get(new String("canmanageadopts")));
+			$usergroupForm->add($checkBoxes->get(new Mystring("cancp")));
+			$usergroupForm->add($checkBoxes->get(new Mystring("canmanageadopts")));
 			$usergroupForm->add(new Comment($this->lang->notice));
-			$usergroupForm->add($checkBoxes->get(new String("canmanageads")));
-			$usergroupForm->add($checkBoxes->get(new String("canmanagecontent")));
-			$usergroupForm->add($checkBoxes->get(new String("canmanagesettings")));
-			$usergroupForm->add($checkBoxes->get(new String("canmanageusers")));
+			$usergroupForm->add($checkBoxes->get(new Mystring("canmanageads")));
+			$usergroupForm->add($checkBoxes->get(new Mystring("canmanagecontent")));
+			$usergroupForm->add($checkBoxes->get(new Mystring("canmanagesettings")));
+			$usergroupForm->add($checkBoxes->get(new Mystring("canmanageusers")));
 			$usergroupForm->add(new Comment($this->lang->warning));
 			$usergroupForm->add(new Button("Edit Usergroup", "submit", "submit"));
 			$document->add($usergroupForm);		 

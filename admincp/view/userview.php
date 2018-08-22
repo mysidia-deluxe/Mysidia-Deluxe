@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class ACPUserView extends View{
@@ -12,13 +12,13 @@ class ACPUserView extends View{
 		$document = $this->document;		
 
         $fields = new LinkedHashMap;
-		$fields->put(new String("uid"), NULL);
-		$fields->put(new String("username"), new String("getProfileLink"));
-		$fields->put(new String("email"), NULL);
-		$fields->put(new String("ip"), NULL);	
-		$fields->put(new String("usergroup"), NULL);			
-		$fields->put(new String("uid::edit"), new String("getEditLink"));
-		$fields->put(new String("uid::delete"), new String("getDeleteLink"));		
+		$fields->put(new Mystring("uid"), NULL);
+		$fields->put(new Mystring("username"), new Mystring("getProfileLink"));
+		$fields->put(new Mystring("email"), NULL);
+		$fields->put(new Mystring("ip"), NULL);	
+		$fields->put(new Mystring("usergroup"), NULL);			
+		$fields->put(new Mystring("uid::edit"), new Mystring("getEditLink"));
+		$fields->put(new Mystring("uid::delete"), new Mystring("getDeleteLink"));		
 		
 		$userTable = new TableBuilder("user");
 		$userTable->setAlign(new Align("center", "middle"));

@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class ACPThemeController extends AppController{
@@ -100,7 +100,7 @@ class ACPThemeController extends AppController{
                 while (!$css->eof()) {
  			        $value.= $css->fgets();
                 }                  
-			    $cssMap->put(new String($key), new String($value));
+			    $cssMap->put(new Mystring($key), new Mystring($value));
             }
 			$directory->next();			
         }

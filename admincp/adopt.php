@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 
 class ACPAdoptController extends AppController{
 
@@ -113,7 +113,7 @@ class ACPAdoptController extends AppController{
 		    if($adopt->getWhenAvailable() != "always" and $adopt->getWhenAvailable() != "") $availtext = "<b>This adoptable currently has adoption restrictions on it.</b>";
 			else $availtext = "This adoptable currently does not have adoption restrictions on it.";
             $this->setField("adopt", $adopt);
-            $this->setField("availtext", new String($availtext));	
+            $this->setField("availtext", new Mystring($availtext));	
 	    }
     }
 

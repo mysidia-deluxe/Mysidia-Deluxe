@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 
 class ACPTradeController extends AppController{
 
@@ -75,7 +75,7 @@ class ACPTradeController extends AppController{
 			    $trade = new Trade($tradeOffer, $this->settings);
 			    $status = $mysidia->input->post("status");			
 				$trade->moderate($status);		
-                $this->setField("status", new String($status));
+                $this->setField("status", new Mystring($status));
                 return;				
 			}		
 			$this->setField("trade", $tradeOffer);

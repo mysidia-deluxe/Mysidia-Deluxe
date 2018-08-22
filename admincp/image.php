@@ -1,7 +1,7 @@
 <?php
 
 use Resource\Native\Integer;
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class ACPImageController extends AppController{
@@ -85,7 +85,7 @@ class ACPImageController extends AppController{
 			if($imageInfo["mime"] != "image/gif" and $imageInfo["mime"] != "image/jpeg" and $imageInfo["mime"] != "image/png") throw new UnsupportedFileException("file_type");
 						
 			if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $uploaddir."/".$hashedfilename) and @file_exists($uploaddir."/".$hashedfilename)){
-			    $this->setField("upload", new String("success"));
+			    $this->setField("upload", new Mystring("success"));
 			}
 			else throw new InvalidActionException("error");
 			

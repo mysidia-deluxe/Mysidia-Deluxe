@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class ACPWidgetView extends View{
@@ -12,13 +12,13 @@ class ACPWidgetView extends View{
 		$document = $this->document;		
 
         $fields = new LinkedHashMap;
-		$fields->put(new String("wid"), NULL);
-		$fields->put(new String("name"), NULL);
-		$fields->put(new String("controller"), NULL);
-		$fields->put(new String("order"), NULL);
-		$fields->put(new String("status"), NULL);		
-		$fields->put(new String("wid::edit"), new String("getEditLink"));
-		$fields->put(new String("wid::delete"), new String("getDeleteLink"));	
+		$fields->put(new Mystring("wid"), NULL);
+		$fields->put(new Mystring("name"), NULL);
+		$fields->put(new Mystring("controller"), NULL);
+		$fields->put(new Mystring("order"), NULL);
+		$fields->put(new Mystring("status"), NULL);		
+		$fields->put(new Mystring("wid::edit"), new Mystring("getEditLink"));
+		$fields->put(new Mystring("wid::delete"), new Mystring("getDeleteLink"));	
 		
 		$widgetTable = new TableBuilder("widgets");
 		$widgetTable->setAlign(new Align("center", "middle"));
