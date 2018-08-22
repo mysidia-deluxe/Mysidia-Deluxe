@@ -29,10 +29,12 @@ class RegisterValidator extends UserValidator{
          $this->seterror("The field Username is Empty.");
          return FALSE;
       }
-	  if($username == "SYSTEM"){
-	     $this->seterror("Cannot use SYSTEM as username.");
-		 return FALSE;
-	  }
+	  $forbidden_names = array("SYSTEM", "ADMIN", "STAFF", "OWNER", "MODERATOR", "ERROR"); 
+
+		if(in_array(strtoupper($username), $forbidden_names)){ 
+			$this->seterror("Cannot use '$username' as username."); 
+			return FALSE; 
+		}
 	  $username = (empty($username))?$this->value['username']:$username;	  
 	  $userexist = $this->datavalidate("users", array("username"), "username = '{$username}'");
 	  if($userexist == TRUE){

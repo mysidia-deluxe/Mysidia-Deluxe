@@ -84,10 +84,11 @@ class ACPContentController extends AppController{
 		$mysidia->db->delete("content", "page='{$mysidia->input->get("pageurl")}'");
 	}
 
-    private function format($text){
-         $text = html_entity_decode($text);
-         $text = stripslashes($text);
-         return $text;
+    private function format($text){ 
+         $text = html_entity_decode($text); 
+         $text = str_replace("\r\n","",$text); 
+         $text = stripslashes($text); 
+         return $text; 
     }
 }
 ?>

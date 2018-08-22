@@ -68,14 +68,14 @@ class Pagination extends Object{
 				}
 			}
 			
-			elseif($this->getLastPage() >= 9){
-				if($page < 4)		{
-					for ($counter = 1; $counter < 6; $counter++){
-						if ($counter == $page)
-							$pagination .= "<span class='current'>{$counter}</span>";
-						else
-							$pagination .= "<a href='{$this->website}{$this->symbol}page-{$counter}/'>{$counter}</a>";					
-					}
+			elseif($this->getLastPage() >= 9){ 
+                if($page < 4)        { 
+                    for ($counter = 1; $counter < 6; $counter++){ 
+                        if ($counter == $page) 
+                            $pagination .= "<span class='current'>{$counter}</span>"; 
+                        else 
+                            $pagination .= "<a href='{$this->website}{$this->symbol}page-{$counter}'>{$counter}</a>";                     
+                    }
 					$pagination .= "...";
 					$pagination .= "<a href=$this->website{$this->symbol}page-$lpm1>{$lpm1}</a>";
 					$pagination .= "<a href=$this->website{$this->symbol}page-{$this->getLastPage()}>{$this->getLastPage()}</a>";		
