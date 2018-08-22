@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+
+body {
+   background-image: url("../../templates/nightsky/images/nightlysky.jpg");
+   background-size: cover;
+   font-family: 'Dosis', sans-serif;
+}
+
+.wrapper{
+	width:60%;
+	min-width:800px;
+	margin:0 auto;
+}
+
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main;}
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+.item6 { grid-area: logo; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+	'logo logo logo logo logo logo'
+    'header header header header header header'
+    'menu main main main right right'
+    'menu footer footer footer footer footer';
+  grid-gap: 10px;
+  background-color: #0a101e;
+  padding: 10px;
+}
+.grid-container > div {
+  background-color: #99a8c6;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 25px;
+}
+
+.button {
+    background-color: #514777; /* Green */
+    border: none;
+	border-radius:17px;
+    color: #ffffff;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	border: solid #1b1a33 4px;
+	width:100px;
+}
+
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+hr.style-seven {
+    overflow: visible; /* For IE */
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+hr.style-seven:before { /* Not really supposed to work, but does */
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
