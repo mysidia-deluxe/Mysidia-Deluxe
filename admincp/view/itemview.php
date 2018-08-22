@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedList;
 use Resource\Collection\LinkedHashMap;
 
@@ -12,12 +12,12 @@ class ACPItemView extends View{
 		$stmt = $this->getField("stmt")->get();		
 		$document = $this->document;
         $fields = new LinkedHashMap;
-		$fields->put(new String("imageurl"), new String("getImage"));
-		$fields->put(new String("itemname"), NULL);
-		$fields->put(new String("description"), NULL);
-		$fields->put(new String("function"), NULL);			
-		$fields->put(new String("id::edit"), new String("getEditLink"));
-		$fields->put(new String("id::delete"), new String("getDeleteLink"));	
+		$fields->put(new Mystring("imageurl"), new Mystring("getImage"));
+		$fields->put(new Mystring("itemname"), NULL);
+		$fields->put(new Mystring("description"), NULL);
+		$fields->put(new Mystring("function"), NULL);			
+		$fields->put(new Mystring("id::edit"), new Mystring("getEditLink"));
+		$fields->put(new Mystring("id::delete"), new Mystring("getDeleteLink"));	
 		
 		$itemTable = new TableBuilder("item");
 		$itemTable->setAlign(new Align("center", "middle"));
@@ -171,10 +171,10 @@ class ACPItemView extends View{
 		$document->addLangvar($this->lang->functions);
 
 		$fields = new LinkedList;
-		$fields->add(new String("ifid"));
-		$fields->add(new String("function"));
-		$fields->add(new String("intent"));
-		$fields->add(new String("description"));
+		$fields->add(new Mystring("ifid"));
+		$fields->add(new Mystring("function"));
+		$fields->add(new Mystring("intent"));
+		$fields->add(new Mystring("description"));
 		
 		$functionsTable = new TableBuilder("functions");
 		$functionsTable->setAlign(new Align("center", "middle"));

@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedList;
 use Resource\Collection\LinkedHashMap;
 
@@ -214,11 +214,11 @@ class ACPLevelView extends View{
 		$settingsForm = new FormBuilder("settingsform", "settings", "post");
         $levelSettings = $this->getField("levelSettings");	
 		$levelSystem = new LinkedHashMap;
-		$levelSystem->put(new String("Enabled"), new String("enabled"));
-		$levelSystem->put(new String("Disabled"), new String("disabled"));
+		$levelSystem->put(new Mystring("Enabled"), new Mystring("enabled"));
+		$levelSystem->put(new Mystring("Disabled"), new Mystring("disabled"));
         $levelMethod = new LinkedHashMap;
-		$levelMethod->put(new String("Incremental"), new String("incremental"));
-		$levelMethod->put(new String("Multiple"), new String("multiple"));	
+		$levelMethod->put(new Mystring("Incremental"), new Mystring("incremental"));
+		$levelMethod->put(new Mystring("Multiple"), new Mystring("multiple"));	
         $levelOwner = clone $levelSystem;			
 		
 		$settingsForm->buildComment("Level-Clicks System Enabled:   ", FALSE)->buildRadioList("system", $levelSystem, $levelSettings->system)
@@ -249,11 +249,11 @@ class ACPLevelView extends View{
 		$document->addLangvar($this->lang->daycare, TRUE);
 	    $daycareSettings = $this->getField("daycareSettings");			
 		$daycareSystem = new LinkedHashMap;
-		$daycareSystem->put(new String("Enabled"), new String("enabled"));
-		$daycareSystem->put(new String("Disabled"), new String("disabled"));
+		$daycareSystem->put(new Mystring("Enabled"), new Mystring("enabled"));
+		$daycareSystem->put(new Mystring("Disabled"), new Mystring("disabled"));
 		$daycareDisplay = new LinkedHashMap;
-		$daycareDisplay->put(new String("All"), new String("all"));
-		$daycareDisplay->put(new String("Random"), new String("random"));
+		$daycareDisplay->put(new Mystring("All"), new Mystring("all"));
+		$daycareDisplay->put(new Mystring("Random"), new Mystring("random"));
 		
 		$daycareForm = new FormBuilder("daycareform", "daycare", "post");  
 		$daycareForm->buildComment("Daycare Center Enabled:   ", FALSE)->buildRadioList("system", $daycareSystem, $daycareSettings->system)

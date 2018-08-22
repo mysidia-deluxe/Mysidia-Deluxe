@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedList;
 use Resource\Collection\LinkedHashMap;
 
@@ -44,8 +44,8 @@ class ACPLinksView extends View{
 	    $document->setTitle($this->lang->add_title);
 		$document->addLangvar($this->lang->add);
         $linkTypes = new LinkedHashMap;
-		$linkTypes->put(new String("Navlink"), new String("navlink"));
-		$linkTypes->put(new String("Sidelink"), new String("sidelink"));
+		$linkTypes->put(new Mystring("Navlink"), new Mystring("navlink"));
+		$linkTypes->put(new Mystring("Sidelink"), new Mystring("sidelink"));
 
 		$LinksForm = new FormBuilder("addform", "add", "post");
         $LinksForm->add(new Comment("Link Type: ", FALSE));
@@ -82,8 +82,8 @@ class ACPLinksView extends View{
 			$document->addLangvar($this->lang->edit);
 			$link = $this->getField("link")->get();
             $linkTypes = new LinkedHashMap;
-		    $linkTypes->put(new String("Navlink"), new String("navlink"));
-		    $linkTypes->put(new String("Sidelink"), new String("sidelink"));
+		    $linkTypes->put(new Mystring("Navlink"), new Mystring("navlink"));
+		    $linkTypes->put(new Mystring("Sidelink"), new Mystring("sidelink"));
 			
 			$LinksForm = new FormBuilder("editform", $mysidia->input->get("lid"), "post");
             $LinksForm->add(new Comment("Link Type: ", FALSE));

@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class ACPAdsView extends View{
@@ -10,14 +10,14 @@ class ACPAdsView extends View{
 		$stmt = $this->getField("stmt")->get();
 		$document = $this->document;		
         $fields = new LinkedHashMap;
-		$fields->put(new String("adname"), NULL);
-		$fields->put(new String("page"), NULL);
-		$fields->put(new String("impressions"), NULL);
-		$fields->put(new String("actualimpressions"), NULL);	
-		$fields->put(new String("date"), NULL);	
-		$fields->put(new String("status"), new String("getStatusImage"));				
-		$fields->put(new String("id::edit"), new String("getEditLink"));
-		$fields->put(new String("id::delete"), new String("getDeleteLink"));		
+		$fields->put(new Mystring("adname"), NULL);
+		$fields->put(new Mystring("page"), NULL);
+		$fields->put(new Mystring("impressions"), NULL);
+		$fields->put(new Mystring("actualimpressions"), NULL);	
+		$fields->put(new Mystring("date"), NULL);	
+		$fields->put(new Mystring("status"), new Mystring("getStatusImage"));				
+		$fields->put(new Mystring("id::edit"), new Mystring("getEditLink"));
+		$fields->put(new Mystring("id::delete"), new Mystring("getDeleteLink"));		
 		
 		$adsTable = new TableBuilder("ads");
 		$adsTable->setAlign(new Align("center", "middle"));

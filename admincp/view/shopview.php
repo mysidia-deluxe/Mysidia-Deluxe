@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class ACPShopView extends View{
@@ -11,12 +11,12 @@ class ACPShopView extends View{
 		$document = $this->document;
 		
         $fields = new LinkedHashMap;
-		$fields->put(new String("imageurl"), new String("getImage"));
-		$fields->put(new String("shopname"), NULL);
-		$fields->put(new String("description"), NULL);
-		$fields->put(new String("status"), NULL);			
-		$fields->put(new String("sid::edit"), new String("getEditLink"));
-		$fields->put(new String("sid::delete"), new String("getDeleteLink"));
+		$fields->put(new Mystring("imageurl"), new Mystring("getImage"));
+		$fields->put(new Mystring("shopname"), NULL);
+		$fields->put(new Mystring("description"), NULL);
+		$fields->put(new Mystring("status"), NULL);			
+		$fields->put(new Mystring("sid::edit"), new Mystring("getEditLink"));
+		$fields->put(new Mystring("sid::delete"), new Mystring("getDeleteLink"));
 		
 		$shopTable = new TableBuilder("shop");
 		$shopTable->setAlign(new Align("center", "middle"));

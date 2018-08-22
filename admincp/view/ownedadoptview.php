@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class ACPOwnedadoptView extends View{
@@ -12,13 +12,13 @@ class ACPOwnedadoptView extends View{
 		$document = $this->document;
 		
         $fields = new LinkedHashMap;
-		$fields->put(new String("aid"), NULL);
-		$fields->put(new String("type"), NULL);
-		$fields->put(new String("name"), NULL);
-		$fields->put(new String("owner"), NULL);	
-		$fields->put(new String("gender"), new String("getGenderImage"));			
-		$fields->put(new String("aid::edit"), new String("getEditLink"));
-		$fields->put(new String("aid::delete"), new String("getDeleteLink"));		
+		$fields->put(new Mystring("aid"), NULL);
+		$fields->put(new Mystring("type"), NULL);
+		$fields->put(new Mystring("name"), NULL);
+		$fields->put(new Mystring("owner"), NULL);	
+		$fields->put(new Mystring("gender"), new Mystring("getGenderImage"));			
+		$fields->put(new Mystring("aid::edit"), new Mystring("getEditLink"));
+		$fields->put(new Mystring("aid::delete"), new Mystring("getDeleteLink"));		
 		
 		$ownedAdoptTable = new TableBuilder("ownedadopt");
 		$ownedAdoptTable->setAlign(new Align("center", "middle"));
@@ -40,8 +40,8 @@ class ACPOwnedadoptView extends View{
 		$document->setTitle($this->lang->add_title);
 		$document->addLangvar($this->lang->add);
 		$genders = new LinkedHashMap;
-		$genders->put(new String("female"), new String("f"));
-		$genders->put(new String("male"), new String("m"));
+		$genders->put(new Mystring("female"), new Mystring("f"));
+		$genders->put(new Mystring("male"), new Mystring("m"));
 		
 		$ownedAdoptForm = new FormBuilder("addform", "add", "post");
 		$ownedAdoptForm->buildComment("<u><strong>Create A New Adoptable For a User:</strong></u>")
@@ -78,8 +78,8 @@ class ACPOwnedadoptView extends View{
 		$document->setTitle($this->lang->edit_title);
 		$document->addLangvar($this->lang->edit);
 		$genders = new LinkedHashMap;
-		$genders->put(new String("female"), new String("f"));
-	    $genders->put(new String("male"), new String("m"));
+		$genders->put(new Mystring("female"), new Mystring("f"));
+	    $genders->put(new Mystring("male"), new Mystring("m"));
 			
 		$ownedAdoptForm = new FormBuilder("editform", $mysidia->input->get("aid"), "post");
 		$ownedAdoptForm->buildComment("<u><strong>Edit User's Owned Adoptable:</strong></u>")

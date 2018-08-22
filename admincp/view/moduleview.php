@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class ACPModuleView extends View{
@@ -12,13 +12,13 @@ class ACPModuleView extends View{
 		$document = $this->document;		
 
         $fields = new LinkedHashMap;
-		$fields->put(new String("moid"), NULL);
-		$fields->put(new String("widget"), NULL);
-		$fields->put(new String("name"), NULL);
-		$fields->put(new String("order"), NULL);	
-		$fields->put(new String("status"), NULL);	
-		$fields->put(new String("moid::edit"), new String("getEditLink"));
-		$fields->put(new String("moid::delete"), new String("getDeleteLink"));	
+		$fields->put(new Mystring("moid"), NULL);
+		$fields->put(new Mystring("widget"), NULL);
+		$fields->put(new Mystring("name"), NULL);
+		$fields->put(new Mystring("order"), NULL);	
+		$fields->put(new Mystring("status"), NULL);	
+		$fields->put(new Mystring("moid::edit"), new Mystring("getEditLink"));
+		$fields->put(new Mystring("moid::delete"), new Mystring("getDeleteLink"));	
 		
 		$moduleTable = new TableBuilder("modules");
 		$moduleTable->setAlign(new Align("center", "middle"));

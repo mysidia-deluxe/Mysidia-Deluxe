@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class ACPContentView extends View{
@@ -11,10 +11,10 @@ class ACPContentView extends View{
 		$stmt = $this->getField("stmt")->get();
 		$document = $this->document;	
         $fields = new LinkedHashMap;
-		$fields->put(new String("page"), NULL);
-		$fields->put(new String("title"), NULL);		
-		$fields->put(new String("page::edit"), new String("getEditLink"));
-		$fields->put(new String("page::delete"), new String("getDeleteLink"));	
+		$fields->put(new Mystring("page"), NULL);
+		$fields->put(new Mystring("title"), NULL);		
+		$fields->put(new Mystring("page::edit"), new Mystring("getEditLink"));
+		$fields->put(new Mystring("page::delete"), new Mystring("getDeleteLink"));	
 		
         $pagesTable = new TableBuilder("ads");
 		$pagesTable->setAlign(new Align("center", "middle"));

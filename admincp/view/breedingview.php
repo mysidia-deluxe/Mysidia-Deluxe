@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class ACPBreedingView extends View{
@@ -11,13 +11,13 @@ class ACPBreedingView extends View{
 		$stmt = $this->getField("stmt")->get();		
 		$document = $this->document;		
         $fields = new LinkedHashMap;
-		$fields->put(new String("bid"), NULL);
-		$fields->put(new String("offspring"), NULL);
-		$fields->put(new String("parent"), new String("getAdopt"));
-		$fields->put(new String("mother"), new String("getAdopt"));	
-		$fields->put(new String("father"), new String("getAdopt"));			
-		$fields->put(new String("bid::edit"), new String("getEditLink"));
-		$fields->put(new String("bid::delete"), new String("getDeleteLink"));		
+		$fields->put(new Mystring("bid"), NULL);
+		$fields->put(new Mystring("offspring"), NULL);
+		$fields->put(new Mystring("parent"), new Mystring("getAdopt"));
+		$fields->put(new Mystring("mother"), new Mystring("getAdopt"));	
+		$fields->put(new Mystring("father"), new Mystring("getAdopt"));			
+		$fields->put(new Mystring("bid::edit"), new Mystring("getEditLink"));
+		$fields->put(new Mystring("bid::delete"), new Mystring("getDeleteLink"));		
 						
 		$breedAdoptTable = new TableBuilder("breedadopt");
 		$breedAdoptTable->setAlign(new Align("center", "middle"));
@@ -115,11 +115,11 @@ class ACPBreedingView extends View{
 		$document->addLangvar($this->lang->settings);
 		$settingsForm = new FormBuilder("settingsform", "settings", "post");
 		$breedingSystem = new LinkedHashMap;
-		$breedingSystem->put(new String("Enabled"), new String("enabled"));
-		$breedingSystem->put(new String("Disabled"), new String("disabled"));
+		$breedingSystem->put(new Mystring("Enabled"), new Mystring("enabled"));
+		$breedingSystem->put(new Mystring("Disabled"), new Mystring("disabled"));
 		$breedingMethod = new LinkedHashMap;
-		$breedingMethod->put(new String("Heuristic"), new String("heuristic"));
-		$breedingMethod->put(new String("Advanced"), new String("advanced"));		
+		$breedingMethod->put(new Mystring("Heuristic"), new Mystring("heuristic"));
+		$breedingMethod->put(new Mystring("Advanced"), new Mystring("advanced"));		
 
 		$settingsForm->buildComment("Breeding System Enabled:   ", FALSE)->buildRadioList("system", $breedingSystem, $breedingSettings->system)
 					 ->buildComment("Breeding Method(heuristic or advanced):   ", FALSE)->buildRadioList("method", $breedingMethod, $breedingSettings->method)

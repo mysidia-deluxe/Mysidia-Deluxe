@@ -1,6 +1,6 @@
 <?php
 
-use Resource\Native\String;
+use Resource\Native\Mystring;
 use Resource\Collection\LinkedHashMap;
 
 class ACPPromoView extends View{
@@ -15,13 +15,13 @@ class ACPPromoView extends View{
 		$promoTable->setHelper(new TableHelper);
 		
         $fields = new LinkedHashMap;
-		$fields->put(new String("pid"), NULL);
-		$fields->put(new String("type"), NULL);
-		$fields->put(new String("user"), NULL);
-		$fields->put(new String("code"), NULL);	
-		$fields->put(new String("reward"), NULL);			
-		$fields->put(new String("pid::edit"), new String("getEditLink"));
-		$fields->put(new String("pid::delete"), new String("getDeleteLink"));				
+		$fields->put(new Mystring("pid"), NULL);
+		$fields->put(new Mystring("type"), NULL);
+		$fields->put(new Mystring("user"), NULL);
+		$fields->put(new Mystring("code"), NULL);	
+		$fields->put(new Mystring("reward"), NULL);			
+		$fields->put(new Mystring("pid::edit"), new Mystring("getEditLink"));
+		$fields->put(new Mystring("pid::delete"), new Mystring("getDeleteLink"));				
 		$promoTable->buildTable($stmt, $fields);
         $document->add($promoTable);	
 	}
