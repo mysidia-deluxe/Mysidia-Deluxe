@@ -77,5 +77,33 @@ final class Daycare extends Object{
 		}
 		return $stats;
 	}
+	
+    public function joinedListing() {
+        $mysidia = Registry::get('mysidia');
+        $conditions = $this->getConditions();
+        $fetchMode = $this->getFetchMode($conditions);
+        $stmt = $mysidia->db->join('adoptables','owned_adoptables.type = adoptables.type')->join('levels', 'owned_adoptables.type = levels.adoptiename')->select("owned_adoptables", array(), $conditions.' and '.PREFIX.'owned_adoptables.currentlevel = '.PREFIX.'levels.thisislevel'.$fetchMode);
+        $this->total = $stmt->rowCount();
+        if($this->total == 0) throw new DaycareException("empty");
+        $adopts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $this->adopts = Arrays::fromArray($adopts);
+        return $this->adopts;
+    }
+
+    public function getStatsFromArray($adopt) {
+        $stats = null;
+        foreach($this->settings->info as $info)
+        {
+            $stats .= $info.': '.$adopt[strtolower($info)].'<br>';
+        }
+        return $stats;
+    }
+
+    public function getImageFromArray($adopt) {
+        if ($adopt['currentlevel'] == 0) return $adopt['eggimage'];
+        if ($adopt['usealternates'] == 'yes') return $adopt['alternateimage'];
+        if ($adopt['imageurl'] != null) return $adopt['imageurl'];
+        return $adopt['primaryimage'];
+    }  
 }
 ?> 
