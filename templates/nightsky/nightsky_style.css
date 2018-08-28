@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis');
+@import url('https://fonts.googleapis.com/css?family=Raleway:500');
 
 body {
-   background-image: url("../../templates/nightsky/images/nightlysky.jpg");
+   background-image: url("../../templates/tutorial/images/nightlysky.jpg");
    background-size: cover;
    font-family: 'Dosis', sans-serif;
 }
@@ -12,12 +13,12 @@ body {
 	margin:0 auto;
 }
 
-.item1 { grid-area: header; }
-.item2 { grid-area: menu; }
-.item3 { grid-area: main;}
-.item4 { grid-area: right; }
-.item5 { grid-area: footer; }
-.item6 { grid-area: logo; }
+.item1 { grid-area: header; padding: 0px; font-size: 15px;}
+.item2 { grid-area: menu; padding: 30px 20px; font-size: 25px;}
+.item3 { grid-area: main; padding: 30px 20px; font-size: 20px; font-family: 'Raleway', sans-serif;}
+.item4 { grid-area: right; padding: 30px 20px; font-size: 25px;}
+.item5 { grid-area: footer; padding: 30px 20px; font-size: 25px;}
+.item6 { grid-area: logo; padding: 30px 20px; font-size: 25px;}
 
 .grid-container {
   display: grid;
@@ -33,8 +34,6 @@ body {
 .grid-container > div {
   background-color: #99a8c6;
   text-align: center;
-  padding: 30px 20px;
-  font-size: 25px;
 }
 
 .button {
@@ -100,4 +99,121 @@ hr.style-seven:before { /* Not really supposed to work, but does */
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+div#forum {
+	min-width:500px;
+	overflow:hidden;
+}
+div#forum div.content {
+	min-width:500px;
+	padding:0;
+	border-style:solid;
+	border-width:1px;
+	border-color:#324870;
+	background-color:#bcc9db;
+}
+div#forum div.content ul.forum {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	width:860px;
+	overflow:hidden;
+}
+div#forum div.content ul.forum li {
+	margin:0;
+	padding:0;
+	width:860px;
+	overflow:hidden;
+}
+div#forum div.content ul.forum li.header {
+	height:35px;
+	background-color:#324870;
+}
+div#forum div.content ul.forum li.header ul {
+	min-height:35px;
+	overflow:hidden;
+}
+div#forum div.content ul.forum li.header ul li {
+	width:160px;
+	min-height:35px;
+	float:left;
+	padding:0;
+}
+div#forum div.content ul.forum li.header ul li.first {
+	width:485px;
+	float:left;
+	min-height:35px;
+	background-color:transparent;
+	padding:0 0 0 35px;
+}
+div#forum div.content ul.forum li.header ul li h1 {
+	margin:0;
+	font-size:16px;
+	height:35px;
+	line-height:35px;
+	font-weight:normal;
+}
+div#forum div.content ul.forum li.header ul li.first h1 a {
+	font-size:16px;
+	color:#412b2d;
+	height:35px;
+	line-height:35px;
+	text-decoration:none;
+}
+div#forum div.content ul.forum li.header ul li.last {
+	width:178px;
+	float:left;
+	min-height:35px;
+}
+div#forum div.content ul.forum li ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	width:860px;
+	min-height:90px;
+	overflow:hidden;
+	display:block;
+}
+div#forum div.content ul.forum li ul li.first {
+	width:520px;
+	float:left;
+	background-color:transparent;
+}
+div#forum div.content ul.forum li ul li.first h2 {
+	font-size:14px;
+	height:50px;
+	line-height:50px;
+	padding:0 0 0 50px;
+	margin:0 0 0 50px;
+}
+div#forum div.content ul.forum li ul li.first h2 a {
+	font-size:14px;
+	color:#412b2d;
+	font-weight:normal;
+	text-decoration:none;
+}
+div#forum div.content ul.forum li.odd {
+	background-color:#f6f0eb;
+}
+div#forum div.content ul.forum li ul li {
+	width:160px;
+	float:left;
+	padding:20px 0 20px 0;
+}
+div#forum div.content ul.forum li ul li label {
+	display:block;
+	font-family:Arial;
+	font-size:14px;
+	color:#836f71;
+	line-height:18px;
+}
+div#forum div.content ul.forum li ul li label span {
+	font-family:Arial;
+	font-size:14px;
+	color:#c3b299;
+}
+div#forum div.content ul.forum li ul li.last {
+	width:178px;
+	float:left;
 }

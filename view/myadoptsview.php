@@ -18,21 +18,32 @@ class MyadoptsView extends View{
 		    return;
 		}
 		
-	    $adoptTable = new TableBuilder("adopttable", 650);
-		$adoptTable->setAlign(new Align("center", "middle"));
-		$adoptTable->buildHeaders("Gender", "Name/Type", "Image", "Clicks", "Level");
+		$document->add(new Comment("
+		<table>
+			<thead>
+				<tr>
+					<th>Gender</th>
+					<th>Name</th>
+					<th>Image</th>
+					<th>Clicks</th>
+					<th>Level</th>
+				</tr>
+			</thead>
+			<tbody>"));
 		
 		while($aid = $stmt->fetchColumn()){
 		    $adopt = new OwnedAdoptable($aid);
-			$cells = new LinkedList;
-		    $cells->add(new TCell($adopt->getGender("gui")));
-			$cells->add(new TCell("<em>{$adopt->getName()}</em> the {$adopt->getType()}"));
-			$cells->add(new TCell(new Link("myadopts/manage/{$aid}", $adopt->getImage("gui"))));
-			$cells->add(new TCell($adopt->getTotalClicks()));
-			$cells->add(new TCell($adopt->getCurrentLevel()));
-			$adoptTable->buildRow($cells);
+			$document->add(new Comment("
+				<tr>
+					<td>{$adopt->getGender()}</td>
+					<td><em>{$adopt->getName()}</em> the {$adopt->getType()}</td>
+					<td><a href='myadopts/manage/{$aid}'><img src='{$adopt->getImage()}' style='width:200px; height:auto;'></a></td>
+					<td>{$adopt->getTotalClicks()}</td>
+					<td>{$adopt->getCurrentLevel()}</td>
+				</tr>"));
 		}
-		$document->add($adoptTable);
+		$document->add(new Comment("
+		</tbody></table>"));
 		$document->addLangvar($pagination->showPage());
 	}
 	
