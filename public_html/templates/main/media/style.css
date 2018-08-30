@@ -1,0 +1,143 @@
+/* Setting Up Basic Styles */
+
+body {
+background:#222;
+font-family:Verdana, Arial, Tahoma, sans-serif;
+font-size:15px;
+color:#333;
+width: 100%;
+}
+
+br {
+   display: block;
+   margin: 3px 0;
+}
+
+hr {
+   display: block;
+   margin: 3px 0;
+}
+
+#wrapper {
+width:70%;
+margin:0 auto;
+}
+
+table {
+width:100%;
+background:#fff;
+font-size:12px; 
+}
+
+/* Here's for the top most links */
+
+th {
+padding:10px;
+}
+
+/* Next is our background for the title box, just save your image to the media folder, and put it's name and type in the box. */
+
+#image {
+border-left:10px solid #fff;
+border-right:10px solid #fff;
+border-bottom:5px solid #fff;
+background:url("citylights.jpg") left no-repeat #91C7F5;
+height:150px;
+}
+
+#image span {
+position:relative;
+font-size:25px;
+padding:10px;
+font-family:Georgia, Times New Roman, serif;
+}
+
+/* Change the color of the link for your site title here */
+
+#image a{
+color:#aaa;
+text-decoration:none;
+font-style:italic;
+font-weight:bold;
+text-shadow: 0px 1px 1px #eee;
+}
+#image a:hover {
+color:#91C7F5;
+text-shadow: 0px 1px 1px #fff;
+}
+
+/* Standard table cell definitions */
+
+td {
+background:#fff;
+}
+
+/* Let's fix up your menu */
+
+#menu {
+width:25%;
+background:#fff;
+vertical-align:top;
+}
+
+#menu p{
+margin:auto 10px;
+padding:2px;
+}
+
+#menu h1 {
+font-size: 11pt;
+border-bottom: 3px solid #DDD;
+margin:2px auto 3px 10px;
+color: #000;
+text-transform:lowercase;
+}
+
+#menu a {
+margin:auto 10px;
+display: block;
+border-bottom: 1px solid #CCC;
+padding: 2px;
+padding-left: 10px;
+text-transform: uppercase;
+font-size: 7.5pt;
+letter-spacing: 1px;
+}
+		
+#menu a:hover {
+background-color: #91C7F5;
+border-bottom-color: #000;
+color: #fff;
+}
+	
+#content {
+vertical-align:top;
+font-size:12px; 
+}
+
+#footer {
+font-size:10px;
+text-align:center;
+}
+
+#content p {
+padding:3px;
+margin:auto 10px;
+}
+
+
+#content h1 {
+font-size: 16pt;
+text-transform:lowercase;
+border-bottom: 1px solid #DDD;
+margin:10px;
+color: #000;
+}
+
+a{
+text-decoration:none;
+color:#91C7F5;
+}
+a:hover {
+color:#333;
+}
