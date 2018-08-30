@@ -130,7 +130,7 @@ abstract class Controller extends Object{
      * @access public
      * @return View
      */	
-	public function loadView(string $name){
+	public function loadView(mystring $name){
 		$view = $name->capitalize()->concat("View")->getValue();
 		$this->view = new $view($this);
 	}
@@ -164,7 +164,7 @@ abstract class Controller extends Object{
      * @return String
      */
     public function __toString(){
-	    return (string)$this->name;
+	    return (mystring)$this->name;
 	}
 		
 	/**
