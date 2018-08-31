@@ -3,7 +3,7 @@
 namespace Resource\Exception;
 use Exception;
 
-class NosuchElementException extends Exception{
+class NoSuchElementException extends Exception{
 
 }
     

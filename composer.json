@@ -1,0 +1,15 @@
+{
+    "name": "mysidia-deluxe/mysidia-deluxe",
+    "description": "Mysidia Deluxe",
+    "type": "project",
+    "require": {
+        "vlucas/phpdotenv": "^2.5"
+    },
+    "autoload": {
+        "psr-0": {
+            "Resource\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "minimum-stability": "stable"
+}

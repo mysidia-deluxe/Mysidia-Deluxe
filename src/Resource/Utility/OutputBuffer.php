@@ -59,7 +59,7 @@ final class OutputBuffer extends Object{
    	/**
      * Constructor of OutputBuffer Class, it instantiates a buffer object.
 	 * @param Boolean  $output
-     * @access publc
+     * @access public
      * @return Void
      */
     public function __construct($output = FALSE){

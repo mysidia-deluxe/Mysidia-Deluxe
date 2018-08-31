@@ -1,7 +1,5 @@
 <?php
 
-require("classes/resource/native/objective.php");
-require("classes/resource/native/object.php");
 require("classes/class_controller.php");
 require("classes/class_frontcontroller.php");
 require("classes/class_initializer.php");

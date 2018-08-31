@@ -1,7 +1,7 @@
 <?php
 
 namespace Resource\Exception;
-use \Exception as Exception;
+use Exception;
 
 class IllegalArgumentException extends Exception{
 

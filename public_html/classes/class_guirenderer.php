@@ -45,6 +45,8 @@ abstract class GUIRenderer extends Object implements Rendering{
 	 * @var String
     */
 	protected $status = "ready";
+
+    protected $thematicBreak = null;
 	
 	/**
      * Constructor of GUIRenderer Class, assigns the component reference.

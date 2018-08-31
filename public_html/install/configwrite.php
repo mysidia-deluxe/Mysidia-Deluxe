@@ -22,7 +22,7 @@ die("Your config.php file is not writable.  Cannot proceed!");
 
 } 
 
-if($dbuser == "" or $dbpass == "" or $dbname == "" or $domain == "" or $prefix == ""){
+if($dbuser == "" or $dbname == "" or $domain == "" or $prefix == ""){
 die("Something required was left blank. Please go back and try again.");
 }
 
