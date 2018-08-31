@@ -104,10 +104,13 @@ final class Language extends Core implements Initializable{
      * @return Void
      */	
     private function locate($file){
+        $controller = '';
+
         $mysidia = Registry::get("mysidia");
         if($mysidia->input->get("frontcontroller") != "index"){
             $controller = "{$mysidia->input->get("frontcontroller")}/";
         }
+
         return "{$this->dir}lang/{$controller}lang_{$mysidia->input->get("appcontroller")}.php";
     }
 

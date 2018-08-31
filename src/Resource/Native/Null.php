@@ -2,6 +2,8 @@
 
 namespace Resource\Native;
 
+use Resource\Native\Primitive;
+
 /**
  * The Null Class, extending from root Object Class.
  * It defines a Null Object that does not do anything but to serve as placeholder or NulL Values.

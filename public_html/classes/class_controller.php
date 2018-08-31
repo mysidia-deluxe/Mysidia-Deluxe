@@ -1,5 +1,7 @@
 <?php
 
+require_once '../bootstrap.php';
+
 use Resource\Native\Object;
 use Resource\Native\Mystring;
 use Resource\Collection\MapEntry;
@@ -130,7 +132,7 @@ abstract class Controller extends Object{
      * @access public
      * @return View
      */	
-	public function loadView(mystring $name){
+	public function loadView(Mystring $name){
 		$view = $name->capitalize()->concat("View")->getValue();
 		$this->view = new $view($this);
 	}
@@ -163,8 +165,8 @@ abstract class Controller extends Object{
      * @access public
      * @return String
      */
-    public function __toString(){
-	    return (mystring)$this->name;
+    public function __toString() {
+	    return $this->name->__toString();
 	}
 		
 	/**
