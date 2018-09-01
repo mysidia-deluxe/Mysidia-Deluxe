@@ -94,6 +94,12 @@ final class Initializer extends Object{
      */
     private function initialize(){
         $config = "{$this->dir}inc/config.php";
+
+        if(!file_exists($config)) {
+            header('Location: /install');
+            die();
+        }
+
         require $config;
 
         include("{$this->dir}functions/functions.php");
