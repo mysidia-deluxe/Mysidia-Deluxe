@@ -1,6 +1,5 @@
 <?php
 
-class GuestNoaccessException extends Exception{
-
+class GuestNoaccessException extends Exception
+{
 }
-?>

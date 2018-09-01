@@ -4,8 +4,6 @@ namespace Resource\Exception;
 
 use Exception;
 
-class UnsupportedFileException extends Exception{
-
+class UnsupportedFileException extends Exception
+{
 }
-    
-?>

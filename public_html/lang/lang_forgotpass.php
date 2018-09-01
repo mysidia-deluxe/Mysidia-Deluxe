@@ -20,5 +20,3 @@ $lang['email_title'] = "Password Reset Email Sent";
 $lang['email'] = "We have sent you an email with detailed instruction on how to reset your password, please read it and enter the password reset code to proceed.";
 $lang['logged_title'] = "You are already logged in";
 $lang['logged'] = "You are already logged in, only guests can access this page.";
-
-?>

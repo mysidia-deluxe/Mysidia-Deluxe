@@ -1,7 +1,5 @@
 <?php
 
-class PasswordException extends Exception{
-
+class PasswordException extends Exception
+{
 }
-    
-?>

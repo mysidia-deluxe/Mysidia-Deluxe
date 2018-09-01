@@ -1,6 +1,5 @@
 <?php
 
-class TradeNotfoundException extends InvalidIDException{
-
+class TradeNotfoundException extends InvalidIDException
+{
 }
-?>

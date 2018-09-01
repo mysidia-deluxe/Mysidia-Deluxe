@@ -17,11 +17,9 @@ $lang['credits'] = "<br><b>Mysidia Adoptables Staff Team:</b>
 				    <br>Bloodrun, BMR, Pachoofoosh, Pokemontrainergigi, Teshia 
 				    <br><br><br><br>Script Copyright 2011-2013 Mysidia Adoptables
 				    <br>Redistribution Prohibited
-				    <br><a href='http://www.mysidiaadoptables.com' target='_blank'>http://www.mysidiaadoptables.com</a>";	
+				    <br><a href='http://www.mysidiaadoptables.com' target='_blank'>http://www.mysidiaadoptables.com</a>";
 $lang['login'] = "Please enter your username and password to log into admin control panel.<br><br>";
 $lang['access'] = "Login Successful, you are being redictred to the index page.";
 $lang['denied'] = "You do not have permission to access Admin Control Panel.";
 $lang['incorrect'] = "Wrong information entered, please fill in login form again.";
 $lang['blank'] = "You have not entered all of your login information yet.";
-
-?>

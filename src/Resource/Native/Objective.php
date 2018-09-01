@@ -9,7 +9,7 @@ namespace Resource\Native;
  * By Implementing Objective interface, objects of the specific class can be used in Collections Framework.
  * @category Resource
  * @package Native
- * @author Hall of Famer 
+ * @author Hall of Famer
  * @copyright Mysidia Adoptables Script
  * @link http://www.mysidiaadoptables.com
  * @since 1.3.3
@@ -17,29 +17,29 @@ namespace Resource\Native;
  *
  */
  
-interface Objective{
+interface Objective
+{
 
     /**
      * The equals method, checks whether target object is equivalent to this one.
-     * @param Objective  $object	 
+     * @param Objective  $object
      * @access public
      * @return Boolean
      */
     public function equals(Objective $object);
-	
+    
     /**
-     * The getClassName method, returns class name of an instance. 
-	 * The return value may differ depending on child classes. 
+     * The getClassName method, returns class name of an instance.
+     * The return value may differ depending on child classes.
      * @access public
      * @return String
-     */	
+     */
     public function getClassName();
-	
+    
     /**
      * Magic method to_String() for Object class, returns object information.
      * @access public
      * @return String
-     */	
-	public function __toString(); 
+     */
+    public function __toString();
 }
-?>

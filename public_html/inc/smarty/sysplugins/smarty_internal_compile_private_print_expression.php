@@ -15,7 +15,8 @@
 * @package Smarty
 * @subpackage Compiler
 */
-class Smarty_Internal_Compile_Private_Print_Expression extends Smarty_Internal_CompileBase {
+class Smarty_Internal_Compile_Private_Print_Expression extends Smarty_Internal_CompileBase
+{
 
     /**
     * Attribute definition: Overwrites base class.
@@ -90,7 +91,7 @@ class Smarty_Internal_Compile_Private_Print_Expression extends Smarty_Internal_C
                     foreach ($compiler->template->smarty->registered_filters[Smarty::FILTER_VARIABLE] as $key => $function) {
                         if (!is_array($function)) {
                             $output = "{$function}({$output},\$_smarty_tpl)";
-                        } else if (is_object($function[0])) {
+                        } elseif (is_object($function[0])) {
                             $output = "\$_smarty_tpl->smarty->registered_filters[Smarty::FILTER_VARIABLE][{$key}][0]->{$function[1]}({$output},\$_smarty_tpl)";
                         } else {
                             $output = "{$function[0]}::{$function[1]}({$output},\$_smarty_tpl)";
@@ -150,7 +151,4 @@ class Smarty_Internal_Compile_Private_Print_Expression extends Smarty_Internal_C
         }
         return "{$plugin_name}({$output},\$_smarty_tpl)";
     }
-
 }
-
-?>

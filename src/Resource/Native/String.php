@@ -1,7 +1,9 @@
 <?php
 
 namespace Resource\Native;
-use Iterator, Exception;
+
+use Iterator;
+use Exception;
 use Resource\Native\Arrays;
 use Resource\Utility\Comparable;
 use Resource\Exception\BadFunctionCallException;
@@ -23,35 +25,36 @@ use Resource\Exception\ClassCastException;
  *
  */
 
-final class String extends Object implements Iterator, Primitive{
+final class String extends Object implements Iterator, Primitive
+{
 
     /**
-	 * Alpha constant, wraps a string literal of available alphabetic chars.
+     * Alpha constant, wraps a string literal of available alphabetic chars.
     */
     const ALPHA = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-	
-	/**
-	 * Alnum constant, specifies a collection of available alphanumeric chars.
+    
+    /**
+     * Alnum constant, specifies a collection of available alphanumeric chars.
     */
     const ALNUM = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-	
-	/**
-	 * Numeric constant, contains a list of available number chars.
+    
+    /**
+     * Numeric constant, contains a list of available number chars.
     */
     const NUMERIC = '0123456789';
-	
-	/**
-	 * Space constant, defines the space char.
+    
+    /**
+     * Space constant, defines the space char.
     */
     const SPACE = ' ';
     
-	/**
+    /**
      * String's hash code.
      * @var Int
      */
-    private $hash = 0;	
-	
-	/**
+    private $hash = 0;
+    
+    /**
      * Literal string.
      * @var string
      */
@@ -80,7 +83,7 @@ final class String extends Object implements Iterator, Primitive{
      * Value can changed at run-time with the static method {@link setDefaultEncoding()}.
      * Use null for auto-detection of encoding.
      * @var string
-	 * @static
+     * @static
      */
     private static $_defaultEncoding = null;
     
@@ -121,7 +124,8 @@ final class String extends Object implements Iterator, Primitive{
      * @return mixed
      * @throws BadFunctionCallException
      */
-    public function __call($name, $args){
+    public function __call($name, $args)
+    {
         return $this->callback($name, $args);
     }
     
@@ -131,12 +135,12 @@ final class String extends Object implements Iterator, Primitive{
      * @param string $encoding string encoding (default null, auto-detection)
      * @return String
      */
-    public function __construct($string = '', $encoding = null){
+    public function __construct($string = '', $encoding = null)
+    {
         $this->_string = (string)$string;
         if ($encoding !== null) {
             $this->_encoding = strtoupper(str_replace(' ', '-', (string)$encoding));
-        } 
-		else if (self::$_defaultEncoding !== null) {
+        } elseif (self::$_defaultEncoding !== null) {
             $this->_encoding = self::$_defaultEncoding;
         }
     }
@@ -155,7 +159,8 @@ final class String extends Object implements Iterator, Primitive{
      * @return mixed
      * @throws BadMethodCallException
      */
-    public function __get($key){
+    public function __get($key)
+    {
         $key = strtolower($key);
         if ($key === 'length') {
             return $this->getLength();
@@ -175,8 +180,11 @@ final class String extends Object implements Iterator, Primitive{
      * @throws BadFunctionCallException
      * @see http://php.net/manual/en/language.pseudo-types.php#language.types.callback
      */
-    public function callback($name, array $args = array()){
-        if (!is_callable($name)) throw new BadFunctionCallException('$name is not a valid callback.');
+    public function callback($name, array $args = array())
+    {
+        if (!is_callable($name)) {
+            throw new BadFunctionCallException('$name is not a valid callback.');
+        }
         array_unshift($args, $this->_string);
         $result = call_user_func_array($name, $args);
         if (!is_string($result)) {
@@ -197,9 +205,13 @@ final class String extends Object implements Iterator, Primitive{
      * </code>
      * @return String
      */
-    public function capitalize(){
-        if(function_exists('mb_ucfirst')) $string = mb_ucfirst($this->_string, $this->getEncoding());
-		else $string = ucfirst($this->_string);
+    public function capitalize()
+    {
+        if (function_exists('mb_ucfirst')) {
+            $string = mb_ucfirst($this->_string, $this->getEncoding());
+        } else {
+            $string = ucfirst($this->_string);
+        }
         return new self($string);
     }
     
@@ -209,7 +221,8 @@ final class String extends Object implements Iterator, Primitive{
      * @param int $index character index, counting from zero.
      * @return String
      */
-    public function charAt($index){
+    public function charAt($index)
+    {
         return $this->substring($index, 1);
     }
     
@@ -223,8 +236,11 @@ final class String extends Object implements Iterator, Primitive{
      * @param int $characters upper limit of characters to use in comparison (default null)
      * @return int
      */
-    public function compareTo($string, $characters = null){
-        if ($characters === null) return strcmp($this->_string, (string)$string);
+    public function compareTo($string, $characters = null)
+    {
+        if ($characters === null) {
+            return strcmp($this->_string, (string)$string);
+        }
         return strncmp($this->_string, (string)$string, (int)$characters);
     }
     
@@ -234,8 +250,11 @@ final class String extends Object implements Iterator, Primitive{
      * @param int $characters upper limit of characters to use in comparison (default null)
      * @return int
      */
-    public function compareToIgnoreCase($string, $characters = null){
-        if ($characters === null) return strncasecmp($this->_string, (string)$string);
+    public function compareToIgnoreCase($string, $characters = null)
+    {
+        if ($characters === null) {
+            return strncasecmp($this->_string, (string)$string);
+        }
         return strncasecmp($this->_string, (string)$string, (int)$characters);
     }
     
@@ -245,7 +264,8 @@ final class String extends Object implements Iterator, Primitive{
      * @param string $string
      * @return String
      */
-    public function concat($string){
+    public function concat($string)
+    {
         return new self($this->_string.(string)$string);
     }
     
@@ -254,7 +274,8 @@ final class String extends Object implements Iterator, Primitive{
      * @param string $substr
      * @return bool true if the string contains $substr
      */
-    public function contains($substr){
+    public function contains($substr)
+    {
         return ($this->indexOf($substr) !== false);
     }
     
@@ -271,7 +292,8 @@ final class String extends Object implements Iterator, Primitive{
      * </code>
      * @return int
      */
-    public function count(){
+    public function count()
+    {
         return $this->getLength();
     }
     
@@ -279,7 +301,8 @@ final class String extends Object implements Iterator, Primitive{
      * Returns the current element.
      * @return String
      */
-    public function current(){
+    public function current()
+    {
         return $this->charAt($this->_index);
     }
     
@@ -288,7 +311,8 @@ final class String extends Object implements Iterator, Primitive{
      * @param string $substr substring
      * @return bool true if the string ends with $substr.
      */
-    public function endsWith($substr){
+    public function endsWith($substr)
+    {
         $substr = new self($substr);
         return ($this->lastIndexOf($substr) === $this->length() - $substr->length());
     }
@@ -299,7 +323,8 @@ final class String extends Object implements Iterator, Primitive{
      * @param string $string
      * @return bool true if the strings are equal
      */
-    public function equals(Objective $string){
+    public function equals(Objective $string)
+    {
         return ($this->compareTo($string->__toString()) === 0);
     }
     
@@ -308,35 +333,42 @@ final class String extends Object implements Iterator, Primitive{
      * @param string $string
      * @return bool true if the strings are equal
      */
-    public function equalsIgnoreCase($string){
+    public function equalsIgnoreCase($string)
+    {
         return ($this->compareToIgnoreCase($string) === 0);
     }
-	
+    
     /**
      * Convert a string to an array based on the delimiter provided.
      * @param string $delimiter
      * @return Arrays
      */
-    public function explode($delimiter = ","){
+    public function explode($delimiter = ",")
+    {
         $strings = explode($delimiter, $this->_string);
-		$array = new Arrays(count($strings));
-		$index = 0;
-		foreach($array as $string){
-		    $array[$index] = $string;
-			$index++;
-		}
-		return $array;
-    }	
+        $array = new Arrays(count($strings));
+        $index = 0;
+        foreach ($array as $string) {
+            $array[$index] = $string;
+            $index++;
+        }
+        return $array;
+    }
     
     /**
      * Returns String's encoding, or false in failure.
      * @return string|bool
      */
-    public function getEncoding(){
+    public function getEncoding()
+    {
         if ($this->_encoding === null) {
-            if (function_exists('mb_detect_encoding')) $this->_encoding = mb_detect_encoding($this->_string);
-			else if (function_exists('utf8_compliant') && utf8_compliant($this->_string)) $this->_encoding = 'UTF-8';
-			else $this->_encoding = false;
+            if (function_exists('mb_detect_encoding')) {
+                $this->_encoding = mb_detect_encoding($this->_string);
+            } elseif (function_exists('utf8_compliant') && utf8_compliant($this->_string)) {
+                $this->_encoding = 'UTF-8';
+            } else {
+                $this->_encoding = false;
+            }
         }
         return $this->_encoding;
     }
@@ -353,18 +385,16 @@ final class String extends Object implements Iterator, Primitive{
      * </code>
      * @return int
      */
-    public function getLength(){
+    public function getLength()
+    {
         if ($this->_length === null) {
             if (function_exists('mb_strlen')) {
                 $this->_length = (int)mb_strlen($this->_string, $this->getEncoding());
-            } 
-			else if ($this->getEncoding() === 'UTF-8' && function_exists('utf8_strlen')) {
+            } elseif ($this->getEncoding() === 'UTF-8' && function_exists('utf8_strlen')) {
                 $this->_length = (int)utf8_strlen($this->_string);
-            } 
-			else if (function_exists('iconv_strlen')) {
+            } elseif (function_exists('iconv_strlen')) {
                 $this->_length = (int)iconv_strlen($this->_string, $this->getEncoding());
-            } 
-			else {
+            } else {
                 $this->_length = (int)strlen($this->_string);
             }
         }
@@ -375,21 +405,23 @@ final class String extends Object implements Iterator, Primitive{
      * Returns the literal value of the string.
      * @return string
      */
-    public function getValue(){
+    public function getValue()
+    {
         return $this->_string;
-    }	
+    }
 
     /**
      * Generates a hash code for the string.
      * @return Int
      */
-	public function hashCode(){	    
+    public function hashCode()
+    {
         $hash = $this->hash;
         $length = $this->getLength();
         if ($hash == 0 and $length > 0) {
-		    $offset = $this->_index;
-            for($i = 0; $i < $length; $i++){
-                $hash = 31*$hash + ord($this->_string[$offset++]);             
+            $offset = $this->_index;
+            for ($i = 0; $i < $length; $i++) {
+                $hash = 31*$hash + ord($this->_string[$offset++]);
             }
             $this->hash = $hash;
         }
@@ -403,23 +435,22 @@ final class String extends Object implements Iterator, Primitive{
      * @param int $offset
      * @return int|bool
      */
-    public function indexOf($substr, $offset = 0){
+    public function indexOf($substr, $offset = 0)
+    {
         if (function_exists('mb_strpos')) {
             $pos = mb_strpos($this->_string, (string)$substr, (int)$offset, $this->getEncoding());
-        } 
-		else if ($this->getEncoding() === 'UTF-8' && function_exists('utf8_strpos')) {
+        } elseif ($this->getEncoding() === 'UTF-8' && function_exists('utf8_strpos')) {
             $pos = utf8_strpos($this->_string, (string)$substr, ($offset === 0 ? null : $offset));
-        } 
-		else if (function_exists('iconv_strpos')) {
+        } elseif (function_exists('iconv_strpos')) {
             $pos = iconv_strpos($this->_string, (string)$substr, (int)$offset, $this->getEncoding());
-        } 
-		else {
+        } else {
             $pos = strpos($this->_string, (string)$substr, (int)$offset);
         }
         return $pos;
     }
     
-    public function insert($offset, $string){
+    public function insert($offset, $string)
+    {
         return $this->splice($offset, 0, $string);
     }
     
@@ -427,7 +458,8 @@ final class String extends Object implements Iterator, Primitive{
      * Checks if the string is empty or whitespace-only.
      * @return bool true if the string is blank
      */
-    public function isBlank(){
+    public function isBlank()
+    {
         return ($this->trim()->_string === '');
     }
     
@@ -435,7 +467,8 @@ final class String extends Object implements Iterator, Primitive{
      * Checks if the string is empty.
      * @return bool true if the string is empty
      */
-    public function isEmpty(){
+    public function isEmpty()
+    {
         return ($this->_string === '');
     }
     
@@ -444,7 +477,8 @@ final class String extends Object implements Iterator, Primitive{
      * String is considered lower case if all the characters are lower case.
      * @return bool true if the string is lower case
      */
-    public function isLowerCase(){
+    public function isLowerCase()
+    {
         return $this->equals($this->toLowerCase());
     }
     
@@ -452,7 +486,8 @@ final class String extends Object implements Iterator, Primitive{
      * Checks if the string is not empty or whitespace-only.
      * @return bool true if the string is not blank
      */
-    public function isNotBlank(){
+    public function isNotBlank()
+    {
         return ($this->trim()->_string !== '');
     }
     
@@ -460,7 +495,8 @@ final class String extends Object implements Iterator, Primitive{
      * Checks if the string is not empty.
      * @return bool true if the string is not empty
      */
-    public function isNotEmpty(){
+    public function isNotEmpty()
+    {
         return ($this->_string !== '');
     }
     
@@ -468,7 +504,8 @@ final class String extends Object implements Iterator, Primitive{
      * Checks if the string is palindrome.
      * @return bool true if the string is palindrome
      */
-    public function isPalindrome(){
+    public function isPalindrome()
+    {
         return ($this->equals($this->reverse()));
     }
     
@@ -477,7 +514,8 @@ final class String extends Object implements Iterator, Primitive{
      * Unicase string is one that has no case for its letters.
      * @return bool true if the string is unicase
      */
-    public function isUnicase(){
+    public function isUnicase()
+    {
         return $this->toLowerCase()->equals($this->toUpperCase());
     }
     
@@ -486,7 +524,8 @@ final class String extends Object implements Iterator, Primitive{
      * String is considered upper case if all the characters are upper case.
      * @return bool true if the string is upper case
      */
-    public function isUpperCase(){
+    public function isUpperCase()
+    {
         return $this->equals($this->toUpperCase());
     }
     
@@ -494,7 +533,8 @@ final class String extends Object implements Iterator, Primitive{
      * Return the key of the current element.
      * @return int
      */
-    public function key(){
+    public function key()
+    {
         return $this->_index;
     }
     
@@ -505,17 +545,15 @@ final class String extends Object implements Iterator, Primitive{
      * @param int $offset
      * @return int|bool
      */
-    public function lastIndexOf($substr, $offset = 0){
+    public function lastIndexOf($substr, $offset = 0)
+    {
         if (function_exists('mb_strrpos')) {
             $pos = mb_strrpos($this->_string, (string)$substr, (int)$offset, $this->getEncoding());
-        } 
-		else if ($this->getEncoding() === 'UTF-8' && function_exists('utf8_strrpos')) {
+        } elseif ($this->getEncoding() === 'UTF-8' && function_exists('utf8_strrpos')) {
             $pos = utf8_strrpos($this->_string, (string)$substr, ($offset === 0 ? null : $offset));
-        } 
-		else if (function_exists('iconv_strrpos')) {
+        } elseif (function_exists('iconv_strrpos')) {
             $pos = iconv_strrpos($this->_string, (string)$substr, (int)$offset, $this->getEncoding());
-        } 
-		else {
+        } else {
             $pos = strrpos($this->_string, (string)$substr, (int)$offset);
         }
         return $pos;
@@ -526,26 +564,31 @@ final class String extends Object implements Iterator, Primitive{
      * @param int $length number of characters.
      * @return String
      */
-    public function left($length){
+    public function left($length)
+    {
         return $this->substring(0, $length);
     }
     
-    public function matches($pattern){
+    public function matches($pattern)
+    {
         return preg_match((string)$pattern, $this->_string);
     }
     
-    public function naturalCompareTo($string){
+    public function naturalCompareTo($string)
+    {
         return strnatcmp($this->_string, (string)$string);
     }
     
-    public function naturalCompareToIgnoreCase($string){
+    public function naturalCompareToIgnoreCase($string)
+    {
         return strnatcasecmp($this->_string, (string)$string);
     }
     
     /**
      * Move forward to next element.
      */
-    public function next(){
+    public function next()
+    {
         ++$this->_index;
     }
     
@@ -561,7 +604,8 @@ final class String extends Object implements Iterator, Primitive{
      * @param int $offset character index, counting from zero.
      * @return bool
      */
-    public function offsetExists($offset){
+    public function offsetExists($offset)
+    {
         return ($offset >= 0 && $offset < $this->length());
     }
     
@@ -578,7 +622,8 @@ final class String extends Object implements Iterator, Primitive{
      * @uses String::charAt
      * @return String
      */
-    public function offsetGet($offset){
+    public function offsetGet($offset)
+    {
         return $this->charAt($offset);
     }
     
@@ -588,7 +633,8 @@ final class String extends Object implements Iterator, Primitive{
      * @param string $value
      * @throws BadMethodCallException
      */
-    public function offsetSet($offset, $value){
+    public function offsetSet($offset, $value)
+    {
         throw new BadMethodCallException;
     }
     
@@ -598,28 +644,32 @@ final class String extends Object implements Iterator, Primitive{
      * @param string $value
      * @throws BadMethodCallException
      */
-    public function offsetUnset($offset){
+    public function offsetUnset($offset)
+    {
         throw new BadMethodCallException;
     }
     
     /**
      * Overlays part of a String with another String.
      */
-    public function overlay($string, $start, $end){
-        
+    public function overlay($string, $start, $end)
+    {
     }
     
-    public function pad($length, $padding = self::SPACE){
+    public function pad($length, $padding = self::SPACE)
+    {
         $func = (($this->getEncoding() === 'UTF-8' && function_exists('utf8_str_pad')) ? 'utf8_str_pad' : 'str_pad');
         return new self($func($this->_string, (int)$length, (string)$padding, STR_PAD_BOTH));
     }
     
-    public function padEnd($length, $padding = self::SPACE){
+    public function padEnd($length, $padding = self::SPACE)
+    {
         $func = (($this->getEncoding() === 'UTF-8' && function_exists('utf8_str_pad')) ? 'utf8_str_pad' : 'str_pad');
         return new self($func($this->_string, (int)$length, (string)$padding, STR_PAD_RIGHT));
     }
     
-    public function padStart($length, $padding = self::SPACE){
+    public function padStart($length, $padding = self::SPACE)
+    {
         $func = (($this->getEncoding() === 'UTF-8' && function_exists('utf8_str_pad')) ? 'utf8_str_pad' : 'str_pad');
         return new self($func($this->_string, (int)$length, (string)$padding, STR_PAD_LEFT));
     }
@@ -630,11 +680,13 @@ final class String extends Object implements Iterator, Primitive{
      * @param bool $regex whether $substr is a regular expression
      * @return String
      */
-    public function remove($substr){
+    public function remove($substr)
+    {
         return $this->replace($substr, '');
     }
     
-    public function removeDuplicates($substr){
+    public function removeDuplicates($substr)
+    {
         $pattern = '/('.preg_quote($substr, '/').')+/';
         return $this->replaceRegex($pattern, $substr);
     }
@@ -645,15 +697,18 @@ final class String extends Object implements Iterator, Primitive{
      * @param bool $regex whether $substr is a regular expression
      * @return String
      */
-    public function removeOnce($substr){
+    public function removeOnce($substr)
+    {
         return $this->removeRegex($substr, 1);
     }
     
-    public function removeRegex($pattern, $limit = null){
+    public function removeRegex($pattern, $limit = null)
+    {
         $this->replaceRegex($pattern, '', $limit);
     }
     
-    public function removeSpaces(){
+    public function removeSpaces()
+    {
         return $this->remove(array(" ", "\r", "\n", "\t", "\0", "\x0B"));
     }
     
@@ -664,29 +719,31 @@ final class String extends Object implements Iterator, Primitive{
      * @param String $separator
      * @return String
      */
-    public function repeat($multiplier, $separator = null){
+    public function repeat($multiplier, $separator = null)
+    {
         if ($multiplier === 0) {
             $string = '';
-        } 
-		else if ($separator === null) {
+        } elseif ($separator === null) {
             $string = str_repeat($this->_string, $multiplier);
-        } 
-		else {
+        } else {
             $string = str_repeat($this->_string.(string)$separator, $multiplier - 1) . $this->_string;
         }
         return new self($string);
     }
     
-    public function replace($search, $replace){
+    public function replace($search, $replace)
+    {
         $string = str_replace($search, $replace, $this->_string);
         return new self($string);
     }
     
-    public function replaceOnce($search, $replace){
-     	return $this->replaceRegex($search, $replace, 1);
+    public function replaceOnce($search, $replace)
+    {
+        return $this->replaceRegex($search, $replace, 1);
     }
     
-    public function replaceRegex($search, $replace, $limit = null){
+    public function replaceRegex($search, $replace, $limit = null)
+    {
         $limit = (($limit === null) ? -1 : (int)$limit);
         $string = preg_replace($search, $replace, $this->_string, $limit);
         return new self($string);
@@ -696,11 +753,11 @@ final class String extends Object implements Iterator, Primitive{
      * Revereses a string.
      * @return String
      */
-    public function reverse(){
+    public function reverse()
+    {
         if ($this->getEncoding() === 'UTF-8' && function_exists('utf8_strrev')) {
             $string = utf8_strrev($this->_string);
-        } 
-		else {
+        } else {
             $string = strrev($this->_string);
         }
         return new self($string);
@@ -709,7 +766,8 @@ final class String extends Object implements Iterator, Primitive{
     /**
      * Rewind the Iterator to the first element.
      */
-    public function rewind(){
+    public function rewind()
+    {
         $this->_index = 0;
     }
     
@@ -718,7 +776,8 @@ final class String extends Object implements Iterator, Primitive{
      * @param int $length number of characters.
      * @return String
      */
-    public function right($length){
+    public function right($length)
+    {
         return $this->substring(-$length);
     }
     
@@ -727,7 +786,8 @@ final class String extends Object implements Iterator, Primitive{
      * One permutation of all possible is created.
      * @return String
      */
-    public function shuffle(){
+    public function shuffle()
+    {
         return new self(str_shuffle($this->_string));
     }
     
@@ -741,7 +801,8 @@ final class String extends Object implements Iterator, Primitive{
      * prints 'The quick brown fox jumped over the lazy dog.'
      * @return String
      */
-    public function splice($offset, $length = null, $replacement = ''){
+    public function splice($offset, $length = null, $replacement = '')
+    {
         $count = $this->length();
         
         // Offset handling (negative values measure from end of string)
@@ -752,23 +813,25 @@ final class String extends Object implements Iterator, Primitive{
         // Length handling (positive values measure from $offset; negative, from end of string; omitted = end of string)
         if ($length === null) {
             $length = $count;
-        } 
-		else if ($length < 0) {
+        } elseif ($length < 0) {
             $length += $count - $offset;
         }
 
-        return new self($this->substring(0, $offset) .
+        return new self(
+            $this->substring(0, $offset) .
                         (string)$replacement .
                         $this->substring($offset + $length)
                         );
     }
     
-    public function split($delimiter){
+    public function split($delimiter)
+    {
         $array = explode($delimiter, $this->_string);
         return $array;
     }
     
-    public function splitRegex($pattern){
+    public function splitRegex($pattern)
+    {
         $array = preg_split($pattern, $this->_string);
         return $array;
     }
@@ -779,7 +842,8 @@ final class String extends Object implements Iterator, Primitive{
      * It will also convert all spaces to white-spaces.
      * @return String
      */
-    public function squeeze(){
+    public function squeeze()
+    {
         return $this
                ->replace(array("\r\n", "\r", "\n", "\t", "\0", "\x0B"), ' ')
                ->removeDuplicates(' ')
@@ -792,7 +856,8 @@ final class String extends Object implements Iterator, Primitive{
      * @param string $substr substring
      * @return bool true if the string starts with $substr.
      */
-    public function startsWith($substr){
+    public function startsWith($substr)
+    {
         return ($this->indexOf($substr) === 0);
     }
     
@@ -802,17 +867,15 @@ final class String extends Object implements Iterator, Primitive{
      * @param int $length
      * @return String
      */
-    public function substring($start, $length = null){
+    public function substring($start, $length = null)
+    {
         if (function_exists('mb_substr')) {
             $string = mb_substr($this->_string, $start, $length, $this->getEncoding());
-        } 
-		else if ($this->getEncoding() === 'UTF-8' && function_exists('utf8_substr')) {
+        } elseif ($this->getEncoding() === 'UTF-8' && function_exists('utf8_substr')) {
             $string = utf8_substr($this->_string, $start, $length);
-        } 
-		else if (function_exists('iconv_substr')) {
+        } elseif (function_exists('iconv_substr')) {
             $string = iconv_substr($this->_string, $start, $length, $this->getEncoding());
-        } 
-		else {
+        } else {
             $string = substr($this->_string, $start, $length);
         }
         return new self($string);
@@ -825,7 +888,8 @@ final class String extends Object implements Iterator, Primitive{
      * @param bool $inclusive whether to return the seperator (default false)
      * @return String
      */
-    public function substringAfterFirst($separator, $inclusive = false){
+    public function substringAfterFirst($separator, $inclusive = false)
+    {
         $incString = strstr($this->_string, $separator);
         if ($incString === false) {
             return null;
@@ -836,7 +900,6 @@ final class String extends Object implements Iterator, Primitive{
             return $string;
         }
         return $string->substring(1);
-        
     }
     
     /**
@@ -846,7 +909,8 @@ final class String extends Object implements Iterator, Primitive{
      * @param bool $inclusive whether to return the seperator (default false)
      * @return String
      */
-    public function substringAfterLast($separator, $inclusive = false){
+    public function substringAfterLast($separator, $inclusive = false)
+    {
         $incString = strrchr($this->_string, $separator);
         if ($incString === false) {
             return null;
@@ -866,7 +930,8 @@ final class String extends Object implements Iterator, Primitive{
      * @param bool $inclusive whether to return the seperator (default false)
      * @return String
      */
-    public function substringBeforeFirst($separator, $inclusive = false){
+    public function substringBeforeFirst($separator, $inclusive = false)
+    {
         if (version_compare(PHP_VERSION, '5.3.0') < 0) {
             $pos = $this->indexOf($separator);
             if ($pos === false) {
@@ -897,10 +962,11 @@ final class String extends Object implements Iterator, Primitive{
      * @param bool $inclusive whether to return the seperator (default false)
      * @return String
      */
-    public function substringBeforeLast($separator, $inclusive = false){
+    public function substringBeforeLast($separator, $inclusive = false)
+    {
         $pos = $this->lastIndexOf($separator);
         if ($pos === false) {
-                return null;
+            return null;
         }
         if ($inclusive) {
             ++$pos;
@@ -916,14 +982,14 @@ final class String extends Object implements Iterator, Primitive{
      * @param String $right right delimiter
      * @return String
      */
-    public function substringBetween($left, $right = null){
+    public function substringBetween($left, $right = null)
+    {
         if ($left === null && $right === null) {
             return null;
         }
         if ($left === null) {
             $left  = $right;
-        } 
-		else if ($right === null) {
+        } elseif ($right === null) {
             $right = $left;
         }
         
@@ -952,12 +1018,13 @@ final class String extends Object implements Iterator, Primitive{
      * @param string $substr
      * @return int
      */
-    public function substringCount($substr){
+    public function substringCount($substr)
+    {
         return substr_count($this->_string, (string)$substr);
     }
     
-    public function substringReplace($start, $length, $replacement = ''){
-        
+    public function substringReplace($start, $length, $replacement = '')
+    {
     }
     
     /**
@@ -967,7 +1034,8 @@ final class String extends Object implements Iterator, Primitive{
      * @param String $substr2
      * @return array
      */
-    public function substringsBetween($substr1, $substr2 = null){
+    public function substringsBetween($substr1, $substr2 = null)
+    {
         return null;
     }
     
@@ -975,15 +1043,17 @@ final class String extends Object implements Iterator, Primitive{
      * Converts uppercase characters lowercase and vice versa.
      * @return String
      */
-    public function swapCase(){
+    public function swapCase()
+    {
         $string = '';
         $length = $this->length();
         for ($i = 0; $i < $length; $i++) {
             $char = $this->charAt($i);
             if ($char->isLowerCase()) {
                 $string .= $char->toUpperCase();
-            } 
-			else $string .= $char->toLowerCase();
+            } else {
+                $string .= $char->toLowerCase();
+            }
         }
         return new self($string);
     }
@@ -993,7 +1063,8 @@ final class String extends Object implements Iterator, Primitive{
      * Each element in the array contains one character.
      * @return array
      */
-    public function toArray(){
+    public function toArray()
+    {
         if ($this->getEncoding() === 'UTF-8' && function_exists('utf8_str_split')) {
             return utf8_str_split($this->_string, 1);
         }
@@ -1004,9 +1075,10 @@ final class String extends Object implements Iterator, Primitive{
      * Returns JSON representation of the string.
      * @return string
      */
-     public function toJson(){
+    public function toJson()
+    {
         return json_encode($this->_string);
-     }
+    }
     
     /**
      * Converts a string to lower case.
@@ -1019,24 +1091,24 @@ final class String extends Object implements Iterator, Primitive{
      * </code>
      * @return String
      */
-    public function toLowerCase(){
+    public function toLowerCase()
+    {
         if (function_exists('mb_strtolower')) {
             $string = mb_strtolower($this->_string, $this->getEncoding());
-        } 
-		else if ($this->getEncoding() === 'UTF-8' && function_exists('utf8_strtolower')) {
+        } elseif ($this->getEncoding() === 'UTF-8' && function_exists('utf8_strtolower')) {
             $string = utf8_strtolower($this->_string);
-        } 
-		else {
+        } else {
             $string = strtolower($this->_string);
         }
         return new self($string);
     }
-	
+    
     /**
      * Returns the literal value of the string.
      * @return string
      */
-    public function toString(){
+    public function toString()
+    {
         return $this->_string;
     }
     
@@ -1051,14 +1123,13 @@ final class String extends Object implements Iterator, Primitive{
      * </code>
      * @return String
      */
-    public function toUpperCase(){
+    public function toUpperCase()
+    {
         if (function_exists('mb_strtoupper')) {
             $string = mb_strtoupper($this->_string, $this->getEncoding());
-        } 
-		else if ($this->getEncoding() === 'UTF-8' && function_exists('utf8_strtoupper')) {
+        } elseif ($this->getEncoding() === 'UTF-8' && function_exists('utf8_strtoupper')) {
             $string = utf8_strtoupper($this->_string);
-        } 
-		else {
+        } else {
             $string = strtoupper($this->_string);
         }
         return new self($string);
@@ -1070,11 +1141,11 @@ final class String extends Object implements Iterator, Primitive{
      * @param string $charlist characters to remove (default space characters)
      * @return String
      */
-    public function trim($charlist = null){
+    public function trim($charlist = null)
+    {
         if ($charlist !== null && $this->getEncoding() === 'UTF-8' && function_exists('utf8_trim')) {
             $string = utf8_trim($this->_string, $charlist);
-        } 
-		else {
+        } else {
             $string = trim($this->_string, $charlist);
         }
         return new self($string);
@@ -1086,11 +1157,11 @@ final class String extends Object implements Iterator, Primitive{
      * @param string $charlist characters to remove (default space characters)
      * @return String
      */
-    public function trimEnd($charlist = null){
+    public function trimEnd($charlist = null)
+    {
         if ($charlist !== null && $this->getEncoding() === 'UTF-8' && function_exists('utf8_rtrim')) {
             $string = utf8_rtrim($this->_string, $charlist);
-        } 
-		else {
+        } else {
             $string = rtrim($this->_string, $charlist);
         }
         return new self($string);
@@ -1102,11 +1173,11 @@ final class String extends Object implements Iterator, Primitive{
      * @param string $charlist characters to remove (default space characters)
      * @return String
      */
-    public function trimStart($charlist = null){
+    public function trimStart($charlist = null)
+    {
         if ($charlist !== null && $this->getEncoding() === 'UTF-8' && function_exists('utf8_ltrim')) {
             $string = utf8_ltrim($this->_string, $charlist);
-        } 
-		else {
+        } else {
             $string = ltrim($this->_string, $charlist);
         }
         return new self($string);
@@ -1124,19 +1195,17 @@ final class String extends Object implements Iterator, Primitive{
      * </code>
      * @return String
      */
-    public function uncapitalize(){
+    public function uncapitalize()
+    {
         if (function_exists('mb_lcfirst')) {
             $string = mb_lcfirst($this->_string, $this->getEncoding());
-        } 
-		else if (function_exists('mb_substr')) {
+        } elseif (function_exists('mb_substr')) {
             $encoding = $this->getEncoding();
             $string = mb_strtolower(mb_substr($this->_string, 0, 1, $encoding), $encoding) .
                       mb_substr($this->_string, 1, null, $encoding);
-        } 
-		else if (function_exists('lcfirst')) {
+        } elseif (function_exists('lcfirst')) {
             $string = lcfirst($this->_string);
-        } 
-		else {
+        } else {
             $string = strtolower(substr($this->_string, 0, 1)) .
                       substr($this->_string, 1);
         }
@@ -1147,7 +1216,8 @@ final class String extends Object implements Iterator, Primitive{
      * Checks if current position is valid.
      * @return bool
      */
-    public function valid(){
+    public function valid()
+    {
         return ($this->_index >= 0 && $this->_index < $this->length());
     }
     
@@ -1155,7 +1225,8 @@ final class String extends Object implements Iterator, Primitive{
      * Returns the literal value of the string.
      * @return string
      */
-    public function valueOf(){
+    public function valueOf()
+    {
         return $this->_string;
     }
     
@@ -1165,7 +1236,8 @@ final class String extends Object implements Iterator, Primitive{
      * @access private
      * @return bool true if mbstring is available
      */
-    private static function _mbstringLoaded(){
+    private static function _mbstringLoaded()
+    {
         if (self::$_extMbstring === null) {
             self::$_extMbstring = (bool)extension_loaded('mbstring');
         }
@@ -1177,7 +1249,8 @@ final class String extends Object implements Iterator, Primitive{
      * @access private
      * @return bool true if iconv is available
      */
-    private static function _iconvLoaded(){
+    private static function _iconvLoaded()
+    {
         if (self::$_extIconv === null) {
             self::$_extIconv = (bool)extension_loaded('iconv');
         }
@@ -1189,7 +1262,8 @@ final class String extends Object implements Iterator, Primitive{
      * @access private
      * @return bool true if utf8 package is available
      */
-    private static function _utf8Loaded(){
+    private static function _utf8Loaded()
+    {
         if (self::$_extUtf8 === null) {
             self::$_extUtf8 = (bool)(defined('UTF8_CORE') && UTF8_CORE === true);
         }
@@ -1201,7 +1275,8 @@ final class String extends Object implements Iterator, Primitive{
      * Possible values: standard, mbstring, iconv, utf8.
      * @return array
      */
-    public static function getLoadedExtensions(){
+    public static function getLoadedExtensions()
+    {
         $ext = array('standard');
         if (self::_mbstringLoaded()) {
             $ext[] = 'mbstring';
@@ -1220,7 +1295,8 @@ final class String extends Object implements Iterator, Primitive{
      * Use null for auto-detection.
      * @param string $encoding encoding (default null)
      */
-    public static function setDefaultEncoding($encoding = null){
+    public static function setDefaultEncoding($encoding = null)
+    {
         if ($encoding === null) {
             self::$_defaultEncoding = null;
         } else {
@@ -1232,7 +1308,8 @@ final class String extends Object implements Iterator, Primitive{
      * Returns default encoding.
      * @return string
      */
-    public static function getDefaultEncoding(){
+    public static function getDefaultEncoding()
+    {
         return self::$_defaultEncoding;
     }
     
@@ -1244,7 +1321,8 @@ final class String extends Object implements Iterator, Primitive{
      * @return mixed
      * @throws BadFunctionCallException
      */
-    public static function callbackStatic($name, array $args){
+    public static function callbackStatic($name, array $args)
+    {
         if (empty($args)) {
             throw new BadFunctionCallException('Static callback requires at least one parameter.');
         }
@@ -1267,7 +1345,8 @@ final class String extends Object implements Iterator, Primitive{
      * @return mixed
      * @throws BadFunctionCallException
      */
-    public static function __callStatic($name, $args){
+    public static function __callStatic($name, $args)
+    {
         $name = substr($name, 1);
         return self::callbackStatic($name, $args);
     }
@@ -1283,7 +1362,8 @@ final class String extends Object implements Iterator, Primitive{
      * </code>
      * @return String
      */
-    public static function first(){
+    public static function first()
+    {
         $args = func_get_args();
         foreach ($args as $arg) {
             if (is_string($arg) || $arg instanceof self) {
@@ -1299,7 +1379,8 @@ final class String extends Object implements Iterator, Primitive{
      * @param array $args
      * @return String
      */
-    public static function format($string, array $args){
+    public static function format($string, array $args)
+    {
         return new self(vsprintf((string)$string), $args);
     }
     
@@ -1310,7 +1391,8 @@ final class String extends Object implements Iterator, Primitive{
      * @param string $charset String's charset (default alpha-numeric characters)
      * @return String
      */
-    public static function random($length, $charset = self::ALNUM){
+    public static function random($length, $charset = self::ALNUM)
+    {
         $length = (int)$length;
         $count = (int)self::getLength($charset);
         $str = '';
@@ -1333,7 +1415,8 @@ final class String extends Object implements Iterator, Primitive{
      * </code>
      * @return string
      */
-    public function __toString(){
+    public function __toString()
+    {
         return $this->_string;
     }
 }

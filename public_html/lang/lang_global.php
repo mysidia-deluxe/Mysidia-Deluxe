@@ -17,9 +17,7 @@ $lang['global_blank'] = "You appear to have left some fields blank, please go ba
 $lang['global_session_title'] = "Session expired";
 $lang['global_session'] = "The session already expired, please return to the previous page.";
 $lang['global_access_title'] =  "Cannot access file";
-$lang['global_access'] = "Direct access to this file is disallowed."; 
+$lang['global_access'] = "Direct access to this file is disallowed.";
 $lang['global_error'] = "An error has occurred.";
 $lang['global_action_complete'] = "Action Completed!";
 $lang['global_transaction_complete'] = "Transaction Completed!";
- 
-?>

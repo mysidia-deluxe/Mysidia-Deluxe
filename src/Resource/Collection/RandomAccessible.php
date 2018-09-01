@@ -8,7 +8,7 @@ namespace Resource\Collection;
  * It is a simple markup interface, no specific method needs to be defined.
  * @category Resource
  * @package Collection
- * @author Hall of Famer 
+ * @author Hall of Famer
  * @copyright Mysidia Adoptables Script
  * @link http://www.mysidiaadoptables.com
  * @since 1.3.4
@@ -16,7 +16,6 @@ namespace Resource\Collection;
  *
  */
 
-interface RandomAccessible{
-
+interface RandomAccessible
+{
 }
-?>

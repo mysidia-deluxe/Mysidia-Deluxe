@@ -30,8 +30,8 @@
 
 class HTMLPurifier_Strategy_FixNesting extends HTMLPurifier_Strategy
 {
-
-    public function execute($tokens, $config, $context) {
+    public function execute($tokens, $config, $context)
+    {
         //####################################################################//
         // Pre-processing
 
@@ -77,7 +77,7 @@ class HTMLPurifier_Strategy_FixNesting extends HTMLPurifier_Strategy
 
         // iterate through all start nodes. Determining the start node
         // is complicated so it has been omitted from the loop construct
-        for ($i = 0, $size = count($tokens) ; $i < $size; ) {
+        for ($i = 0, $size = count($tokens) ; $i < $size;) {
 
             //################################################################//
             // Gather information on children
@@ -92,12 +92,16 @@ class HTMLPurifier_Strategy_FixNesting extends HTMLPurifier_Strategy
                     $depth++;
                     // skip token assignment on first iteration, this is the
                     // token we currently are on
-                    if ($depth == 1) continue;
+                    if ($depth == 1) {
+                        continue;
+                    }
                 } elseif ($tokens[$j] instanceof HTMLPurifier_Token_End) {
                     $depth--;
                     // skip token assignment on last iteration, this is the
                     // end token of the token we're currently on
-                    if ($depth == 0) break;
+                    if ($depth == 0) {
+                        break;
+                    }
                 }
                 $child_tokens[] = $tokens[$j];
             }
@@ -171,13 +175,15 @@ class HTMLPurifier_Strategy_FixNesting extends HTMLPurifier_Strategy
                     $def = $definition->info_parent_def;
                 } else {
                     $def = $definition->info[$tokens[$i]->name];
-
                 }
 
                 if (!empty($def->child)) {
                     // have DTD child def validate children
                     $result = $def->child->validateChildren(
-                        $child_tokens, $config, $context);
+                        $child_tokens,
+                        $config,
+                        $context
+                    );
                 } else {
                     // weird, no child definition, get rid of everything
                     $result = false;
@@ -199,12 +205,13 @@ class HTMLPurifier_Strategy_FixNesting extends HTMLPurifier_Strategy
                 $stack[] = $i;
 
                 // register exclusions if there are any
-                if (!empty($excludes)) $exclude_stack[] = $excludes;
+                if (!empty($excludes)) {
+                    $exclude_stack[] = $excludes;
+                }
 
                 // move cursor to next possible start node
                 $i++;
-
-            } elseif($result === false) {
+            } elseif ($result === false) {
                 // remove entire node
 
                 if ($e) {
@@ -242,7 +249,6 @@ class HTMLPurifier_Strategy_FixNesting extends HTMLPurifier_Strategy
 
                 // PROJECTED OPTIMIZATION: Process all children elements before
                 // reprocessing parent node.
-
             } else {
                 // replace node with $result
 
@@ -268,11 +274,12 @@ class HTMLPurifier_Strategy_FixNesting extends HTMLPurifier_Strategy
                 $stack[] = $i;
 
                 // register exclusions if there are any
-                if (!empty($excludes)) $exclude_stack[] = $excludes;
+                if (!empty($excludes)) {
+                    $exclude_stack[] = $excludes;
+                }
 
                 // move cursor to next possible start node
                 $i++;
-
             }
 
             //################################################################//
@@ -302,7 +309,6 @@ class HTMLPurifier_Strategy_FixNesting extends HTMLPurifier_Strategy
                 }
                 $i++;
             }
-
         }
 
         //####################################################################//
@@ -320,9 +326,7 @@ class HTMLPurifier_Strategy_FixNesting extends HTMLPurifier_Strategy
         // Return
 
         return $tokens;
-
     }
-
 }
 
 // vim: et sw=4 sts=4

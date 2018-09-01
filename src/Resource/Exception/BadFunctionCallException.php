@@ -2,8 +2,6 @@
 
 namespace Resource\Exception;
 
-class BadFunctionCallException extends LogicException{
-
+class BadFunctionCallException extends LogicException
+{
 }
-    
-?>

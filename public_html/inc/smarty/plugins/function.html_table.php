@@ -63,7 +63,7 @@ function smarty_function_html_table($params, $template)
     $loop = null;
 
     if (!isset($params['loop'])) {
-        trigger_error("html_table: missing 'loop' parameter",E_USER_WARNING);
+        trigger_error("html_table: missing 'loop' parameter", E_USER_WARNING);
         return;
     }
 
@@ -173,5 +173,3 @@ function smarty_function_html_table_cycle($name, $var, $no)
 
     return ($ret) ? ' ' . $ret : '';
 }
-
-?>

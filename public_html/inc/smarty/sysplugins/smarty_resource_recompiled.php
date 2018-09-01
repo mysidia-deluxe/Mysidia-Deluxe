@@ -15,7 +15,8 @@
  * @package Smarty
  * @subpackage TemplateResources
  */
-abstract class Smarty_Resource_Recompiled extends Smarty_Resource {
+abstract class Smarty_Resource_Recompiled extends Smarty_Resource
+{
 
     /**
      * populate Compiled Object with compiled filepath
@@ -30,7 +31,4 @@ abstract class Smarty_Resource_Recompiled extends Smarty_Resource {
         $compiled->timestamp = false;
         $compiled->exists = false;
     }
-
 }
-
-?>

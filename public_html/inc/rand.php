@@ -5,9 +5,8 @@
 
 function assign_rand_value($num)
 {
-// accepts 1 - 36
-  switch($num)
-  {
+    // accepts 1 - 36
+    switch ($num) {
     case "1":
      $rand_value = "a";
     break;
@@ -117,22 +116,18 @@ function assign_rand_value($num)
      $rand_value = "9";
     break;
   }
-return $rand_value;
+    return $rand_value;
 }
 
 function get_rand_id($length)
 {
-  if($length>0) 
-  { 
-  $rand_id="";
-   for($i=1; $i<=$length; $i++)
-   {
-   mt_srand((double)microtime() * 1000000);
-   $num = mt_rand(1,36);
-   $rand_id .= assign_rand_value($num);
-   }
-  }
-return $rand_id;
-} 
-
-?>
+    if ($length>0) {
+        $rand_id="";
+        for ($i=1; $i<=$length; $i++) {
+            mt_srand((double)microtime() * 1000000);
+            $num = mt_rand(1, 36);
+            $rand_id .= assign_rand_value($num);
+        }
+    }
+    return $rand_id;
+}

@@ -4,8 +4,6 @@ namespace Resource\Exception;
 
 use Exception;
 
-class InvalidIDException extends Exception{
-
+class InvalidIDException extends Exception
+{
 }
-    
-?>

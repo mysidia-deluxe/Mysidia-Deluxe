@@ -6,7 +6,6 @@
  */
 class HTMLPurifier_CSSDefinition extends HTMLPurifier_Definition
 {
-
     public $type = 'CSS';
 
     /**
@@ -17,10 +16,12 @@ class HTMLPurifier_CSSDefinition extends HTMLPurifier_Definition
     /**
      * Constructs the info array.  The meat of this class.
      */
-    protected function doSetup($config) {
-
+    protected function doSetup($config)
+    {
         $this->info['text-align'] = new HTMLPurifier_AttrDef_Enum(
-            array('left', 'right', 'center', 'justify'), false);
+            array('left', 'right', 'center', 'justify'),
+            false
+        );
 
         $border_style =
         $this->info['border-bottom-style'] =
@@ -28,18 +29,28 @@ class HTMLPurifier_CSSDefinition extends HTMLPurifier_Definition
         $this->info['border-left-style'] =
         $this->info['border-top-style'] =  new HTMLPurifier_AttrDef_Enum(
             array('none', 'hidden', 'dotted', 'dashed', 'solid', 'double',
-            'groove', 'ridge', 'inset', 'outset'), false);
+            'groove', 'ridge', 'inset', 'outset'),
+            false
+        );
 
         $this->info['border-style'] = new HTMLPurifier_AttrDef_CSS_Multiple($border_style);
 
         $this->info['clear'] = new HTMLPurifier_AttrDef_Enum(
-            array('none', 'left', 'right', 'both'), false);
+            array('none', 'left', 'right', 'both'),
+            false
+        );
         $this->info['float'] = new HTMLPurifier_AttrDef_Enum(
-            array('none', 'left', 'right'), false);
+            array('none', 'left', 'right'),
+            false
+        );
         $this->info['font-style'] = new HTMLPurifier_AttrDef_Enum(
-            array('normal', 'italic', 'oblique'), false);
+            array('normal', 'italic', 'oblique'),
+            false
+        );
         $this->info['font-variant'] = new HTMLPurifier_AttrDef_Enum(
-            array('normal', 'small-caps'), false);
+            array('normal', 'small-caps'),
+            false
+        );
 
         $uri_or_none = new HTMLPurifier_AttrDef_CSS_Composite(
             array(
@@ -49,16 +60,22 @@ class HTMLPurifier_CSSDefinition extends HTMLPurifier_Definition
         );
 
         $this->info['list-style-position'] = new HTMLPurifier_AttrDef_Enum(
-            array('inside', 'outside'), false);
+            array('inside', 'outside'),
+            false
+        );
         $this->info['list-style-type'] = new HTMLPurifier_AttrDef_Enum(
             array('disc', 'circle', 'square', 'decimal', 'lower-roman',
-            'upper-roman', 'lower-alpha', 'upper-alpha', 'none'), false);
+            'upper-roman', 'lower-alpha', 'upper-alpha', 'none'),
+            false
+        );
         $this->info['list-style-image'] = $uri_or_none;
 
         $this->info['list-style'] = new HTMLPurifier_AttrDef_CSS_ListStyle($config);
 
         $this->info['text-transform'] = new HTMLPurifier_AttrDef_Enum(
-            array('capitalize', 'uppercase', 'lowercase', 'none'), false);
+            array('capitalize', 'uppercase', 'lowercase', 'none'),
+            false
+        );
         $this->info['color'] = new HTMLPurifier_AttrDef_CSS_Color();
 
         $this->info['background-image'] = $uri_or_none;
@@ -160,7 +177,8 @@ class HTMLPurifier_CSSDefinition extends HTMLPurifier_Definition
         $this->info['height'] =
             $max === null ?
             $trusted_wh :
-            new HTMLPurifier_AttrDef_Switch('img',
+            new HTMLPurifier_AttrDef_Switch(
+                'img',
                 // For img tags:
                 new HTMLPurifier_AttrDef_CSS_Composite(array(
                     new HTMLPurifier_AttrDef_CSS_Length('0', $max),
@@ -177,7 +195,9 @@ class HTMLPurifier_CSSDefinition extends HTMLPurifier_Definition
         // this could use specialized code
         $this->info['font-weight'] = new HTMLPurifier_AttrDef_Enum(
             array('normal', 'bold', 'bolder', 'lighter', '100', '200', '300',
-            '400', '500', '600', '700', '800', '900'), false);
+            '400', '500', '600', '700', '800', '900'),
+            false
+        );
 
         // MUST be called after other font properties, as it references
         // a CSSDefinition object
@@ -228,7 +248,8 @@ class HTMLPurifier_CSSDefinition extends HTMLPurifier_Definition
         $this->setupConfigStuff($config);
     }
 
-    protected function doSetupProprietary($config) {
+    protected function doSetupProprietary($config)
+    {
         // Internet Explorer only scrollbar colors
         $this->info['scrollbar-arrow-color']        = new HTMLPurifier_AttrDef_CSS_Color();
         $this->info['scrollbar-base-color']         = new HTMLPurifier_AttrDef_CSS_Color();
@@ -244,10 +265,10 @@ class HTMLPurifier_CSSDefinition extends HTMLPurifier_Definition
 
         // only opacity, for now
         $this->info['filter'] = new HTMLPurifier_AttrDef_CSS_Filter();
-
     }
 
-    protected function doSetupTricky($config) {
+    protected function doSetupTricky($config)
+    {
         $this->info['display'] = new HTMLPurifier_AttrDef_Enum(array(
             'inline', 'block', 'list-item', 'run-in', 'compact',
             'marker', 'table', 'inline-table', 'table-row-group',
@@ -267,7 +288,8 @@ class HTMLPurifier_CSSDefinition extends HTMLPurifier_Definition
      * @todo Refactor duplicate elements into common class (probably using
      *       composition, not inheritance).
      */
-    protected function setupConfigStuff($config) {
+    protected function setupConfigStuff($config)
+    {
 
         // setup allowed elements
         $support = "(for information on implementing this, see the ".
@@ -275,7 +297,9 @@ class HTMLPurifier_CSSDefinition extends HTMLPurifier_Definition
         $allowed_properties = $config->get('CSS.AllowedProperties');
         if ($allowed_properties !== null) {
             foreach ($this->info as $name => $d) {
-                if(!isset($allowed_properties[$name])) unset($this->info[$name]);
+                if (!isset($allowed_properties[$name])) {
+                    unset($this->info[$name]);
+                }
                 unset($allowed_properties[$name]);
             }
             // emit errors
@@ -294,7 +318,6 @@ class HTMLPurifier_CSSDefinition extends HTMLPurifier_Definition
                 }
             }
         }
-
     }
 }
 

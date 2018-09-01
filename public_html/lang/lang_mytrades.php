@@ -5,7 +5,7 @@
 $lang['title'] = "'s Trade Requests";
 $lang['default'] = "This page shows your trade requests from other users.  You may review the trade requests and accept or decline available trade requests below.
                     You may click on adoptable listed below to pull up more detailed information about it.<br><br>";
-$lang['warning'] = " Trades are not reversible except by the site admin.  Assume that all accepted trades are final.<br><br>";				
+$lang['warning'] = " Trades are not reversible except by the site admin.  Assume that all accepted trades are final.<br><br>";
 $lang['empty'] = "You currently do not have any trade requests.";
 $lang['accept_title'] = "Confirm Trade";
 $lang['accept'] = "If you confirm this trade there is a chance that it will not be executed. <br> 
@@ -25,7 +25,7 @@ $lang['decline_title'] = "Decline Trade";
 $lang['decline'] = "Are you sure you wish to decline this trade offer? Once confirmed, this action cannot be reversed.<br>";
 $lang['decline_none'] = "It appears that you have yet to select a trade offer to decline.";
 $lang['declined_title'] = "Trade Declined Successfully";
-$lang['declined'] = "This trade has been marked as declined successfully.<br><br>";	
+$lang['declined'] = "This trade has been marked as declined successfully.<br><br>";
 
 $lang['disabled_title'] = "Trading Not Enabled";
 $lang['disabled'] = "Trading is either not enabled or not currently available for this site.";
@@ -34,7 +34,7 @@ $lang['banned'] = "It appears that an admin has banned your right to trade on th
 $lang['recipient_empty'] = "The trade does not seem to have a recipient.";
 $lang['recipient_privacy'] = "It appears that the recipient has trade privacy setting that restricts his/her trade options to friends only.<br> 
                               In order to complete a trade offer with this user, you will need to become friends first.";
-$lang['offers'] = "A trade offer is invalid if its sender offers nothing to the recipient, please include at least an adoptable, an item or some cash to continue.";							  
+$lang['offers'] = "A trade offer is invalid if its sender offers nothing to the recipient, please include at least an adoptable, an item or some cash to continue.";
 $lang['wanted'] = "A trade offer is invalid if its sender requests nothing in return, please include at least an adoptable or an item to continue.";
 $lang['adoptoffered'] = "The adoptables offered are invalid, they may not belong to the trade sender or may not even exist in the database at all.";
 $lang['adoptwanted'] = "The adoptables requested are invalid, they may not belong to the trade recipient or may not even exist in the database at all.";
@@ -50,6 +50,4 @@ $lang['usergroup'] = "It seems that you belong to the usergroup(s) that are disa
 $lang['item'] = "It appears that this trade offer involves un-tradable items, please remove them to proceed.";
 $lang['error'] = "Trade Error";
 $lang['invalid_title'] = "Invalid Trade";
-$lang['invalid'] = "We couldn't find this trade in the database.  Sorry.";	
-
-?>
+$lang['invalid'] = "We couldn't find this trade in the database.  Sorry.";

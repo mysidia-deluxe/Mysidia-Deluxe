@@ -14,6 +14,3 @@ $lang['question'] = "It seems that you did not answer the security question corr
 $lang['success_title'] = "Registration Successful";
 $lang['success'] = "Hey there ";
 $lang['success2'] = ".  Your account has been created and you have automatically been logged in.  You can now <a href='adopt'>Adopt Some Pets</a> or <a href='account'>Manage Your Account</a>.";
-
-
-?>

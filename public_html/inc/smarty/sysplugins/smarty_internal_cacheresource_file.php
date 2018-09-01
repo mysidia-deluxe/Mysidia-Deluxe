@@ -16,7 +16,8 @@
  * @package Smarty
  * @subpackage Cacher
  */
-class Smarty_Internal_CacheResource_File extends Smarty_CacheResource {
+class Smarty_Internal_CacheResource_File extends Smarty_CacheResource
+{
 
     /**
      * populate Cached Object with meta data from Resource
@@ -178,7 +179,9 @@ class Smarty_Internal_CacheResource_File extends Smarty_CacheResource {
             $_cacheDirs = new RecursiveDirectoryIterator($_dir);
             $_cache = new RecursiveIteratorIterator($_cacheDirs, RecursiveIteratorIterator::CHILD_FIRST);
             foreach ($_cache as $_file) {
-                if (substr(basename($_file->getPathname()),0,1) == '.' || strpos($_file, '.svn') !== false) continue;
+                if (substr(basename($_file->getPathname()), 0, 1) == '.' || strpos($_file, '.svn') !== false) {
+                    continue;
+                }
                 // directory ?
                 if ($_file->isDir()) {
                     if (!$_cache->isDot()) {
@@ -206,7 +209,9 @@ class Smarty_Internal_CacheResource_File extends Smarty_CacheResource {
                             continue;
                         }
                         for ($i = 0; $i < $_cache_id_parts_count; $i++) {
-                            if ($_parts[$i] != $_cache_id_parts[$i]) continue 2;
+                            if ($_parts[$i] != $_cache_id_parts[$i]) {
+                                continue 2;
+                            }
                         }
                     }
                     // expired ?
@@ -262,5 +267,3 @@ class Smarty_Internal_CacheResource_File extends Smarty_CacheResource {
         @unlink($cached->lock_id);
     }
 }
-
-?>

@@ -1,6 +1,5 @@
 <?php
 
-class TradeInvalidException extends InvalidActionException{
-
+class TradeInvalidException extends InvalidActionException
+{
 }
-?>

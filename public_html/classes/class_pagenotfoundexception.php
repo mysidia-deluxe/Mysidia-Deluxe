@@ -1,6 +1,5 @@
 <?php
 
-class PageNotFoundException extends Exception{
-
+class PageNotFoundException extends Exception
+{
 }
-?>

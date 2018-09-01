@@ -12,7 +12,7 @@ $lang['default'] = "This page allows you to manage the usergroups available to y
 $lang['add_title'] = "Make a New Usergroup";
 $lang['add'] = "This page allows you to make a new usergroup.  Type in the desired name of the new usergroup in the box below to get started.
 				Your usergroup will be created based on the registered usergroup's template. 
-				You can then edit the group's settings as desired.<br />";			
+				You can then edit the group's settings as desired.<br />";
 $lang['added_title'] = "Group Created Successfully";
 $lang['added'] = "A usergroup with the name {$mysidia->input->post("group")} has been created successfully. 
 				  Please <a href='edit'>click here</a> to return to the group manager and edit this group";
@@ -21,7 +21,7 @@ $lang['edit'] = "Here you can edit the settings for the usergroup {$mysidia->inp
 				 specify what parts of your site members of this group may access.  A checked value is a YES value.<br />";
 $lang['edited_title'] = "Usergroup Permissions Updated";
 $lang['edited'] = "Your usergroup permissions have been updated successfully. 
-									<a href='../edit'>Click Here</a> to return to the usergroup manager.";	
+									<a href='../edit'>Click Here</a> to return to the usergroup manager.";
 $lang['delete_title'] = "Usergroup Deleted";
 $lang['delete'] = "The usergroup has been deleted successfully.";
 $lang['canadopt'] = " Users May Adopt Pets";
@@ -37,7 +37,5 @@ $lang['notice'] = "<img src='../../../templates/icons/warning.gif'> <b>WARNING:<
 				   you trust as all images uploaded to your server count towards your web host's total storage quota for your account.<br>";
 $lang['warning'] = "<br><img src='../../../templates/icons/warning.gif'><b>WARNING:</b> Allowing users to access the user accounts portion of the 
 					Admin CP may allow them to delete admin accounts, 
-				    so only give this privledge to users you trust."; 
+				    so only give this privledge to users you trust.";
 $lang['duplicate'] = "The usergroup already exists.";
-
-?>

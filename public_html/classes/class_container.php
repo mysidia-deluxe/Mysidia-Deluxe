@@ -1,8 +1,8 @@
 <?php
 
-interface Container{
-  // The interface Container, must be implemented for contain type classes
+interface Container
+{
+    // The interface Container, must be implemented for contain type classes
   
-  public function display();  
-} 
-?>
+    public function display();
+}

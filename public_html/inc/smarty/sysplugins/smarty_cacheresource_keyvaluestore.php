@@ -31,7 +31,8 @@
  * @subpackage Cacher
  * @author Rodney Rehm
  */
-abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource {
+abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource
+{
 
     /**
      * cache for contents
@@ -283,15 +284,15 @@ abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource {
             $key = 'IVK#ALL';
         }
         // invalidate all caches by template
-        else if ($resource_name && !$cache_id && !$compile_id) {
+        elseif ($resource_name && !$cache_id && !$compile_id) {
             $key = 'IVK#TEMPLATE#' . $resource_uid . '#' . $this->sanitize($resource_name);
         }
         // invalidate all caches by cache group
-        else if (!$resource_name && $cache_id && !$compile_id) {
+        elseif (!$resource_name && $cache_id && !$compile_id) {
             $key = 'IVK#CACHE#' . $this->sanitize($cache_id);
         }
         // invalidate all caches by compile id
-        else if (!$resource_name && !$cache_id && $compile_id) {
+        elseif (!$resource_name && !$cache_id && $compile_id) {
             $key = 'IVK#COMPILE#' . $this->sanitize($compile_id);
         }
         // invalidate by combination
@@ -429,7 +430,7 @@ abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource {
      * @param array $keys list of keys to fetch
      * @return array list of values with the given keys used as indexes
      */
-    protected abstract function read(array $keys);
+    abstract protected function read(array $keys);
 
     /**
      * Save values for a set of keys to cache
@@ -438,7 +439,7 @@ abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource {
      * @param int   $expire expiration time
      * @return boolean true on success, false on failure
      */
-    protected abstract function write(array $keys, $expire=null);
+    abstract protected function write(array $keys, $expire=null);
 
     /**
      * Remove values from cache
@@ -446,7 +447,7 @@ abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource {
      * @param array $keys list of keys to delete
      * @return boolean true on success, false on failure
      */
-    protected abstract function delete(array $keys);
+    abstract protected function delete(array $keys);
 
     /**
      * Remove *all* values from cache
@@ -457,7 +458,4 @@ abstract class Smarty_CacheResource_KeyValueStore extends Smarty_CacheResource {
     {
         return false;
     }
-
 }
-
-?>

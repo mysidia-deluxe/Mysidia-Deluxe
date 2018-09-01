@@ -4,15 +4,15 @@ use Dotenv\Dotenv;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-if(!defined('APP_ROOT')) {
+if (!defined('APP_ROOT')) {
     define('APP_ROOT', __DIR__ . '/');
 }
 
-if(!defined('CONFIG_FOLDER')) {
+if (!defined('CONFIG_FOLDER')) {
     define('CONFIG_FOLDER', APP_ROOT . '/config/');
 }
 
-if(!file_exists(CONFIG_FOLDER . '.env')) {
+if (!file_exists(CONFIG_FOLDER . '.env')) {
     header('Location: /install');
     die();
 }
@@ -33,6 +33,6 @@ $configurations = [
     'PREFIX'
 ];
 
-foreach($configurations as $key) {
+foreach ($configurations as $key) {
     define($key, getenv($key));
 }

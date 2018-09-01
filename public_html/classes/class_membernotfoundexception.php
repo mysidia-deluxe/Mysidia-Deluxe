@@ -1,6 +1,5 @@
 <?php
 
-class MemberNotfoundException extends InvalidIDException{
-
+class MemberNotfoundException extends InvalidIDException
+{
 }
-?>

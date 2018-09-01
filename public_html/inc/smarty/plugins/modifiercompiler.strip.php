@@ -29,5 +29,3 @@ function smarty_modifiercompiler_strip($params, $compiler)
     }
     return "preg_replace('!\s+!" . Smarty::$_UTF8_MODIFIER . "', {$params[1]},{$params[0]})";
 }
-
-?>

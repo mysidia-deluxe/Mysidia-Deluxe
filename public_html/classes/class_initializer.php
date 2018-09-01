@@ -9,7 +9,7 @@ use Resource\Native\Mystring;
  * This is a final class, cannot be extended by any child classes.
  * @category Resource
  * @package Utility
- * @author Hall of Famer 
+ * @author Hall of Famer
  * @copyright Mysidia Adoptables Script
  * @link http://www.mysidiaadoptables.com
  * @since 1.3.3
@@ -18,28 +18,30 @@ use Resource\Native\Mystring;
  *
  */
 
-final class Initializer extends Object{
+final class Initializer extends Object
+{
 
     /**
-	 * The dir property, defines relative directory for Bootstraping process.
-	 * @access private
-	 * @var Mystring
+     * The dir property, defines relative directory for Bootstraping process.
+     * @access private
+     * @var Mystring
     */
-	private $dir; 
+    private $dir;
 
     /**
-	 * The uri property, stores a reference of the URI from server variables.
-	 * @access private
-	 * @var Mystring
+     * The uri property, stores a reference of the URI from server variables.
+     * @access private
+     * @var Mystring
     */
-    private $uri;   
+    private $uri;
 
-	/**
+    /**
      * Constructor of Initializer Class, it delegates to the method initialize() to complete the request.
      * @access public
      * @return Void
      */
-    public function __construct(){
+    public function __construct()
+    {
         $this->setURI();
         $this->setDir();
         $this->initialize();
@@ -50,49 +52,55 @@ final class Initializer extends Object{
      * @access public
      * @return Void
      */
-    public function getUri(){
+    public function getUri()
+    {
         return $this->uri;
-    } 
+    }
 
-	/**
+    /**
      * The setUri method, setter method for property $uri
-	 * The property is set upon Initializer object instantiation, cannot be called from external class.
+     * The property is set upon Initializer object instantiation, cannot be called from external class.
      * @access private
      * @return Void
      */
-    private function setUri(){
+    private function setUri()
+    {
         $this->uri = $_SERVER['REQUEST_URI'];
-    }   
+    }
 
     /**
      * The getDir method, getter method for property $dir
      * @access public
      * @return Void
      */
-    public function getDir(){
+    public function getDir()
+    {
         return $this->dir;
-    } 
+    }
 
-	/**
+    /**
      * The setDir method, setter method for property $dir
-	 * The property is set upon Initializer object instantiation, cannot be called from external class.
+     * The property is set upon Initializer object instantiation, cannot be called from external class.
      * @access private
      * @return Void
      */
-    private function setDir(){
-        if(strpos($this->uri, "admincp") !== FALSE or strpos($this->uri, "install") !== FALSE){
+    private function setDir()
+    {
+        if (strpos($this->uri, "admincp") !== false or strpos($this->uri, "install") !== false) {
             $this->dir = "../";
+        } else {
+            $this->dir = "";
         }
-        else $this->dir = "";
-    }   
+    }
 
-	/**
+    /**
      * The initialize method, carries out the basic bootstraping steps.
-	 * It opens config file first, then include basic files and instantiate important objects.
+     * It opens config file first, then include basic files and instantiate important objects.
      * @access private
      * @return Void
      */
-    private function initialize(){
+    private function initialize()
+    {
         $config = CONFIG_FOLDER . "/.env";
 
         include("{$this->dir}functions/functions.php");
@@ -103,17 +111,16 @@ final class Initializer extends Object{
         $loader = new Loader($this->dir);
 
         $registry = Registry::getInstance();
-        Registry::set(new Mystring("loader"), $loader, TRUE, TRUE);
-		
-        $mysidia = new Mysidia;		
-		$router = new Router($this->uri);
-		$router->route();
-		$dispatcher = new Dispatcher($router);
-		$dispatcher->dispatch();
+        Registry::set(new Mystring("loader"), $loader, true, true);
+        
+        $mysidia = new Mysidia;
+        $router = new Router($this->uri);
+        $router->route();
+        $dispatcher = new Dispatcher($router);
+        $dispatcher->dispatch();
 
         $wol = new Online;
         $wol->update();
         Registry::set(new Mystring("wol"), $wol);
     }
 }
-?>
