@@ -1,6 +1,7 @@
 <?php
 
 //This file writes the config.php file and then inserts the database info into the database...
+require_once './_header.php';
 
 define("SUBDIR", "Install");
 $dbhost = $_POST['dbhost']; 
@@ -14,35 +15,27 @@ $prefix = $_POST['prefix'];
 
 //Check again that config.php is writable...
 
-$filename = "../inc/config.php";
-
-if (!is_writable($filename)) {
-    
-die("Your config.php file is not writable.  Cannot proceed!");
-
+if (!is_writable(CONFIG_FOLDER)) {
+    die("The configuration folder isn't writeable.  Cannot proceed.");
 } 
 
 if($dbuser == "" or $dbname == "" or $domain == "" or $prefix == ""){
-die("Something required was left blank. Please go back and try again.");
+    die("Something required was left blank. Please go back and try again.");
 }
 
 //Begin writing the config.php file...
 
-$configdata = "<?php
-//Mysidia Adoptables Site Configuration File
-
-define('DBHOST', '{$dbhost}');             //DB Hostname
-define('DBUSER', '{$dbuser}');             //DB Username
-define('DBPASS', '{$dbpass}');             //DB Password
-define('DBNAME', '{$dbname}');             //Your database name
-define('DOMAIN', '{$domain}');             //Your domain name (No http, www or . )
-define('SCRIPTPATH', '{$scriptpath}');     //The folder you installed this script in
-define('PREFIX', '{$prefix}');
-?>";
+$configdata = "DBHOST='{$dbhost}'
+DBUSER='{$dbuser}'
+DBPASS='{$dbpass}'
+DBNAME='{$dbname}'
+DOMAIN='{$domain}'
+SCRIPTPATH='{$scriptpath}'
+PREFIX='{$prefix}'";
 
 //Write the config.php file...
 
-$file = fopen('../inc/config.php', 'w');
+$file = fopen(CONFIG_FOLDER . '.env', 'w');
 fwrite($file, $configdata);
 fclose($file);				
 

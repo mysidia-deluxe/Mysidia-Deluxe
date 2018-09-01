@@ -1,8 +1,10 @@
 <?php
 
 //Max Volume Installation Wizard
+require_once './_header.php';
+
 define("SUBDIR", "Install");
-$step = $_GET["step"];
+$step = isset($_GET["step"]) ? $_GET['step'] : 0;
 $step = preg_replace("/[^a-zA-Z0-9s]/", "", $step);
 
 if($step == 3 or $step == "3"){
@@ -159,11 +161,11 @@ a:active {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-if(is_writable("../inc/config.php")) {
-    echo "<p align='left'><img src='../templates/icons/yes.gif'> <b>PASS:</b>  Your config.php file is writable.<br></p>";
+if(is_writable(CONFIG_FOLDER)) {
+    echo "<p align='left'><img src='../templates/icons/yes.gif'> <b>PASS:</b>  Your configuration folder is writable.<br></p>";
 } 
 else{
-    echo "<b><p align='left'><img src='../templates/icons/no.gif'> FAIL:</b> Your inc/config.php file does not exist. If you have config_adopts.php file, please change its name to config.php to proceed.<br></p>";
+    echo "<b><p align='left'><img src='../templates/icons/no.gif'> FAIL:</b> Your configuration folder, ", CONFIG_FOLDER, ", is not writeable.<br></p>";
     $flag = 1;
 }
 

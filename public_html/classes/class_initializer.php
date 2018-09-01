@@ -1,7 +1,7 @@
 <?php
 
 use \Resource\Native\Object;
-use \Resource\Native\Mystring; 
+use Resource\Native\Mystring;
 
 /**
  * The Initializer Class, it is responsible for the basic bootstraping of the system.
@@ -93,14 +93,7 @@ final class Initializer extends Object{
      * @return Void
      */
     private function initialize(){
-        $config = "{$this->dir}inc/config.php";
-
-        if(!file_exists($config)) {
-            header('Location: /install');
-            die();
-        }
-
-        require $config;
+        $config = CONFIG_FOLDER . "/.env";
 
         include("{$this->dir}functions/functions.php");
         include("{$this->dir}functions/functions_users.php");

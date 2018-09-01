@@ -2,7 +2,8 @@
 
 //Max Volume Installation Wizard
 define("SUBDIR", "Install");
-include("../inc/config.php");
+
+require_once APP_ROOT . 'bootstrap.php';
 
 $step = $_GET["step"];
 $step = preg_replace("/[^a-zA-Z0-9s]/", "", $step);

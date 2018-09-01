@@ -2,7 +2,9 @@
 
 //This file creates a new admin user for Max Volume
 define("SUBDIR", "Install");
-include("../inc/config.php");
+
+require_once './_header.php';
+require_once APP_ROOT . 'bootstrap.php';
 
 //Now connecting to the adoptables database 
 try{

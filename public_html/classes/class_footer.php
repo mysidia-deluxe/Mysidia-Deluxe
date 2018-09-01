@@ -112,7 +112,7 @@ class Footer extends Widget{
 		$creditsLink->setText("Mysidia Adoptables v".Mysidia::version);
 		$this->credits->add($creditsLink);
 		$this->credits->add(new Comment("&#9733;"));
-        $this->credits->add(new Comment("Copyright © 2011-2016 Mysidia RPG, Inc. All rights reserved."));
+        $this->credits->add(new Comment("Copyright © 2011-" . date('Y') . " Mysidia RPG, Inc. All rights reserved."));
 		
         $this->setDivision($this->credits);    
     }

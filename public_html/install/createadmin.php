@@ -2,7 +2,9 @@
 
 //This file creates a new admin user for Max Volume
 define("SUBDIR", "Install");
-include("../inc/config.php");
+
+require_once './_header.php';
+require_once APP_ROOT . 'bootstrap.php';
 
 //Now connecting to the adoptables database
 try{
@@ -44,16 +46,16 @@ $username = preg_replace("/[^a-zA-Z0-9\\040.]/", "", $username);
 $email = preg_replace("/[^a-zA-Z0-9@._-]/", "", $email);
 
 if($username == "" or $pass1 == "" or $pass2 == "" or $email == ""){
-die("Something important was left blank.  Please try again!");
+  die("Something important was left blank.  Please try again!");
 }
 
 if($pass1 != $pass2){
-die("Passwords do not match.  Please go back and correct this.");
+  die("Passwords do not match.  Please go back and correct this.");
 }
 
 $date = date('Y-m-d');
-$adopts->query("INSERT INTO {$prefix}users (uid, username, salt, password, email, ip, usergroup, birthday, membersince, money, friends)
-VALUES ('', '$username', '$salt', '$pass1','$email','{$_SERVER['REMOTE_ADDR']}','1','$birthday', '$date', '1000','')");
+$adopts->query("INSERT INTO {$prefix}users (username, salt, password, email, ip, usergroup, birthday, membersince, money, friends)
+VALUES ('$username', '$salt', '$pass1','$email','{$_SERVER['REMOTE_ADDR']}','1','$birthday', '$date', '1000','')");
     
 $adopts->query("INSERT INTO {$prefix}users_contacts (uid, username, website, facebook, twitter, aim, yahoo, msn, skype)
 VALUES ('', '$username', '', '', '', '', '', '', '')");

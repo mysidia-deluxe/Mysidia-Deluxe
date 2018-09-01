@@ -1,6 +1,6 @@
 <?php
 
-require_once '../bootstrap.php';
+require_once __DIR__ . '/../../bootstrap.php';
 
 use Resource\Native\Object;
 use Resource\Native\Mystring;

@@ -20,7 +20,7 @@ class LoginController extends AppController{
 				
 				if(!$validator->triggererror()){
 		            $mysidia->user->login($mysidia->input->post("username"));
-		            if($mybbenabled == 1) $mysidia->user->loginforum();
+		            if(isset($mybbenabled) && $mybbenabled == 1) $mysidia->user->loginforum();
 		            $mysidia->session->terminate("clientip");
 	            }
 	            else throw new LoginException("fail_details");		 
