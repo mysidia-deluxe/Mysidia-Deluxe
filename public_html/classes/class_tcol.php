@@ -35,7 +35,7 @@ class TCol extends TableContainer{
 	 * @param String  $width
 	 * @param String  $event
 	 * @param ArrayObject  $components
-     * @access publc
+     * @access public
      * @return Void
      */
 	public function __construct($name = "", $span = "", $group = FALSE, $width = "", $event = "", $components = ""){
