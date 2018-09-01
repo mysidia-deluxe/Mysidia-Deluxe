@@ -15,7 +15,8 @@
  * @package Smarty
  * @subpackage Compiler
  */
-class Smarty_Internal_Compile_Setfilter extends Smarty_Internal_CompileBase {
+class Smarty_Internal_Compile_Setfilter extends Smarty_Internal_CompileBase
+{
 
     /**
      * Compiles code for setfilter tag
@@ -33,7 +34,6 @@ class Smarty_Internal_Compile_Setfilter extends Smarty_Internal_CompileBase {
         $compiler->has_code = false;
         return true;
     }
-
 }
 
 /**
@@ -42,7 +42,8 @@ class Smarty_Internal_Compile_Setfilter extends Smarty_Internal_CompileBase {
  * @package Smarty
  * @subpackage Compiler
  */
-class Smarty_Internal_Compile_Setfilterclose extends Smarty_Internal_CompileBase {
+class Smarty_Internal_Compile_Setfilterclose extends Smarty_Internal_CompileBase
+{
 
     /**
      * Compiles code for the {/setfilter} tag
@@ -66,7 +67,4 @@ class Smarty_Internal_Compile_Setfilterclose extends Smarty_Internal_CompileBase
         $compiler->has_code = false;
         return true;
     }
-
 }
-
-?>

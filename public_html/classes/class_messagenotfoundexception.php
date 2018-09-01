@@ -1,7 +1,5 @@
 <?php
 
-class MessageNotfoundException extends Exception{
-
+class MessageNotfoundException extends Exception
+{
 }
-    
-?>

@@ -37,5 +37,3 @@ $lang['settings_title'] = "Notification and Other Options Settings";
 $lang['settings'] = "This page allows you to change your notification preferences as well as your profile information.<br>";
 $lang['settings_updated_title'] = "Settings Changed Successfully";
 $lang['settings_updated'] = "Your settings have been changed successfully.  <a href='../account'>Click Here</a> to manage your account.";
-
-?>

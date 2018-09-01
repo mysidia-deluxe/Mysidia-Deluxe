@@ -6,8 +6,8 @@
  */
 class HTMLPurifier_AttrDef_CSS_FontFamily extends HTMLPurifier_AttrDef
 {
-
-    public function validate($string, $config, $context) {
+    public function validate($string, $config, $context)
+    {
         static $generic_names = array(
             'serif' => true,
             'sans-serif' => true,
@@ -19,9 +19,11 @@ class HTMLPurifier_AttrDef_CSS_FontFamily extends HTMLPurifier_AttrDef
         // assume that no font names contain commas in them
         $fonts = explode(',', $string);
         $final = '';
-        foreach($fonts as $font) {
+        foreach ($fonts as $font) {
             $font = trim($font);
-            if ($font === '') continue;
+            if ($font === '') {
+                continue;
+            }
             // match a generic name
             if (isset($generic_names[$font])) {
                 $final .= $font . ', ';
@@ -30,9 +32,13 @@ class HTMLPurifier_AttrDef_CSS_FontFamily extends HTMLPurifier_AttrDef
             // match a quoted name
             if ($font[0] === '"' || $font[0] === "'") {
                 $length = strlen($font);
-                if ($length <= 2) continue;
+                if ($length <= 2) {
+                    continue;
+                }
                 $quote = $font[0];
-                if ($font[$length - 1] !== $quote) continue;
+                if ($font[$length - 1] !== $quote) {
+                    continue;
+                }
                 $font = substr($font, 1, $length - 2);
             }
 
@@ -57,16 +63,17 @@ class HTMLPurifier_AttrDef_CSS_FontFamily extends HTMLPurifier_AttrDef
             // (warning: this code relies on the selection of quotation
             // mark below)
             $font = str_replace('\\', '\\5C ', $font);
-            $font = str_replace('"',  '\\22 ', $font);
+            $font = str_replace('"', '\\22 ', $font);
 
             // complicated font, requires quoting
             $final .= "\"$font\", "; // note that this will later get turned into &quot;
         }
         $final = rtrim($final, ', ');
-        if ($final === '') return false;
+        if ($final === '') {
+            return false;
+        }
         return $final;
     }
-
 }
 
 // vim: et sw=4 sts=4

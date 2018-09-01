@@ -1,6 +1,7 @@
 <?php
 
 namespace Resource\Native;
+
 use Resource\Utility\Comparable;
 
 /**
@@ -9,7 +10,7 @@ use Resource\Utility\Comparable;
  * A number cannot be instantiated using new keyword, since it's abstract.
  * @category Resource
  * @package Native
- * @author Hall of Famer 
+ * @author Hall of Famer
  * @copyright Mysidia Adoptables Script
  * @link http://www.mysidiaadoptables.com
  * @since 1.3.2
@@ -18,32 +19,35 @@ use Resource\Utility\Comparable;
  *
  */
 
-abstract class Number extends Object implements Comparable, Primitive{
+abstract class Number extends Object implements Comparable, Primitive
+{
 
-	/**
-	 * The value property, which stores the primitive numeric value.
-	 * @access protected
-	 * @var Number
+    /**
+     * The value property, which stores the primitive numeric value.
+     * @access protected
+     * @var Number
     */
     protected $value;
 
-	
+    
     /**
      * Constructor of Number Class, it verifies if supplied primitive data type is valid.
-	 * @param Number  $num
+     * @param Number  $num
      * @access public
      * @return Void
      */
-    public function __construct($num){
-        $this->verify($num); 
+    public function __construct($num)
+    {
+        $this->verify($num);
     }
    
     /**
-     * The getValue method, returns the primitive data type value. 
+     * The getValue method, returns the primitive data type value.
      * @access public
      * @return Number
      */
-    public function getValue(){
+    public function getValue()
+    {
         return $this->value;
     }
    
@@ -52,7 +56,8 @@ abstract class Number extends Object implements Comparable, Primitive{
      * @access public
      * @return Int
      */
-    public function intValue(){
+    public function intValue()
+    {
         return (int)$this->value;
     }
    
@@ -61,7 +66,8 @@ abstract class Number extends Object implements Comparable, Primitive{
      * @access public
      * @return Float
      */
-    public function floatValue(){
+    public function floatValue()
+    {
         return (float)$this->value;
     }
    
@@ -70,7 +76,8 @@ abstract class Number extends Object implements Comparable, Primitive{
      * @access public
      * @return Double
      */
-    public function doubleValue(){
+    public function doubleValue()
+    {
         return (double)$this->value;
     }
    
@@ -79,27 +86,32 @@ abstract class Number extends Object implements Comparable, Primitive{
      * @access public
      * @return Boolean
      */
-   	public function isPositive(){
-	    return($this->value > 0)?TRUE:FALSE;
-	}
-	
-	/**
+    public function isPositive()
+    {
+        return($this->value > 0)?true:false;
+    }
+    
+    /**
      * The isNegative method, checks if the number is negative or not.
      * @access public
      * @return Boolean
      */
-	public function isNegative(){
-	    return($this->value < 0)?TRUE:FALSE;
-	}
+    public function isNegative()
+    {
+        return($this->value < 0)?true:false;
+    }
  
-	/**
+    /**
      * The compareTo method, compares this number to another number.
-	 * @param Objective  $target
+     * @param Objective  $target
      * @access public
      * @return Int
      */
-    public function compareTo(Objective $target){
-	    if(!($target instanceof Number)) throw new InvalidArgumentException("Supplied argument must be a numeric value!");
+    public function compareTo(Objective $target)
+    {
+        if (!($target instanceof Number)) {
+            throw new InvalidArgumentException("Supplied argument must be a numeric value!");
+        }
         return ($this->equals($target))?0:($this->value - $target->getValue());
     }
  
@@ -108,82 +120,89 @@ abstract class Number extends Object implements Comparable, Primitive{
      * @access public
      * @return Byte
      */
-    public function toByte(){
-	    return new Byte($this->value);
-	}
+    public function toByte()
+    {
+        return new Byte($this->value);
+    }
    
     /**
      * The toShort method, converts value and returns a Short Object.
      * @access public
      * @return Short
      */
-	public function toShort(){
-	    return new Short($this->value);
-	}
+    public function toShort()
+    {
+        return new Short($this->value);
+    }
     
-	/**
+    /**
      * The toInteger method, converts value and returns an Integer Object.
      * @access public
      * @return Integer
      */
-	public function toInteger(){
-	    return new Integer($this->value);
-	}
-	
-	/**
+    public function toInteger()
+    {
+        return new Integer($this->value);
+    }
+    
+    /**
      * The toLong method, converts value and returns a Long Object.
      * @access public
      * @return Long
      */
-	public function toLong(){
-	    return new Long($this->value);
-	}
-	
-	/**
+    public function toLong()
+    {
+        return new Long($this->value);
+    }
+    
+    /**
      * The toFloat method, converts value and returns a Float Object.
      * @access public
      * @return Float
      */
-	public function toFloat(){
-	    return new Float($this->value);
-	}
-	
-	/**
+    public function toFloat()
+    {
+        return new Float($this->value);
+    }
+    
+    /**
      * The toFloat method, converts value and returns a Double Object.
      * @access public
      * @return Double
      */
-	public function toDouble(){
-	    return new Double($this->value);
-	}
+    public function toDouble()
+    {
+        return new Double($this->value);
+    }
    
-	/**
+    /**
      * Magic method __toString() for Number class, casts its primitive value to string.
-	 * This method is inherited in all of Number's child classes.
+     * This method is inherited in all of Number's child classes.
      * @access public
      * @return String
      */
-    public function __toString(){
+    public function __toString()
+    {
         return (string)$this->value;
     }
 
-	/**
+    /**
      * Magic method __invoke() for Number class, it returns the primitive data value for manipulation.
-	 * This method is inherited in all of Number's child classes.
+     * This method is inherited in all of Number's child classes.
      * @access public
      * @return Number
      */
-    public function __invoke(){
-        return $this->value;  
-    }	
-	
-	/**
+    public function __invoke()
+    {
+        return $this->value;
+    }
+    
+    /**
      * The abstract verify method, its implementation is left over to child classes.
-	 * @param Number $num  
+     * @param Number $num
      * @access public
      * @return Boolean
-	 * @abstract
+     * @abstract
      */
-	public abstract function verify($num);
+    abstract public function verify($num);
 }
-?>

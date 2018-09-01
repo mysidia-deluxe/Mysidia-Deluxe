@@ -15,7 +15,8 @@
  * @package Smarty
  * @subpackage Compiler
  */
-class Smarty_Internal_Compile_Ldelim extends Smarty_Internal_CompileBase {
+class Smarty_Internal_Compile_Ldelim extends Smarty_Internal_CompileBase
+{
 
     /**
      * Compiles code for the {ldelim} tag
@@ -35,7 +36,4 @@ class Smarty_Internal_Compile_Ldelim extends Smarty_Internal_CompileBase {
         $compiler->has_code = true;
         return $compiler->smarty->left_delimiter;
     }
-
 }
-
-?>

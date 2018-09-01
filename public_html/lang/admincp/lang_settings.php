@@ -18,13 +18,13 @@ $lang['basic'] = "This page allows you to edit the basic settings for your Mysid
 					Fill out the form below to change the settings.  
 					Settings which need further explanation will have more information next to their area on the form.<br>";
 $lang['basic_update_title'] = "Settings Updated Successfully";
-$lang['basic_update'] = "The new site settings have been updated successfully. <a href='globals'>Click Here</a> to return to the settings manager.";					
+$lang['basic_update'] = "The new site settings have been updated successfully. <a href='globals'>Click Here</a> to return to the settings manager.";
 $lang['themes_title'] = "Theme Manager";
 $lang['themes'] = "This page allows you to change the theme for your website. Themes allow you to style your website.  
 				  You can select a theme to use from the dropdown list below or you can install a new theme to your site using the theme installation form below.
 				  To get more themes please visit the <a href='http://www.mysidiaadoptables.com/forum' target='_blank'>Mysidia Adoptables Support Forums</a>.<br>
 				  <br><b><u>Select a Theme:</u></b><br>";
-$lang['themes_install'] = "<b><u>Install a Theme:</u></b><br><br>";	
+$lang['themes_install'] = "<b><u>Install a Theme:</u></b><br><br>";
 $lang['themes_update_name'] = "Type a name to use for this theme. This should be something to help you remember what this theme looks like.";
 $lang['themes_update_folder'] = "This is the path to the folder that contains the theme's .tpl and .css file on your server. Usually the theme author will give you this value to paste into this box.";
 $lang['themes_update_title'] = "Theme Updated Successfully";
@@ -39,8 +39,6 @@ $lang['pound_title'] = "Pound System Settings";
 $lang['pound'] = "This page allows you to edit all settings for pound system, fill out the form below to change the settings.<br />
                   The form has two types of fields: Radio Button and Text. <br /> Radio buttons enable/disable a certain setting, some are dealing with advanced stuff.<br />		 		
 				  For textbox, they must contain numerical values. Leave a field blank or enter the value 0 to disable a particular setting<br><br>";
-$lang['pound_adopt'] = "Note if you enable pound system but disable re-adoption, users can pound but not re-adopt.";		  
+$lang['pound_adopt'] = "Note if you enable pound system but disable re-adoption, users can pound but not re-adopt.";
 $lang['pound_edited_title'] = "Pound Settings Updated Successfully";
 $lang['pound_edited'] = "The Pound System Settings have been updated successfully. <a href='pound'>Click Here</a> to return to the pound settings manager.";
-
-?>

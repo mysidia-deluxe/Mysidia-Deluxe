@@ -12,4 +12,3 @@ $lang['fail_details'] = "Sorry, we could not log you on with the details specifi
 $lang['fail_already'] = "You are already logged in, there's no need to do this again.";
 $lang['logout_title'] = "Successfully logged out.";
 $lang['logout'] = "You have successfully been logged out.  <a href='../login'>Click Here</a> to log in again.";
-?>

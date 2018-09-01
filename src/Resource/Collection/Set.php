@@ -1,6 +1,7 @@
 <?php
 
 namespace Resource\Collection;
+
 use Resource\Native\Objective;
 
 /**
@@ -8,7 +9,7 @@ use Resource\Native\Objective;
  * It is parent to all Set type objects, subclasses have access to all its defined methods.
  * @category Resource
  * @package Collection
- * @author Hall of Famer 
+ * @author Hall of Famer
  * @copyright Mysidia Adoptables Script
  * @link http://www.mysidiaadoptables.com
  * @since 1.3.4
@@ -17,73 +18,84 @@ use Resource\Native\Objective;
  *
  */
 
-abstract class Set extends Collection implements Settable{
+abstract class Set extends Collection implements Settable
+{
 
- 	/**
+    /**
      * The equals method, evaluates if the given set is equivalent to the set.
-	 * This implementation is different from a typical equals method for objects.
+     * This implementation is different from a typical equals method for objects.
      * @param Objective  $object
      * @access public
      * @return Boolean
-     */		
-    public function equals(Objective $object){
-        if($object === $this) return TRUE;
-		if(!($object instanceof Set)) return FALSE;		
-        if($this->size() != $object->size()) return FALSE;
+     */
+    public function equals(Objective $object)
+    {
+        if ($object === $this) {
+            return true;
+        }
+        if (!($object instanceof Set)) {
+            return false;
+        }
+        if ($this->size() != $object->size()) {
+            return false;
+        }
         return $this->containsAll($element);
     }
-	
-	/**
+    
+    /**
      * The hashCode method, returns the hash code for this set.
      * @access public
      * @return Int
-     */			
-    public function hashCode(){
-	    $hash = 0;
-		$iterator = $this->iterator;
-		while($iterator->hasNext()){
-		    $object = $iterator->next();
-			if($object != NULL) $hash += $object->hashCode();
-		}
-		return $hash;
+     */
+    public function hashCode()
+    {
+        $hash = 0;
+        $iterator = $this->iterator;
+        while ($iterator->hasNext()) {
+            $object = $iterator->next();
+            if ($object != null) {
+                $hash += $object->hashCode();
+            }
+        }
+        return $hash;
     }
-	
- 	/**
+    
+    /**
      * The removeAll method, removes a collection of objects from this set.
      * @param Collective  $collection
      * @access public
      * @return Boolean
-     */			
-    public function removeAll(Collective $collection){
-        $deleted = FALSE;
-        if($this->size() > $collection->size()){
+     */
+    public function removeAll(Collective $collection)
+    {
+        $deleted = false;
+        if ($this->size() > $collection->size()) {
             $iterator = $collection->iterator();
-            while($iterator->hasNext()) {
+            while ($iterator->hasNext()) {
                 $this->remove($iterator->next());
-                $deleted = TRUE;
+                $deleted = true;
             }
-        }
-        else{
+        } else {
             $iterator = $this->iterator();
-            while($iterator->hasNext()){
-                if($collection->contains($iterator->next())){
+            while ($iterator->hasNext()) {
+                if ($collection->contains($iterator->next())) {
                     $iterator->remove($next);
-                    $deleted = TRUE;
+                    $deleted = true;
                 }
             }
         }
         return $deleted;
-    }	
+    }
 
-	/**
+    /**
      * The subSet method, acquires a portion of the Set ranging from the supplied two elements.
-	 * @param Objective  $fromElement
-	 * @param Objective  $toElement
+     * @param Objective  $fromElement
+     * @param Objective  $toElement
      * @access public
      * @return Settable
-     */		
-	public function subSet(Objective $fromElement, Objective $toElement){
-	    return FALSE;
-	}	
+     */
+    public function subSet(Objective $fromElement, Objective $toElement)
+    {
+        return false;
+    }
 }
-?>

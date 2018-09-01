@@ -7,7 +7,7 @@ use Resource\Collection\ArrayList as ArrayList;
  * It is a specific helper for tables that involves operations on messages.
  * @category Resource
  * @package Helper
- * @author Hall of Famer 
+ * @author Hall of Famer
  * @copyright Mysidia Adoptables Script
  * @link http://www.mysidiaadoptables.com
  * @since 1.3.3
@@ -15,175 +15,195 @@ use Resource\Collection\ArrayList as ArrayList;
  *
  */
 
-class MessageTableHelper extends TableHelper{
+class MessageTableHelper extends TableHelper
+{
 
     /**
      * Constructor of MessageTableHelper Class, it initializes basic helper properties.
      * @access public
      * @return Void
      */
-	public function __construct(){
-	    parent::__construct();    
-	}
-	
-	/**
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    
+    /**
      * The getProfile method, generates the sender/recipient profile field for the message table.
-     * @param String  $param 
+     * @param String  $param
      * @access protected
      * @return Link|String
      */
-    protected function getProfile($param){
-	    if($param == "SYSTEM") return $param;
-		return new Link("profile/view/{$param}", $param);
+    protected function getProfile($param)
+    {
+        if ($param == "SYSTEM") {
+            return $param;
+        }
+        return new Link("profile/view/{$param}", $param);
     }
-	
-	/**
+    
+    /**
      * The getRecipient method, generates the recipient field for the message table.
-     * @param String  $param 
+     * @param String  $param
      * @access protected
      * @return Link|String
      */
-    protected function getRecipient($param){
-	    if($param == "SYSTEM") return $param;
-		return new Link("profile/view/{$param}", $param);
+    protected function getRecipient($param)
+    {
+        if ($param == "SYSTEM") {
+            return $param;
+        }
+        return new Link("profile/view/{$param}", $param);
     }
-	
-	/**
+    
+    /**
      * The getStatus method, gets the status of the message for the message table.
-     * @param String  $param 
+     * @param String  $param
      * @access protected
      * @return Comment
      */
-    protected function getStatus($param = ""){
-	    $status = new Comment($param);
-	    if($param == "unread") $status->setBold();
-        return $status;		
+    protected function getStatus($param = "")
+    {
+        $status = new Comment($param);
+        if ($param == "unread") {
+            $status->setBold();
+        }
+        return $status;
     }
-	
-	/**
-     * The getReadLink method, wraps up the inbox table cell with a read image/link.   
+    
+    /**
+     * The getReadLink method, wraps up the inbox table cell with a read image/link.
      * @param String  $param
      * @access protected
      * @return String
      */
-    protected function getReadLink($param){
-	    $path = Registry::get("path");
+    protected function getReadLink($param)
+    {
+        $path = Registry::get("path");
         $image = new Image("{$path->getAbsolute()}templates/icons/next.gif");
-        $url = new URL("messages/read/{$param}", FALSE, FALSE);
+        $url = new URL("messages/read/{$param}", false, false);
         return new Link($url, $image);
     }
-	
-	/**
-     * The getDeleteLink method, wraps up the inbox table cell with a delete image/link.   
+    
+    /**
+     * The getDeleteLink method, wraps up the inbox table cell with a delete image/link.
      * @param String  $param
      * @access protected
      * @return String
      */
-    protected function getDeleteLink($param){
-	    $path = Registry::get("path");
+    protected function getDeleteLink($param)
+    {
+        $path = Registry::get("path");
         $image = new Image("{$path->getAbsolute()}templates/icons/delete.gif");
-        $url = new URL("messages/delete/{$param}", FALSE, FALSE);
+        $url = new URL("messages/delete/{$param}", false, false);
         return new Link($url, $image);
     }
-	
-	/**
-     * The getOutboxReadLink method, wraps up the outbox table cell with a read image/link.   
+    
+    /**
+     * The getOutboxReadLink method, wraps up the outbox table cell with a read image/link.
      * @param String  $param
      * @access protected
      * @return String
      */
-    protected function getOutboxReadLink($param){
-	    $path = Registry::get("path");
+    protected function getOutboxReadLink($param)
+    {
+        $path = Registry::get("path");
         $image = new Image("{$path->getAbsolute()}templates/icons/next.gif");
-        $url = new URL("messages/outboxread/{$param}", FALSE, FALSE);
+        $url = new URL("messages/outboxread/{$param}", false, false);
         return new Link($url, $image);
     }
-	
-	/**
-     * The getOutboxDeleteLink method, wraps up the outbox table cell with a delete image/link.   
+    
+    /**
+     * The getOutboxDeleteLink method, wraps up the outbox table cell with a delete image/link.
      * @param String  $param
      * @access protected
      * @return String
      */
-    protected function getOutboxDeleteLink($param){
-	    $path = Registry::get("path");
+    protected function getOutboxDeleteLink($param)
+    {
+        $path = Registry::get("path");
         $image = new Image("{$path->getAbsolute()}templates/icons/delete.gif");
-        $url = new URL("messages/outboxdelete/{$param}", FALSE, FALSE);
+        $url = new URL("messages/outboxdelete/{$param}", false, false);
         return new Link($url, $image);
     }
-	
-	/**
-     * The getDraftReadLink method, wraps up the draft table cell with a read image/link.   
+    
+    /**
+     * The getDraftReadLink method, wraps up the draft table cell with a read image/link.
      * @param String  $param
      * @access protected
      * @return String
      */
-    protected function getDraftReadLink($param){
-	    $path = Registry::get("path");
+    protected function getDraftReadLink($param)
+    {
+        $path = Registry::get("path");
         $image = new Image("{$path->getAbsolute()}templates/icons/next.gif");
-        $url = new URL("messages/draftedit/{$param}", FALSE, FALSE);
+        $url = new URL("messages/draftedit/{$param}", false, false);
         return new Link($url, $image);
     }
-	
-	/**
-     * The getDraftDeleteLink method, wraps up the draft table cell with a delete image/link.   
+    
+    /**
+     * The getDraftDeleteLink method, wraps up the draft table cell with a delete image/link.
      * @param String  $param
      * @access protected
      * @return String
      */
-    protected function getDraftDeleteLink($param){
-	    $path = Registry::get("path");
+    protected function getDraftDeleteLink($param)
+    {
+        $path = Registry::get("path");
         $image = new Image("{$path->getAbsolute()}templates/icons/delete.gif");
-        $url = new URL("messages/draftdelete/{$param}", FALSE, FALSE);
+        $url = new URL("messages/draftdelete/{$param}", false, false);
         return new Link($url, $image);
     }
 
-	/**
-     * The getAvatarImage method, returns the avatar image suitable for VMlist.   
+    /**
+     * The getAvatarImage method, returns the avatar image suitable for VMlist.
      * @param String  $avatar
      * @access protected
      * @return Image
      */
-    public function getAvatarImage($avatar){
+    public function getAvatarImage($avatar)
+    {
         return new Image($avatar, "avatar", 40);
     }
 
-	/**
-     * The getAvatarImage method, returns the avatar image suitable for VMlist.   
+    /**
+     * The getAvatarImage method, returns the avatar image suitable for VMlist.
      * @param VisitorMessage  $vmessage
      * @access protected
      * @return ArrayList
      */
-    public function getVisitorMessage($vmessage){
-	    $date = substr_replace($vmessage->datesent," at ",10,1);
-		$vmField = new ArrayList;
+    public function getVisitorMessage($vmessage)
+    {
+        $date = substr_replace($vmessage->datesent, " at ", 10, 1);
+        $vmField = new ArrayList;
         $vmField->add(new Link("profile/view/{$vmessage->fromuser}", $vmessage->fromuser));
-        $vmField->add(new Comment("({$date})", FALSE));
-        $vmField->add(new Link("vmessage/view/{$vmessage->touser}/{$vmessage->fromuser}", new Image("templates/icons/status.gif"), TRUE));
-        $msg = stripslashes($vmessage->vmtext); 
-		$vmField->add(new Comment($msg)); 
+        $vmField->add(new Comment("({$date})", false));
+        $vmField->add(new Link("vmessage/view/{$vmessage->touser}/{$vmessage->fromuser}", new Image("templates/icons/status.gif"), true));
+        $msg = stripslashes($vmessage->vmtext);
+        $vmField->add(new Comment($msg));
         return $vmField;
     }
 
-    /** The getManageActions method, retrieves the links of managing visitor messages.   
+    /** The getManageActions method, retrieves the links of managing visitor messages.
      * @param Int  $vid
      * @access protected
      * @return ArrayList
      */
-    public function getManageActions($vid){
-	    $action = new ArrayList;
-	    $action->add(new Link("vmessage/edit/{$vid}", new Image("templates/icons/cog.gif")));
-        $action->add(new Link("vmessage/delete/{$vid}", new Image("templates/icons/delete.gif"), TRUE));
+    public function getManageActions($vid)
+    {
+        $action = new ArrayList;
+        $action->add(new Link("vmessage/edit/{$vid}", new Image("templates/icons/cog.gif")));
+        $action->add(new Link("vmessage/delete/{$vid}", new Image("templates/icons/delete.gif"), true));
         return $action;
     }
-	
-	/**
+    
+    /**
      * Magic method __toString for MessageTableHelper class, it reveals that the object is a message table helper.
      * @access public
      * @return String
      */
-    public function __toString(){
-	    return new Mystring("This is an instance of Mysidia ItemTableHelper class.");
-	}    
-} 
-?>
+    public function __toString()
+    {
+        return new Mystring("This is an instance of Mysidia ItemTableHelper class.");
+    }
+}

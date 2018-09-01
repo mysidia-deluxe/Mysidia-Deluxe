@@ -1,9 +1,10 @@
 <?php
 
 //This file writes the config.php file and then inserts the database info into the database...
+require_once './_header.php';
 
 define("SUBDIR", "Install");
-$dbhost = $_POST['dbhost']; 
+$dbhost = $_POST['dbhost'];
 $dbuser = $_POST['dbuser'];
 $dbpass = $_POST['dbpass'];
 $dbname = $_POST['dbname'];
@@ -14,45 +15,36 @@ $prefix = $_POST['prefix'];
 
 //Check again that config.php is writable...
 
-$filename = "../inc/config.php";
+if (!is_writable(CONFIG_FOLDER)) {
+    die("The configuration folder isn't writeable.  Cannot proceed.");
+}
 
-if (!is_writable($filename)) {
-    
-die("Your config.php file is not writable.  Cannot proceed!");
-
-} 
-
-if($dbuser == "" or $dbname == "" or $domain == "" or $prefix == ""){
-die("Something required was left blank. Please go back and try again.");
+if ($dbuser == "" or $dbname == "" or $domain == "" or $prefix == "") {
+    die("Something required was left blank. Please go back and try again.");
 }
 
 //Begin writing the config.php file...
 
-$configdata = "<?php
-//Mysidia Adoptables Site Configuration File
-
-define('DBHOST', '{$dbhost}');             //DB Hostname
-define('DBUSER', '{$dbuser}');             //DB Username
-define('DBPASS', '{$dbpass}');             //DB Password
-define('DBNAME', '{$dbname}');             //Your database name
-define('DOMAIN', '{$domain}');             //Your domain name (No http, www or . )
-define('SCRIPTPATH', '{$scriptpath}');     //The folder you installed this script in
-define('PREFIX', '{$prefix}');
-?>";
+$configdata = "DBHOST='{$dbhost}'
+DBUSER='{$dbuser}'
+DBPASS='{$dbpass}'
+DBNAME='{$dbname}'
+DOMAIN='{$domain}'
+SCRIPTPATH='{$scriptpath}'
+PREFIX='{$prefix}'";
 
 //Write the config.php file...
 
-$file = fopen('../inc/config.php', 'w');
+$file = fopen(CONFIG_FOLDER . '.env', 'w');
 fwrite($file, $configdata);
-fclose($file);				
+fclose($file);
 
 //Connect to the database and insert the default data.....
-try{
+try {
     $dsn = "mysql:host={$dbhost};dbname={$dbname}";
     $adopts = new PDO($dsn, $dbuser, $dbpass);
-}
-catch(PDOException $pe){
-    die("Could not connect to database, the following error has occurred: <br><b>{$pe->getmessage()}</b>");  
+} catch (PDOException $pe) {
+    die("Could not connect to database, the following error has occurred: <br><b>{$pe->getmessage()}</b>");
 }
 
 $query = "CREATE TABLE {$prefix}acp_hooks (id int NOT NULL AUTO_INCREMENT PRIMARY KEY, linktext varchar(150), linkurl varchar(200), pluginname varchar(50), pluginstatus int DEFAULT 0)";
@@ -520,7 +512,7 @@ $adopts->query($query);
 $query = "CREATE TABLE {$prefix}widgets (wid int NOT NULL AUTO_INCREMENT PRIMARY KEY, name varchar(40), controller varchar(20), `order` int DEFAULT 0, status varchar(20))";
 $adopts->query($query);
 
-$query = "INSERT INTO {$prefix}widgets VALUES (1, 'header', 'all', 0, 'enabled')"; 
+$query = "INSERT INTO {$prefix}widgets VALUES (1, 'header', 'all', 0, 'enabled')";
 $adopts->query($query);
 
 $query = "INSERT INTO {$prefix}widgets VALUES (2, 'menu', 'main', 10, 'enabled')";
@@ -617,6 +609,3 @@ a:active {
 </center>
 </body>
 </html>";
-
-
-?>

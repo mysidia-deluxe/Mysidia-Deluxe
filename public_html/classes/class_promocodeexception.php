@@ -1,7 +1,5 @@
 <?php
 
-class PromocodeException extends Exception{
-
+class PromocodeException extends Exception
+{
 }
-    
-?>

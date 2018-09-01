@@ -16,5 +16,3 @@ $lang['request_none'] = "<br>This friend request is invalid";
 $lang['remove_title'] = "Friendship broken";
 $lang['remove'] = "You have successfully removed the user from your friendlist.";
 $lang['banned'] = "It appears that you have been banned from using friend system. Please contact an administrator for assistance.";
-
-?>

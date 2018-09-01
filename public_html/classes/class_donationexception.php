@@ -1,7 +1,5 @@
 <?php
 
-class DonationException extends Exception{
-
+class DonationException extends Exception
+{
 }
-    
-?>

@@ -15,7 +15,8 @@
  * @package Smarty
  * @subpackage Compiler
  */
-class Smarty_Internal_Compile_Capture extends Smarty_Internal_CompileBase {
+class Smarty_Internal_Compile_Capture extends Smarty_Internal_CompileBase
+{
 
     /**
      * Attribute definition: Overwrites base class.
@@ -55,7 +56,6 @@ class Smarty_Internal_Compile_Capture extends Smarty_Internal_CompileBase {
 
         return $_output;
     }
-
 }
 
 /**
@@ -64,7 +64,8 @@ class Smarty_Internal_Compile_Capture extends Smarty_Internal_CompileBase {
  * @package Smarty
  * @subpackage Compiler
  */
-class Smarty_Internal_Compile_CaptureClose extends Smarty_Internal_CompileBase {
+class Smarty_Internal_Compile_CaptureClose extends Smarty_Internal_CompileBase
+{
 
     /**
      * Compiles code for the {/capture} tag
@@ -92,7 +93,4 @@ class Smarty_Internal_Compile_CaptureClose extends Smarty_Internal_CompileBase {
         $_output .= "} else \$_smarty_tpl->capture_error();?>";
         return $_output;
     }
-
 }
-
-?>

@@ -1,7 +1,5 @@
 <?php
 
-class SearchException extends Exception{
-
+class SearchException extends Exception
+{
 }
-
-?>

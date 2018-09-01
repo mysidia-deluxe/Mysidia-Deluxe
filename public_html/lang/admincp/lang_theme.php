@@ -7,9 +7,9 @@ $lang['default'] = "Here you can create or manage themes and templates for your 
                     <br><br><b><a href='add'><img src='../../templates/icons/add.gif' border=0> Add/Install a new theme</a></b><p><b><u>Currently Available Modules:</u></b></p>";
 $lang['add_title'] = "Create a New Theme for your site";
 $lang['add'] = "This page allows you to create a new theme that your users can choose from the style switcher.
-                Use the form below to create a new theme.<br>";	
+                Use the form below to create a new theme.<br>";
 $lang['added_title'] = "Theme Added Successfully";
-$lang['added'] = "Your new theme has been added successfully.  <a href='edit'>Click Here</a> to return to the theme editor."; 
+$lang['added'] = "Your new theme has been added successfully.  <a href='edit'>Click Here</a> to return to the theme editor.";
 $lang['edit_title'] = "Updating a Theme";
 $lang['edit'] = "Here you can edit a default or a user-defined theme.<br>";
 $lang['edited_title'] = "Theme Updated Successfully";
@@ -23,5 +23,3 @@ $lang['css_notice'] = "Select a css from above to edit, simply erase all css con
                        Or create a new css by entering the form below.<br>";
 $lang['additional_title'] = "Updated Additional CSS";
 $lang['additional'] = "Successfully changed additional css.";
-
-?>

@@ -1,7 +1,5 @@
 <?php
 
-class BreedingException extends Exception{
-    
+class BreedingException extends Exception
+{
 }
-    
-?>

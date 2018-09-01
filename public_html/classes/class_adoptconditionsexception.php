@@ -1,6 +1,5 @@
 <?php
 
-class AdoptConditionsException extends Exception{
-
+class AdoptConditionsException extends Exception
+{
 }
-?>

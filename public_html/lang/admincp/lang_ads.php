@@ -27,6 +27,5 @@ $lang['page'] = "<br>The page setting allows you to run the ad on a specific pag
 					To run the ad on your entire site please leave the page setting blank.<br>";
 $lang['impressions'] = "<p>If you wish to run the ad for only a certain amount of impressions fill in the max impressions allowed box. 
 					       Leave the box blank or set to 0 to run the ad indefinentally. 
-					       When the maximum amount of impressions has been reached, the ad will become inactive and will no longer be shown.<br><br>"; 
-$lang['nonexist'] = "The Ad does not exist in database.";					
-?>
+					       When the maximum amount of impressions has been reached, the ad will become inactive and will no longer be shown.<br><br>";
+$lang['nonexist'] = "The Ad does not exist in database.";

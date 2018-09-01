@@ -16,5 +16,3 @@ $lang['expired'] = "It appears that the promocode has expired, please contact an
 $lang['validate'] = "The promocode has not been validated yet, something must be seriously wrong...";
 $lang['type'] = "It seems that the promocode type is invalid, please contact your admin for help.";
 $lang['fatalerror'] = "Something is seriously wrong with promocode system, please let your admin know immediately";
-
-?>

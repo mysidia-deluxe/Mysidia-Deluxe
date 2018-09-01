@@ -26,5 +26,3 @@ $lang['date'] = "The specified start date is later than expiration date, such ac
 $lang['availability'] = "The field Availability must be a positive integer...";
 $lang['reward'] = "You have not specified the adoptable/item a user can obtain through promocode, way to go being an evil admin.";
 $lang['nonexist'] = "The Promocode does not exist in database.";
-
-?>

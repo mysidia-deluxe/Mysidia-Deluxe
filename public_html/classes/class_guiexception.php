@@ -1,7 +1,5 @@
 <?php
 
-class GUIException extends Exception{
-
+class GUIException extends Exception
+{
 }
-    
-?>

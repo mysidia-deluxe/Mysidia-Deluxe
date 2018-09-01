@@ -8,7 +8,7 @@ use Resource\Native\Mystring;
  * It defines an interface for helper classes, which must be extended by child helper classes.
  * @category Helper
  * @package Helper
- * @author Hall of Famer 
+ * @author Hall of Famer
  * @copyright Mysidia Adoptables Script
  * @link http://www.mysidiaadoptables.com
  * @since 1.3.4
@@ -17,24 +17,25 @@ use Resource\Native\Mystring;
  *
  */
  
-abstract class Helper extends Object{
+abstract class Helper extends Object
+{
    
-	/**
+    /**
      * Constructor of Helper Class, which simply serves as a marker for helper classes.
      * @access public
      * @return Void
      */
-	public function __construct(){
-	
-	}
-	
-	/**
+    public function __construct()
+    {
+    }
+    
+    /**
      * Magic method __toString for Helper class, it reveals that the class belong to helper package.
      * @access public
      * @return String
      */
-    public function __toString(){
-	    return new Mystring("This is an instance of Mysidia Helper class.");
-	}
+    public function __toString()
+    {
+        return new Mystring("This is an instance of Mysidia Helper class.");
+    }
 }
-?>

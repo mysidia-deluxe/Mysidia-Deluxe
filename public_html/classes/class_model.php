@@ -8,7 +8,7 @@ use Resource\Native\Mystring;
  * It is parent to all model type classes, which stores domain object properties.
  * @category Model
  * @package Model
- * @author Hall of Famer 
+ * @author Hall of Famer
  * @copyright Mysidia Adoptables Script
  * @link http://www.mysidiaadoptables.com
  * @since 1.3.3
@@ -17,61 +17,62 @@ use Resource\Native\Mystring;
  *
  */
  
-abstract class Model extends Object{
+abstract class Model extends Object
+{
 
- 	/**
-	 * OBJ constant, stores the fetch mode Object.
+    /**
+     * OBJ constant, stores the fetch mode Object.
     */
     const OBJ = "object";
-	
-	/**
-	 * MODEL constant, stores the fetch mode Model.
+    
+    /**
+     * MODEL constant, stores the fetch mode Model.
     */
     const MODEL = "model";
-	
-	/**
-	 * GUI constant, stores the fetch mode GUI.
+    
+    /**
+     * GUI constant, stores the fetch mode GUI.
     */
     const GUI = "gui";
-	
-	/**
-	 * INSERT constant, defines the assign mode Insert.
+    
+    /**
+     * INSERT constant, defines the assign mode Insert.
     */
-	const INSERT = "insert";
-	
-	/**
-	 * UPDATE constant, defines the assign mode Update.
+    const INSERT = "insert";
+    
+    /**
+     * UPDATE constant, defines the assign mode Update.
     */
-	const UPDATE = "update";
-	
-	/**
-	 * DELETE constant, defines the assign mode Delete.
-    */	
-	const DELETE = "delete";
-	
-	/**
+    const UPDATE = "update";
+    
+    /**
+     * DELETE constant, defines the assign mode Delete.
+    */
+    const DELETE = "delete";
+    
+    /**
      * Constructor of Model Class, which simply serves as a marker for child classes.
      * @access public
      * @return Void
      */
-	public function __construct(){
-	
-	}
-	
-	/**
+    public function __construct()
+    {
+    }
+    
+    /**
      * Magic method __toString for Model class, it reveals that the class belong to model package.
      * @access public
      * @return String
      */
-    public function __toString(){
-	    return new Mystring("This is an instance of Mysidia Model class.");
-	}
-	
-	/**
+    public function __toString()
+    {
+        return new Mystring("This is an instance of Mysidia Model class.");
+    }
+    
+    /**
      * Abstract method save for Model class, it must be implemented by child domain model classes.
      * @access protected
      * @abstract
      */
-	protected abstract function save($field, $value);
+    abstract protected function save($field, $value);
 }
-?>

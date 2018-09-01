@@ -1,7 +1,5 @@
 <?php
 
-class UnsupportedFileException extends Exception{
-
+class UnsupportedFileException extends Exception
+{
 }
-    
-?>

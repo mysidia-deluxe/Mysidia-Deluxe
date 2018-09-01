@@ -13,7 +13,8 @@
  * @package Smarty
  * @subpackage PluginsInternal
  */
-class Smarty_Internal_Write_File {
+class Smarty_Internal_Write_File
+{
 
     /**
      * Writes file in a safe way to disk
@@ -48,7 +49,7 @@ class Smarty_Internal_Write_File {
         /*
          * Windows' rename() fails if the destination exists,
          * Linux' rename() properly handles the overwrite.
-         * Simply unlink()ing a file might cause other processes 
+         * Simply unlink()ing a file might cause other processes
          * currently reading that file to fail, but linux' rename()
          * seems to be smart enough to handle that for us.
          */
@@ -82,7 +83,4 @@ class Smarty_Internal_Write_File {
         error_reporting($_error_reporting);
         return true;
     }
-
 }
-
-?>
