@@ -164,7 +164,7 @@ abstract class Controller extends Object{
      * @return String
      */
     public function __toString(){
-	    return (mystring)$this->name;
+	    return (string)$this->name;
 	}
 		
 	/**
