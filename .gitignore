@@ -4,3 +4,4 @@ config.php
 .DS_Store
 .php_cs.cache
 
+public_html/inc/config.php
