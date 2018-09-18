@@ -28,10 +28,10 @@
 			</nav>
 		</div>
 		<div class="item2">
-			<a href="http://localhost/mys_deluxe/myadopts" class="btn-large deep-purple" style="width: 200px;">
+			<a href="{$home}myadopts" class="btn-large deep-purple" style="width: 200px;">
 				<i class="fas fa-paw"></i> My Pets
 			</a></br></br>
-			<a href="http://localhost/mys_deluxe/account" class="btn-large deep-purple" style="width: 200px;"><i class="fas fa-box-open"></i> Inventory</a></br></br>
+			<a href="{$home}account" class="btn-large deep-purple" style="width: 200px;"><i class="fas fa-box-open"></i> Inventory</a></br></br>
 			
 		</div>
 		<div class="item3">
@@ -41,14 +41,14 @@
 		<div class="item4">
 			{$avatar}</br>
 			{$username}<hr>
-			<a href="http://localhost/mys_deluxe/messages" class="btn-large deep-purple" style="width: 200px;">
+			<a href="{$home}messages" class="btn-large deep-purple" style="width: 200px;">
 				<i class="fas fa-envelope"></i> Messages {$mailcount}
 			</a></br></br>
-			<a href="http://localhost/mys_deluxe/account" class="btn-large deep-purple" style="width: 200px;">
+			<a href="{$home}account" class="btn-large deep-purple" style="width: 200px;">
 				<i class="fas fa-cog"></i> User CP
 			</a></br></br>
 			{$admin_button}</br></br>
-			<a href="http://localhost/mys_deluxe/login/logout" class="btn-floating btn-large red"><i class="fas fa-sign-out-alt"></i></a>
+			<a href="{$home}login/logout" class="btn-floating btn-large red"><i class="fas fa-sign-out-alt"></i></a>
 		</div>
 		<div class="item5" style="font-size:20px;">
 			<img src="{$home}picuploads/cats/tricolor.png" style="height:150px; width:auto;"></br>
