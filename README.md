@@ -6,7 +6,7 @@ This version overhauls and adds many things, including:
 - [ ] Smoother installation
 - [ ] AJAX support
 - [x] Reskinned ACP for a more modern look
-- [x] 4 brand new themes (2 using Bootstrap 4 and 2 using Materialize)
+- [x] 4 brand new themes using Bootstrap 4
 - [ ] Overhauled trade system
 - [ ] Auction and Raffle system
 - [ ] User shops
