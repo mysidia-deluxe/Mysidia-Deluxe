@@ -12,7 +12,7 @@ This version overhauls and adds many things, including:
 - [ ] User shops
 - [ ] Built-in forum (a forum right on the site, not SMF or myBB)
 - [ ] Layered pet image support
-- [ ] Bank system
+- [x] Bank system
 - [ ] Cronjobs
 - [x] More HTML (no formbuilders or tablebuilders, html will be used instead)
 - [x] More comments in the code, so it's easier to understand what's going on
