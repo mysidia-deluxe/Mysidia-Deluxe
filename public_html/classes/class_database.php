@@ -128,6 +128,14 @@ class Database extends PDO implements Objective{
     public function update($tableName, array $data, $clause = NULL){
         return $this->_query($tableName, $data, 'update', $clause);
     }
+	
+	public function update_decrease($tableName, array $rows, $value, $clause = NULL){
+        return $this->_query($tableName, $rows, 'update_decrease', $clause, $value);
+	}
+
+	public function update_increase($tableName, array $rows, $value, $clause = NULL){
+        return $this->_query($tableName, $rows, 'update_increase', $clause, $value);
+	}
 
     /**
      * Basic SELECT operation
@@ -189,17 +197,25 @@ class Database extends PDO implements Objective{
      * @access private
      * @return object
      */
-    private function _query($tableName, array $data, $operation, $clause = NULL){
-        if ( ! is_string($tableName)){
+    private function _query($tableName, array $data, $operation, $clause = NULL, $value = NULL){
+		if ( ! is_string($tableName)){
             throw new Exception('Argument 1 to ' . __CLASS__ . '::' . __METHOD__ . ' must be a string');
         }
-
-        if ( ! in_array($operation, array('insert', 'update', 'select', 'delete'))){
+ 
+        // added "update_decrease" and "update_increase" to this list
+        if ( ! in_array($operation, array('insert', 'update', 'update_decrease', 'update_increase', 'select', 'select_distinct', 'delete'))){
             throw new Exception('Unknown database operation.');
         }
-
-        $query = call_user_func_array(array(&$this, '_' . $operation . '_query'), array($tableName, &$data));
-
+   
+             // <new code>
+        if(!$value) {
+            $query = call_user_func_array(array(&$this, '_' . $operation . '_query'), array($tableName, &$data));
+        }
+        else {
+            $query = call_user_func_array(array(&$this, '_' . $operation . '_query'), array($tableName, &$data, &$value));    
+        }
+              //</new code>
+       
         if ( ! empty($clause)){
             $query .= ' WHERE ' . $clause;
         }
@@ -207,15 +223,16 @@ class Database extends PDO implements Objective{
         //echo $query;
         $stmt = $this->prepare($query);
         $this->_bind_data($stmt, $data);
-
+ 
         if ( ! $stmt->execute()){
             $error = $stmt->errorInfo();
             throw new Exception('Database error ' . $error[1] . ' - ' . $error[2]);
         }
-
+ 
         $this->_total_rows[] = $stmt->rowCount();
         return $stmt;
-    }
+ 
+	}
 
     /**
      * Generates prepared INSERT query string
@@ -248,6 +265,24 @@ class Database extends PDO implements Objective{
         return 'UPDATE ' . $this->_prefix . $tableName . '
                   SET ' . implode(', ', $setQuery);
     }
+	
+	private function _update_decrease_query($tableName, &$data, &$num){
+        $setQuery = array();
+        foreach ($data as $field){
+            $setQuery[] = '`' . $field . '` = `' . $field . "` -" . $num;
+        }
+        return 'UPDATE ' . $this->_prefix . $tableName . '
+                 SET ' . implode(', ', $setQuery);
+	}
+ 
+	private function _update_increase_query($tableName, &$data, &$num){
+        $setQuery = array();
+        foreach ($data as $field){
+            $setQuery[] = '`' . $field . '` = `' . $field . "` +" . $num;
+        }
+        return 'UPDATE ' . $this->_prefix . $tableName . '
+                 SET ' . implode(', ', $setQuery);
+	}
 
     /**
      * Generates prepared SELECT query string
