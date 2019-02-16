@@ -1,17 +1,45 @@
-@import url('https://fonts.googleapis.com/css?family=Dosis');
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
 @import url('https://fonts.googleapis.com/css?family=Raleway:500');
 
 body {
-   background-image: url("../../templates/tutorial/images/nightlysky.jpg");
+   background-image: url("../../templates/nightsky/images/nightsky.jpg");
    background-size: cover;
-   font-family: 'Dosis', sans-serif;
+   background-attachment: fixed;
+   font-family: 'Merriweather', serif;
 }
 
-.wrapper{
-	width:60%;
-	min-width:800px;
+.container{
+	width:70%;
+	min-width:450px;
+	max-width:100%;
 	margin:0 auto;
+	padding:30px;
+	background-color: #1c2b49;
 }
+.navbar{
+	color:black;
+}
+
+.btn-night{
+	background-color:#4e6da9;
+	border-color:#08192b;
+	color:white;
+}
+
+#noteholder {width:180px;position:fixed;bottom:0px;right:20px;}
+.notetitle {border-bottom:1px dashed grey;}
+.hidenote {border-radius:10px;width:20px;color:white;position:absolute;left:150px;cursor:pointer;text-align:center;background-color:#72140a;}
+.hidenote:hover {background-color:red;}
+
+.inner {
+  background-color: #8f91b7;
+  text-align:center;
+  border: 5px solid;
+  border-color:#1c2b49;
+  border-radius:10px;
+  padding:10px;
+  margin:0 auto;
+  }
 
 .item1 { grid-area: header; padding: 0px; font-size: 15px;}
 .item2 { grid-area: menu; padding: 30px 20px; font-size: 25px;}
@@ -25,7 +53,7 @@ body {
   grid-template-areas:
 	'logo logo logo logo logo logo'
     'header header header header header header'
-    'menu main main main right right'
+    'menu main main main main right'
     'menu footer footer footer footer footer';
   grid-gap: 10px;
   background-color: #0a101e;

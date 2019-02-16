@@ -5,3 +5,5 @@ config.php
 .php_cs.cache
 
 public_html/inc/config.php
+public_html/inc/config.php
+.htaccess

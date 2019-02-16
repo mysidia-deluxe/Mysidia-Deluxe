@@ -8,7 +8,6 @@ class MyadoptsController extends AppController{
     const PARAM = "aid";
     const PARAM2 = "confirm";
 	private $adopt;
-	private $image;
 
     public function __construct(){
         parent::__construct("member");
@@ -17,7 +16,6 @@ class MyadoptsController extends AppController{
 		    try{
                 $this->adopt = new OwnedAdoptable($mysidia->input->get("aid"));	
                 if($this->adopt->getOwner() != $mysidia->user->username) throw new NoPermissionException("permission");		
-		        $this->image = $this->adopt->getImage("gui");
 			}
             catch(AdoptNotfoundException $pne){
 		        $this->setFlags("nonexist_title", "nonexist");
@@ -37,15 +35,13 @@ class MyadoptsController extends AppController{
 	
 	public function manage(){
 	    $this->setField("aid", new Integer($this->adopt->getAdoptID()));
-        $this->setField("name", new Mystring($this->adopt->getName()));	
-		$this->setField("image", $this->image);		
+        $this->setField("name", new Mystring($this->adopt->getName()));		
 	}
 	
 	public function stats(){
 		$mysidia = Registry::get("mysidia");				
         $stmt = $mysidia->db->select("vote_voters", array(), "adoptableid='{$this->adopt->getAdoptID()}' ORDER BY date DESC LIMIT 10");
         $this->setField("adopt", $this->adopt);		
-		$this->setField("image", $this->image);		
 		$this->setField("stmt", new DatabaseStatement($stmt));
 	}
 	

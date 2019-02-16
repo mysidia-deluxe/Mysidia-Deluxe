@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2018-09-18 03:56:19
+<?php /* Smarty version Smarty-3.1.12, created on 2019-02-09 03:24:27
          compiled from "C:\xampp\htdocs\Mysidia-Deluxe\public_html\templates\nightsky\template.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:98455ba058f7a20736-22998485%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'dfcd4f30a04979f89deda0de07e5c315ea62d9a3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Mysidia-Deluxe\\public_html\\templates\\nightsky\\template.tpl',
-      1 => 1537235775,
+      1 => 1549679066,
       2 => 'file',
     ),
   ),
@@ -37,14 +37,29 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 
 <body>
-<div class="wrapper">
-	<div class="grid-container">
-		<div class="item6">
-		<img src="<?php echo $_smarty_tpl->tpl_vars['home']->value;?>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #99a8c6; font-size: 20px;">
+  <a class="navbar-brand" href="#">
+    <img src="<?php echo $_smarty_tpl->tpl_vars['home']->value;?>
 <?php echo $_smarty_tpl->tpl_vars['temp']->value;?>
 <?php echo $_smarty_tpl->tpl_vars['theme']->value;?>
-/images/mysdLogo.png" style="width:100%; height:auto;">
-		</div>
+/images/mysdLogo.png" width="auto" height="8%" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrapper">
+	<div class="grid-container">
 		<div class="item1">
 			<ul id="dropdown1" class="dropdown-content">
 				<li><a href="#!">one</a></li>

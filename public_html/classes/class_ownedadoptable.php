@@ -2,21 +2,21 @@
 
 class OwnedAdoptable extends Adoptable{
 
-    protected $aid;
-	protected $name;
-	protected $owner;
-	protected $currentlevel;
-	protected $totalclicks;
-	protected $code;
-	protected $imageurl;
-	protected $usealternates;
-	protected $tradestatus;
-	protected $isfrozen;  
-    protected $gender;
-	protected $offsprings;
-    protected $lastbred;
-	protected $nextlevel;
-	protected $voters;
+    public $aid;
+	public $name;
+	public $owner;
+	public $currentlevel;
+	public $totalclicks;
+	public $code;
+	public $imageurl;
+	public $usealternates;
+	public $tradestatus;
+	public $isfrozen;  
+    public $gender;
+	public $offsprings;
+    public $lastbred;
+	public $nextlevel;
+	public $voters;
   
     public function __construct($aid, $owner = ""){	  
 	    $mysidia = Registry::get("mysidia");

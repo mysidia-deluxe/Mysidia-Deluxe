@@ -89,11 +89,13 @@ class Template extends Smarty implements Objective{
 		$this->assign("logged_in",$mysidia->user->isloggedin);
 		$this->assign("username",$mysidia->user->username); 
 		$this->assign("cash",$mysidia->user->getcash());
-		$messages = $mysidia->db->select("messages", array(), "touser='{$mysidia->user->username}' and status='unread'")->rowCount(); 
-		$this->assign("messages",$messages);
+		$messages = $mysidia->db->select("messages", array(), "touser='{$mysidia->user->username}' and status='unread'")->rowCount();
+		if($messages > 0){$mailcount = "<i class='fas fa-exclamation' style='color:Tomato'></i>";}
+		else{$mailcount = " ";}
+		$this->assign("mailcount",$mailcount);
 		if($mysidia->user->isloggedin){
 			$profile = $mysidia->db->select("users_profile", array("uid", "avatar"), "username = '{$mysidia->user->username}'")->fetchObject();
-			$img = "<img src={$profile->avatar} class='avatar' style='width:200px;height:auto; border-radius:50px;'>";
+			$img = "<img src={$profile->avatar} class='avatar img-thumbnail' style='width:auto;height:150px; border-radius:50px;'>";
 			$this->assign("avatar",$img);
 		}
 		$online = $mysidia->db->select("online", array(), "username != 'Visitor'")->rowCount();
@@ -102,7 +104,7 @@ class Template extends Smarty implements Objective{
 		$this->assign("guests",$offline);
 		$admin_check = $mysidia->db->select("users", array("usergroup"), "username = '{$mysidia->user->username}'")->fetchColumn();
         if($admin_check == "1" || $admin_check == "2"){
-        	$admin_button = "<a href='admincp' class='button'><i class='fa fa-cogs'></i> Admin CP</a>";
+        	$admin_button = "<a href='admincp' class='btn btn-dark btn-lg btn-block'><i class='fa fa-cogs'></i> Admin CP</a></br>";
         }
         else{
         	$admin_button = "";

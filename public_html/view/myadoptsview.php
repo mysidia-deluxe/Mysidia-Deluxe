@@ -9,7 +9,7 @@ class MyadoptsView extends View{
 	public function index(){
 	    $mysidia = Registry::get("mysidia");
 		$document = $this->document;
-	    $document->setTitle($this->lang->title);
+	    $document->setTitle("Your adoptables");
  
         $pagination = $this->getField("pagination");
 		$stmt = $this->getField("stmt")->get();
@@ -18,8 +18,7 @@ class MyadoptsView extends View{
 		    return;
 		}
 		
-		$document->add(new Comment("
-		<table>
+		$document->add(new Comment("<table class='table table-responsive'>
 			<thead>
 				<tr>
 					<th>Gender</th>
@@ -37,31 +36,30 @@ class MyadoptsView extends View{
 				<tr>
 					<td>{$adopt->getGender()}</td>
 					<td><em>{$adopt->getName()}</em> the {$adopt->getType()}</td>
-					<td><a href='myadopts/manage/{$aid}'><img src='{$adopt->getImage()}' style='width:200px; height:auto;'></a></td>
+					<td><a href='myadopts/manage/{$aid}'><img src='{$adopt->getImage()}' style='min-width:100px; width:300px;' class='img-fluid'></a></td>
 					<td>{$adopt->getTotalClicks()}</td>
 					<td>{$adopt->getCurrentLevel()}</td>
 				</tr>"));
 		}
 		$document->add(new Comment("
-		</tbody></table>"));
+		</tbody></table>", FALSE));
 		$document->addLangvar($pagination->showPage());
 	}
 	
 	public function manage(){
 		$mysidia = Registry::get("mysidia");
 		$aid = $this->getField("aid")->getValue();
-		$name = $this->getField("name")->getValue();
-		$image = $this->getField("image");
+		$adopt = new OwnedAdoptable($aid);
+		$name = $adopt->name;
+		$image = $adopt->getImage();
 		
 		$document = $this->document;		
-		$document->setTitle("Managing {$name}");
-		$document->add($image);
-		$document->add(new Comment("<br><br>This page allows you to manage {$name}.  Click on an option below to change settings.<br>"));
+		$document->setTitle("Managing {$name} <small class='text-muted'>( ID #{$aid} )</small>");
+		//$document->add($image);
+		$document->add(new Comment("<p><img src='{$image}' class='img-fluid'></p>"));
 		
 		$document->add(new Image("templates/icons/add.gif"));
 		$document->add(new Link("levelup/click/{$aid}", " Level Up {$name}", TRUE));
-		$document->add(new Image("templates/icons/stats.gif"));
-		$document->add(new Link("myadopts/stats/{$aid}", " Get Stats for {$name}", TRUE));
 		$document->add(new Image("templates/icons/bbcodes.gif"));
 		$document->add(new Link("myadopts/bbcode/{$aid}", " Get BBCodes / HTML Codes for {$name}", TRUE));
 	   	$document->add(new Image("templates/icons/title.gif"));
@@ -72,17 +70,39 @@ class MyadoptsView extends View{
 		$document->add(new Link("myadopts/freeze/{$aid}", " Freeze or Unfreeze {$name}", TRUE)); 
 		$document->add(new Image("templates/icons/delete.gif"));
 		$document->add(new Link("pound/pound/{$aid}", " Pound {$name}", TRUE)); 
+		
+		$document->add(new Comment("
+			<hr>
+			<div class='card'>
+				<div class='card-header'>Info</div>
+				<div class='card-body'>
+					<ul class='list-group'>
+						<li class='list-group-item'>Level: {$adopt->currentlevel}<br> EXP: {$adopt->totalclicks}</li>
+						<li class='list-group-item'>Dapibus ac facilisis in</li>
+						<li class='list-group-item'>Morbi leo risus</li>
+						<li class='list-group-item'>Porta ac consectetur ac</li>
+						<li class='list-group-item'>Vestibulum at eros</li>
+					</ul>
+				</div>
+			</div>
+			<br></br>
+			<a class='btn btn-danger' data-toggle='collapse' href='#dangerzone' role='button' aria-expanded='false' aria-controls='dangerzone'>
+				<i class='fas fa-exclamation-triangle'></i> Danger Zone
+			</a> 
+			<div class='collapse' id='dangerzone'>
+				<div class='card card-body'>
+					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+				</div>
+			</div>"));
 	}
 	
 	public function stats(){
 		$mysidia = Registry::get("mysidia");
 		$adopt = $this->getField("adopt");		
-		$image = $this->getField("image");
 		$stmt = $this->getField("stmt")->get();
 		
 		$document = $this->document;			
         $document->setTitle($adopt->getName().$this->lang->stats);
-        $document->add($image);	
 		$document->add($adopt->getStats());					   				       
         $document->addLangvar("<h2>{$adopt->getName()}'s Voters:</h2><br>{$this->lang->voters}<br><br>");	
 		
