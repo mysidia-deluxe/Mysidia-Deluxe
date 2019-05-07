@@ -16,6 +16,7 @@ This version overhauls and adds many things, including:
 - [ ] Cronjobs
 - [x] More HTML (no formbuilders or tablebuilders, html will be used instead)
 - [x] More comments in the code, so it's easier to understand what's going on
+- [ ] Proper documentation
 - And more to come!
 
 ## Server Requirements
