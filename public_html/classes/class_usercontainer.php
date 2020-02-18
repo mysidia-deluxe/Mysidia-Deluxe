@@ -2,24 +2,25 @@
 
 use Resource\Native\Object;
 
-abstract class UserContainer extends Object implements Container{
-  // The abstract UserContainer class
+abstract class UserContainer extends Object implements Container
+{
+    // The abstract UserContainer class
      
-  public function getcreator($fetchmode = "Members"){
-     // The UserContainer usually consists of users
-	 
-	 switch($fetchmode){
-	    case "Members":
+    public function getcreator($fetchmode = "Members")
+    {
+        // The UserContainer usually consists of users
+     
+        switch ($fetchmode) {
+        case "Members":
           return new MemberCreator();
-		  break;
+          break;
         case "Visitors":
           return new VisitorCreator();
           break;
         default:
-          return FALSE;		
+          return false;
      }
-  }
+    }
   
-  public abstract function gettotal();
-} 
-?>
+    abstract public function gettotal();
+}

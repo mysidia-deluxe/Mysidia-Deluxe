@@ -1,62 +1,59 @@
 <?php
 
-class BankView extends View{
+class BankView extends View
+{
+    public function index()
+    {
+        $mysidia = Registry::get("mysidia");
+        $sitename = $mysidia->db->select("settings", array("value"), "name = 'sitename'")->fetchColumn();
+        $document = $this->document;
+        $document->add(new Comment("<title>{$sitename} | Bank</title>"));
+        $document->setTitle("The Bank");
+        $balance = $mysidia->user->bank;
+        $cash = $mysidia->user->getcash();
 
-	public function index(){
+        if ($balance == 0 || $balance == null) {
+            $document->add(new Comment("<h2>Current Balance: $0</h2>"));
+        } else {
+            $document->add(new Comment("<h2>Current Balance: $ {$balance}</h2>", false));
+        }
+    
+        $document->add(new paragraph);
 
-		$mysidia = Registry::get("mysidia");
-		$sitename = $mysidia->db->select("settings", array("value"), "name = 'sitename'")->fetchColumn();
-		$document = $this->document;
-		$document->add(new Comment("<title>{$sitename} | Bank</title>"));
-		$document->setTitle("The Bank");
-		$balance = $mysidia->user->bank;
-		$cash = $mysidia->user->getcash();
-
-		if ($balance == 0 || $balance == NULL){
-			$document->add(new Comment("<h2>Current Balance: $0</h2>"));
-		}
-		else{
-			$document->add(new Comment("<h2>Current Balance: $ {$balance}</h2>", FALSE));
-		} 
-	
-		$document->add(new paragraph);
-
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			$choice = $_REQUEST['submitbutton'];
-			$amount = $_REQUEST['amount'];
-		    switch($choice){
-				case "deposit":
-					if($amount > $cash){
-						$document->add(new Comment("You don't have that much to deposit!", TRUE));
-						$document->add(new Comment("<a href='{$home}bank'>Return to Bank</a>", FALSE));
-						return;
-					}
-					else{
-						$mysidia->db->update_increase("users", array("bank"), $amount, "username = '{$mysidia->user->username}'");
-						$mysidia->db->update_decrease("users", array("money"), $amount, "username = '{$mysidia->user->username}'");
-						$document->add(new Comment("You deposited $ {$amount} into your bank account.", TRUE));
-						$document->add(new Comment("<a href='{$home}bank'>Return to Bank?</a>", FALSE));
-						return;
-					}
-					break;
-				case "withdraw":
-					if($amount > $balance){
-						$document->add(new Comment("You don't have that much to withdraw!", TRUE));
-						$document->add(new Comment("<a href='{$home}bank'>Return to Bank</a>", FALSE));
-						return;
-					}
-					else{
-						$mysidia->db->update_increase("users", array("money"), $amount, "username = '{$mysidia->user->username}'");
-						$mysidia->db->update_decrease("users", array("bank"), $amount, "username = '{$mysidia->user->username}'");
-						$document->add(new Comment("You withdrew $ {$amount} from your bank account.", TRUE));
-						$document->add(new Comment("<a href='{$home}bank'>Return to Bank?</a>", FALSE));
-						return;
-					}
-					break;
-			}
-		}
-		
-		$document->add(new Comment("
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $choice = $_REQUEST['submitbutton'];
+            $amount = $_REQUEST['amount'];
+            switch ($choice) {
+                case "deposit":
+                    if ($amount > $cash) {
+                        $document->add(new Comment("You don't have that much to deposit!", true));
+                        $document->add(new Comment("<a href='{$home}bank'>Return to Bank</a>", false));
+                        return;
+                    } else {
+                        $mysidia->db->update_increase("users", array("bank"), $amount, "username = '{$mysidia->user->username}'");
+                        $mysidia->db->update_decrease("users", array("money"), $amount, "username = '{$mysidia->user->username}'");
+                        $document->add(new Comment("You deposited $ {$amount} into your bank account.", true));
+                        $document->add(new Comment("<a href='{$home}bank'>Return to Bank?</a>", false));
+                        return;
+                    }
+                    break;
+                case "withdraw":
+                    if ($amount > $balance) {
+                        $document->add(new Comment("You don't have that much to withdraw!", true));
+                        $document->add(new Comment("<a href='{$home}bank'>Return to Bank</a>", false));
+                        return;
+                    } else {
+                        $mysidia->db->update_increase("users", array("money"), $amount, "username = '{$mysidia->user->username}'");
+                        $mysidia->db->update_decrease("users", array("bank"), $amount, "username = '{$mysidia->user->username}'");
+                        $document->add(new Comment("You withdrew $ {$amount} from your bank account.", true));
+                        $document->add(new Comment("<a href='{$home}bank'>Return to Bank?</a>", false));
+                        return;
+                    }
+                    break;
+            }
+        }
+        
+        $document->add(new Comment("
 			<div class='row'>
 				<div class='col-sm-6'>
 					<div class='card'>
@@ -83,6 +80,5 @@ class BankView extends View{
 					</div>
 				</div>
 			</div>"));
-	}
+    }
 }
-?>

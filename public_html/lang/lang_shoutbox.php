@@ -8,5 +8,3 @@ $lang['notice'] = "This here is where you write the comment. Listen... keep it G
 $lang['post'] = "Post a shout out, if you'd like.";
 $lang['guest'] = "You need to log in before using the shoutbox!";
 $lang['complete'] = "<p><b>Your comment has been posted, you will be able to view it after the page refresh in 5 secs.</b>";
-
-?>

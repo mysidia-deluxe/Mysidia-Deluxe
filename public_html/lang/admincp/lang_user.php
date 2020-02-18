@@ -15,9 +15,7 @@ $lang['edit_title'] = "User Editor";
 $lang['edit'] = "Here you can edit the user's account using the form below.<br />";
 $lang['edited_title'] = "User Updated";
 $lang['edited'] = "Edits saved successfully!
-                   <br><a href='../edit'>Click Here</a> to return to the user manager.";		
+                   <br><a href='../edit'>Click Here</a> to return to the user manager.";
 $lang['delete_title'] = "User Deleted";
 $lang['delete'] = "The user has been deleted from the database successfully.  
 				   <a href='../delete'>Click Here</a> to return to the user manager.";
-
-?>

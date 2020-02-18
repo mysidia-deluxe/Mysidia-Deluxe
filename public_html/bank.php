@@ -1,14 +1,14 @@
 <?php
 
-class BankController extends AppController{
+class BankController extends AppController
+{
+    public function __construct()
+    {
+        parent::__construct("member");
+    }
 
-	public function __construct(){
-		parent::__construct("member");
-	}
-
-	public function index(){
-		$mysidia = Registry::get("mysidia");
-	}
+    public function index()
+    {
+        $mysidia = Registry::get("mysidia");
+    }
 }
-
-?>

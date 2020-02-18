@@ -5,33 +5,32 @@ define("SUBDIR", "Install");
 include("../inc/config.php");
 
 //Now connecting to the adoptables database
-try{
+try {
     $dsn = "mysql:host=".constant("DBHOST").";dbname=".constant("DBNAME");
     $prefix = constant("PREFIX");
     $adopts = new PDO($dsn, DBUSER, DBPASS);
-}
-catch(PDOException $pe){
-    die("Could not connect to database, the following error has occurred: <br><b>{$pe->getmessage()}</b>");  
+} catch (PDOException $pe) {
+    die("Could not connect to database, the following error has occurred: <br><b>{$pe->getmessage()}</b>");
 }
 
 //The grabanysetting function needs to be defined here
 
-function codegen($length, $symbols = 0){
-	$set = array("a","A","b","B","c","C","d","D","e","E","f","F","g","G","h","H","i","I","j","J","k","K","l","L","m","M","n","N","o","O","p","P","q","Q","r","R","s","S","t","T","u","U","v","V","w","W","x","X","y","Y","z","Z","1","2","3","4","5","6","7","8","9");
-	$str = '';
-	
-	if($symbols == 1){
-	  $symbols = array("~","`","!","@","$","#","%","^","+","-","*","/","_","(","[","{",")","]","}");
-	  $set = array_merge($set, $symbols);
-	}
+function codegen($length, $symbols = 0)
+{
+    $set = array("a","A","b","B","c","C","d","D","e","E","f","F","g","G","h","H","i","I","j","J","k","K","l","L","m","M","n","N","o","O","p","P","q","Q","r","R","s","S","t","T","u","U","v","V","w","W","x","X","y","Y","z","Z","1","2","3","4","5","6","7","8","9");
+    $str = '';
+    
+    if ($symbols == 1) {
+        $symbols = array("~","`","!","@","$","#","%","^","+","-","*","/","_","(","[","{",")","]","}");
+        $set = array_merge($set, $symbols);
+    }
 
-	for($i = 1; $i <= $length; ++$i)
-	{
-		$ch = mt_rand(0, count($set)-1);
-		$str .= $set[$ch];
-	}
+    for ($i = 1; $i <= $length; ++$i) {
+        $ch = mt_rand(0, count($set)-1);
+        $str .= $set[$ch];
+    }
 
-	return $str;
+    return $str;
 }
 
 $username = $_POST["username"];
@@ -43,12 +42,12 @@ $salt = codegen(15, 0);
 $username = preg_replace("/[^a-zA-Z0-9\\040.]/", "", $username);
 $email = preg_replace("/[^a-zA-Z0-9@._-]/", "", $email);
 
-if($username == "" or $pass1 == "" or $pass2 == "" or $email == ""){
-die("Something important was left blank.  Please try again!");
+if ($username == "" or $pass1 == "" or $pass2 == "" or $email == "") {
+    die("Something important was left blank.  Please try again!");
 }
 
-if($pass1 != $pass2){
-die("Passwords do not match.  Please go back and correct this.");
+if ($pass1 != $pass2) {
+    die("Passwords do not match.  Please go back and correct this.");
 }
 
 $date = date('Y-m-d');
@@ -63,7 +62,7 @@ VALUES ('', '$username', '1', '0', '0', '0', 'main')");
 
 $adopts->query("INSERT INTO {$prefix}users_profile (uid, username, avatar, bio, color, about, favpet, gender, nickname)
 VALUES ('', '$username', 'templates/icons/default_avatar.gif', '', '', '', '0', 'unknown', '')");
-	
+    
 $adopts->query("INSERT INTO {$prefix}users_status (uid, username, canlevel, canvm, canfriend, cantrade, canbreed, canpound, canshop)
 VALUES ('', '$username', 'yes', 'yes', 'yes', 'yes', 'yes', 'yes', 'yes')");
 
@@ -169,6 +168,3 @@ a:active {
 </center>
 </body>
 </html>";
-
-
-?>

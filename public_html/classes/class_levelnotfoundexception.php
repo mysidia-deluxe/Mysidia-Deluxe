@@ -1,6 +1,5 @@
 <?php
 
-class LevelNotfoundException extends InvalidIDException{
-
+class LevelNotfoundException extends InvalidIDException
+{
 }
-?>

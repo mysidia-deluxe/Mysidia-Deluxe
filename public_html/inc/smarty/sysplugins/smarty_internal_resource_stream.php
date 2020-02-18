@@ -19,7 +19,8 @@
  * @package Smarty
  * @subpackage TemplateResources
  */
-class Smarty_Internal_Resource_Stream extends Smarty_Resource_Recompiled {
+class Smarty_Internal_Resource_Stream extends Smarty_Resource_Recompiled
+{
 
     /**
      * populate Source Object with meta data from Resource
@@ -72,5 +73,3 @@ class Smarty_Internal_Resource_Stream extends Smarty_Resource_Recompiled {
         return get_class($this) . '#' . $resource_name;
     }
 }
-
-?>

@@ -1,8 +1,8 @@
 <?php
 
-interface Decorator{
-  // The decorator interface for Decorator pattern used in Mysidia Adoptables
+interface Decorator
+{
+    // The decorator interface for Decorator pattern used in Mysidia Adoptables
 
-  public function decorate();
-} 
-?>
+    public function decorate();
+}

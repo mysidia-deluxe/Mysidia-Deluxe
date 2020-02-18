@@ -15,7 +15,8 @@
  * @package Smarty
  * @subpackage Compiler
  */
-class Smarty_Internal_Compile_Private_Object_Function extends Smarty_Internal_CompileBase {
+class Smarty_Internal_Compile_Private_Object_Function extends Smarty_Internal_CompileBase
+{
 
     /**
      * Attribute definition: Overwrites base class.
@@ -73,7 +74,4 @@ class Smarty_Internal_Compile_Private_Object_Function extends Smarty_Internal_Co
         }
         return $output;
     }
-
 }
-
-?>

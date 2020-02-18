@@ -24,7 +24,7 @@ $lang['added'] = "A new item, {$mysidia->input->post("itemname")}, has been adde
 $lang['edit_title'] = "Edit item";
 $lang['edit'] = "This page allows you to edit an item that you have created.
 				 Please fill in the form below and hit the <i>Edit Item</i> button below when you're ready.";
-$lang['nonexist'] = "The Item does not exist in database.";		 
+$lang['nonexist'] = "The Item does not exist in database.";
 $lang['edited_title'] = "Item edited Successfully";
 $lang['edited'] = "The item {$mysidia->input->post("itemname")}, has been edit successfully. You may <a href='../index'>go back to the Admin CP index page</a>.";
 $lang['delete_title'] = "Item Deleted";
@@ -32,8 +32,6 @@ $lang['delete'] = "You have successfully removed this item from database.";
 $lang['functions_title'] = "Item Functions";
 $lang['functions'] = "Here is a list of item functions available on your site, please make good use of them.";
 $lang['category'] = "You did not specify a category for the item. Please go back and try again.";
-$lang['itemname'] = "You did not enter in a name for the item. Please go back and try again.";	
+$lang['itemname'] = "You did not enter in a name for the item. Please go back and try again.";
 $lang['images'] = "You did not select an image for this item. Please go back and make sure an image is selected for this item.";
 $lang['duplicate'] = "An item with the same name has already existed, please go back and change its name.";
-
-?>

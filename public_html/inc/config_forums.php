@@ -9,5 +9,4 @@ $mybbpass = '';
 $mybbdbname = '';
 $mybbpath = '';
 $mybbprefix = 'mybb_'; // This is the default setting as you install MyBB forum, feel free changing it if you have a different prefix
-$mybbremember = -1;  		
-?>
+$mybbremember = -1;

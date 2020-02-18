@@ -15,5 +15,3 @@ $lang['edit_success'] = "The message has been successfully edited";
 $lang['delete_title'] = "Deleting Profile Comment";
 $lang['delete_denied'] = "You do not have permission to delete this profile comment.";
 $lang['delete_success'] = "The message has been successfully deleted";
-
-?>

@@ -1,7 +1,5 @@
 <?php
 
-class ShopException extends Exception{
-    
+class ShopException extends Exception
+{
 }
-    
-?>

@@ -16,12 +16,12 @@
  */
 class HTMLPurifier_Filter_ExtractStyleBlocks extends HTMLPurifier_Filter
 {
-
     public $name = 'ExtractStyleBlocks';
     private $_styleMatches = array();
     private $_tidy;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->_tidy = new csstidy();
     }
 
@@ -29,7 +29,8 @@ class HTMLPurifier_Filter_ExtractStyleBlocks extends HTMLPurifier_Filter
      * Save the contents of CSS blocks to style matches
      * @param $matches preg_replace style $matches array
      */
-    protected function styleCallback($matches) {
+    protected function styleCallback($matches)
+    {
         $this->_styleMatches[] = $matches[1];
     }
 
@@ -37,9 +38,12 @@ class HTMLPurifier_Filter_ExtractStyleBlocks extends HTMLPurifier_Filter
      * Removes inline <style> tags from HTML, saves them for later use
      * @todo Extend to indicate non-text/css style blocks
      */
-    public function preFilter($html, $config, $context) {
+    public function preFilter($html, $config, $context)
+    {
         $tidy = $config->get('Filter.ExtractStyleBlocks.TidyImpl');
-        if ($tidy !== null) $this->_tidy = $tidy;
+        if ($tidy !== null) {
+            $this->_tidy = $tidy;
+        }
         $html = preg_replace_callback('#<style(?:\s.*)?>(.+)</style>#isU', array($this, 'styleCallback'), $html);
         $style_blocks = $this->_styleMatches;
         $this->_styleMatches = array(); // reset
@@ -60,7 +64,8 @@ class HTMLPurifier_Filter_ExtractStyleBlocks extends HTMLPurifier_Filter
      * @param $context Instance of HTMLPurifier_Context
      * @return Cleaned CSS
      */
-    public function cleanCSS($css, $config, $context) {
+    public function cleanCSS($css, $config, $context)
+    {
         // prepare scope
         $scope = $config->get('Filter.ExtractStyleBlocks.Scope');
         if ($scope !== null) {
@@ -84,9 +89,13 @@ class HTMLPurifier_Filter_ExtractStyleBlocks extends HTMLPurifier_Filter
             $new_decls = array();
             foreach ($decls as $selector => $style) {
                 $selector = trim($selector);
-                if ($selector === '') continue; // should not happen
+                if ($selector === '') {
+                    continue;
+                } // should not happen
                 if ($selector[0] === '+') {
-                    if ($selector !== '' && $selector[0] === '+') continue;
+                    if ($selector !== '' && $selector[0] === '+') {
+                        continue;
+                    }
                 }
                 if (!empty($scopes)) {
                     $new_selector = array(); // because multiple ones are possible
@@ -105,8 +114,11 @@ class HTMLPurifier_Filter_ExtractStyleBlocks extends HTMLPurifier_Filter
                     }
                     $def = $css_definition->info[$name];
                     $ret = $def->validate($value, $config, $context);
-                    if ($ret === false) unset($style[$name]);
-                    else $style[$name] = $ret;
+                    if ($ret === false) {
+                        unset($style[$name]);
+                    } else {
+                        $style[$name] = $ret;
+                    }
                 }
                 $new_decls[$selector] = $style;
             }
@@ -129,7 +141,6 @@ class HTMLPurifier_Filter_ExtractStyleBlocks extends HTMLPurifier_Filter
         }
         return $css;
     }
-
 }
 
 // vim: et sw=4 sts=4

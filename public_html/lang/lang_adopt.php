@@ -20,4 +20,3 @@ $lang['adopt_fail'] = "You do not meet the necessary requirements to adopt this 
 $lang['adopt_success'] = "Congratulations!  You just adopted";
 $lang['permission'] = "It appears that you do not have permission to adopt";
 $lang['condition'] = "It appears that you do not meet the condition to acquire this adoptable.";
-?>

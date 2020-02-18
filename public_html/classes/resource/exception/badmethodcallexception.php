@@ -1,7 +1,5 @@
 <?php
 
-class BadMethodCallException extends BadFunctionCallException{
-
+class BadMethodCallException extends BadFunctionCallException
+{
 }
-    
-?>

@@ -1,7 +1,5 @@
 <?php
 
-class InvalidActionException extends Exception{
-
+class InvalidActionException extends Exception
+{
 }
-    
-?>

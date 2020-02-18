@@ -15,7 +15,8 @@
  * @package Smarty
  * @subpackage Compiler
  */
-class Smarty_Internal_Compile_Private_Registered_Function extends Smarty_Internal_CompileBase {
+class Smarty_Internal_Compile_Private_Registered_Function extends Smarty_Internal_CompileBase
+{
 
     /**
      * Attribute definition: Overwrites base class.
@@ -44,11 +45,11 @@ class Smarty_Internal_Compile_Private_Registered_Function extends Smarty_Interna
             $compiler->tag_nocache = true;
         }
         unset($_attr['nocache']);
-               if (isset($compiler->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION][$tag])) {
-                   $tag_info = $compiler->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION][$tag];
-               } else {
-                   $tag_info = $compiler->default_handler_plugins[Smarty::PLUGIN_FUNCTION][$tag];
-               }
+        if (isset($compiler->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION][$tag])) {
+            $tag_info = $compiler->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION][$tag];
+        } else {
+            $tag_info = $compiler->default_handler_plugins[Smarty::PLUGIN_FUNCTION][$tag];
+        }
         // not cachable?
         $compiler->tag_nocache =  $compiler->tag_nocache || !$tag_info[1];
         // convert attributes into parameter array string
@@ -56,8 +57,8 @@ class Smarty_Internal_Compile_Private_Registered_Function extends Smarty_Interna
         foreach ($_attr as $_key => $_value) {
             if (is_int($_key)) {
                 $_paramsArray[] = "$_key=>$_value";
-            } elseif ($compiler->template->caching && in_array($_key,$tag_info[2])) {
-                $_value = str_replace("'","^#^",$_value);
+            } elseif ($compiler->template->caching && in_array($_key, $tag_info[2])) {
+                $_value = str_replace("'", "^#^", $_value);
                 $_paramsArray[] = "'$_key'=>^#^.var_export($_value,true).^#^";
             } else {
                 $_paramsArray[] = "'$_key'=>$_value";
@@ -68,14 +69,11 @@ class Smarty_Internal_Compile_Private_Registered_Function extends Smarty_Interna
         // compile code
         if (!is_array($function)) {
             $output = "<?php echo {$function}({$_params},\$_smarty_tpl);?>\n";
-        } else if (is_object($function[0])) {
+        } elseif (is_object($function[0])) {
             $output = "<?php echo \$_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['{$tag}'][0][0]->{$function[1]}({$_params},\$_smarty_tpl);?>\n";
         } else {
             $output = "<?php echo {$function[0]}::{$function[1]}({$_params},\$_smarty_tpl);?>\n";
         }
         return $output;
     }
-
 }
-
-?>

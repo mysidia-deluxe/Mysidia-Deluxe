@@ -1,7 +1,5 @@
 <?php
 
-class LanguageException extends Exception{
-
+class LanguageException extends Exception
+{
 }
-    
-?>

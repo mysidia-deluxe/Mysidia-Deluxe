@@ -1,7 +1,5 @@
 <?php
 
-class UrlException extends Exception{
-
+class UrlException extends Exception
+{
 }
-    
-?>

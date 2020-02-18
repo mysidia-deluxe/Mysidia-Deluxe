@@ -15,7 +15,8 @@
  * @package Smarty
  * @subpackage Compiler
  */
-class Smarty_Internal_Compile_For extends Smarty_Internal_CompileBase {
+class Smarty_Internal_Compile_For extends Smarty_Internal_CompileBase
+{
 
     /**
      * Compiles code for the {for} tag
@@ -81,7 +82,6 @@ class Smarty_Internal_Compile_For extends Smarty_Internal_CompileBase {
         // return compiled code
         return $output;
     }
-
 }
 
 /**
@@ -90,7 +90,8 @@ class Smarty_Internal_Compile_For extends Smarty_Internal_CompileBase {
  * @package Smarty
  * @subpackage Compiler
  */
-class Smarty_Internal_Compile_Forelse extends Smarty_Internal_CompileBase {
+class Smarty_Internal_Compile_Forelse extends Smarty_Internal_CompileBase
+{
 
     /**
      * Compiles code for the {forelse} tag
@@ -109,7 +110,6 @@ class Smarty_Internal_Compile_Forelse extends Smarty_Internal_CompileBase {
         $this->openTag($compiler, 'forelse', array('forelse', $nocache));
         return "<?php }} else { ?>";
     }
-
 }
 
 /**
@@ -118,7 +118,8 @@ class Smarty_Internal_Compile_Forelse extends Smarty_Internal_CompileBase {
  * @package Smarty
  * @subpackage Compiler
  */
-class Smarty_Internal_Compile_Forclose extends Smarty_Internal_CompileBase {
+class Smarty_Internal_Compile_Forclose extends Smarty_Internal_CompileBase
+{
 
     /**
      * Compiles code for the {/for} tag
@@ -145,7 +146,4 @@ class Smarty_Internal_Compile_Forclose extends Smarty_Internal_CompileBase {
             return "<?php }} ?>";
         }
     }
-
 }
-
-?>

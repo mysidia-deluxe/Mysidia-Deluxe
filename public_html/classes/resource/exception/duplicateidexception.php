@@ -1,7 +1,5 @@
 <?php
 
-class DuplicateIDException extends Exception{
-
+class DuplicateIDException extends Exception
+{
 }
-    
-?>

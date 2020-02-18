@@ -25,7 +25,7 @@ $lang['added'] = "A new trade offer has been added to the database successfully.
 $lang['edit_title'] = "Edit Trade Offer";
 $lang['edit'] = "This page allows you to edit trade offers of your sites.
 				 Please fill in the form below and hit the <i>Update Trade</i> button below when you're ready.";
-$lang['nonexist'] = "The Trade Offer does not exist in database.";		 
+$lang['nonexist'] = "The Trade Offer does not exist in database.";
 $lang['edited_title'] = "Trade Offer Updated Successfully";
 $lang['edited'] = "The trade offer has been edited successfully. You may <a href='../index'>go back to the Admin CP index page</a>.";
 $lang['delete_title'] = "Trade Offer Deleted";
@@ -39,10 +39,8 @@ $lang['canceled'] = "You have disapproved this trade offer, and its status is no
 $lang['settings_title'] = "Changing Trade Settings";
 $lang['settings'] = "Here you can modify settings for the trade system.<br>";
 $lang['settings_changed_title'] = "Trade Settings Edited Successfully";
-$lang['settings_changed'] = "You have successfully modified the trade system settings.";	
+$lang['settings_changed'] = "You have successfully modified the trade system settings.";
 $lang['sender'] = "You did not specify a sender for the trade. Please go back and try again.";
-$lang['recipient'] = "You did not enter in a recipient for the trade, while the trade is not public. Please go back and try again.";	
+$lang['recipient'] = "You did not enter in a recipient for the trade, while the trade is not public. Please go back and try again.";
 $lang['public'] = "You specified a recipient while the trade is public. Please go back and try again.";
 $lang['blank'] = "Invalid action, the trade has no adoptable, item or cash involved at all!";
-
-?>

@@ -5,7 +5,6 @@
  */
 class HTMLPurifier_HTMLModule_List extends HTMLPurifier_HTMLModule
 {
-
     public $name = 'List';
 
     // According to the abstract schema, the List content set is a fully formed
@@ -19,7 +18,8 @@ class HTMLPurifier_HTMLModule_List extends HTMLPurifier_HTMLModule
 
     public $content_sets = array('Flow' => 'List');
 
-    public function setup($config) {
+    public function setup($config)
+    {
         $ol = $this->addElement('ol', 'List', 'Required: li', 'Common');
         $ol->wrap = "li";
         $ul = $this->addElement('ul', 'List', 'Required: li', 'Common');
@@ -31,7 +31,6 @@ class HTMLPurifier_HTMLModule_List extends HTMLPurifier_HTMLModule
         $this->addElement('dd', false, 'Flow', 'Common');
         $this->addElement('dt', false, 'Inline', 'Common');
     }
-
 }
 
 // vim: et sw=4 sts=4

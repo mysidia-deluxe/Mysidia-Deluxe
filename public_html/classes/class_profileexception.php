@@ -1,7 +1,5 @@
 <?php
 
-class ProfileException extends Exception{
-
+class ProfileException extends Exception
+{
 }
-    
-?>

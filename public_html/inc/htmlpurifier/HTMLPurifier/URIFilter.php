@@ -27,7 +27,10 @@ abstract class HTMLPurifier_URIFilter
     /**
      * Performs initialization for the filter
      */
-    public function prepare($config) {return true;}
+    public function prepare($config)
+    {
+        return true;
+    }
 
     /**
      * Filter a URI object
@@ -39,7 +42,6 @@ abstract class HTMLPurifier_URIFilter
      *         all changes are committed directly on the URI object
      */
     abstract public function filter(&$uri, $config, $context);
-
 }
 
 // vim: et sw=4 sts=4

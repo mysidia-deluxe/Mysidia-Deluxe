@@ -1,10 +1,9 @@
 <?php
 
 namespace Resource\Exception;
+
 use Exception;
 
-class IndexOutOfBoundsException extends Exception{
-
+class IndexOutOfBoundsException extends Exception
+{
 }
-    
-?>

@@ -1,7 +1,5 @@
 <?php
 
-class DaycareException extends Exception{
-    
+class DaycareException extends Exception
+{
 }
-    
-?>

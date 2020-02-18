@@ -4,4 +4,3 @@
 
 $lang['title'] = "Successfully logged out.";
 $lang['default'] = "You have successfully been logged out.  <a href='login.php'>Click Here</a> to log in again.";
-?>

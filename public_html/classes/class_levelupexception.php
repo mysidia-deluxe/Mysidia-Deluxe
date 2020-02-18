@@ -1,7 +1,5 @@
 <?php
 
-class LevelupException extends Exception{
-    
+class LevelupException extends Exception
+{
 }
-    
-?>
