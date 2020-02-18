@@ -1,7 +1,5 @@
 <?php
 
-class InterfaceNotFoundException extends Exception{
-
+class InterfaceNotFoundException extends Exception
+{
 }
-    
-?>

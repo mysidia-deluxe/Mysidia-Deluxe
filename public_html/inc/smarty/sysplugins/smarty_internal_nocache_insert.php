@@ -15,7 +15,8 @@
  * @package Smarty
  * @subpackage Compiler
  */
-class Smarty_Internal_Nocache_Insert {
+class Smarty_Internal_Nocache_Insert
+{
 
     /**
      * Compiles code for the {insert} tag into cache file
@@ -47,7 +48,4 @@ class Smarty_Internal_Nocache_Insert {
         }
         return "/*%%SmartyNocache:{$_tpl->properties['nocache_hash']}%%*/" . $_output . "/*/%%SmartyNocache:{$_tpl->properties['nocache_hash']}%%*/";
     }
-
 }
-
-?>

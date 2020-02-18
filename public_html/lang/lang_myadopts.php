@@ -22,7 +22,7 @@ $lang['pound'] = "Pound ";
 $lang['rename_default'] = "This page allows you to rename ";
 $lang['rename_details'] = ". To rename this adoptable simply type the new name in the box below.  Valid names may only contain letters, numbers and spaces.";
 $lang['rename_error'] = "Cannot rename";
-$lang['rename_owner'] = "The site admin has specified that only original owners can rename their adoptables.";  
+$lang['rename_owner'] = "The site admin has specified that only original owners can rename their adoptables.";
 $lang['rename_frozen_title'] = "Rename Denied Because Adopt is Frozen";
 $lang['rename_frozen'] = "You cannot rename this adoptable because it is currently frozen.  Please ";
 $lang['rename_frozen2'] = "this adoptable before renaming it.";
@@ -37,5 +37,3 @@ $lang['freeze_warning'] = "<b>WARNING:</b> Freezing an adoptable REJECTS any cli
                            a freeze on this adoptable you are essentially rejecting all further clicks until the adoptable is unfrozen.  In addition, some management features of this adoptable may be disabled until you unfreeze it.";
 $lang['freeze_success'] = " Frozen Successfully";
 $lang['freeze_reverse'] = " Unfrozen Successfully";
-
-?>

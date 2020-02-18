@@ -5,7 +5,7 @@
 $lang['title'] = "The Trade Station";
 $lang['default'] = "Welcome to the Trade Station.  Here you can trade your adoptables or items with someone else.  
                     If you do not have any clues, use the search feature to browse for available adoptables and items from other users.<br>";
-$lang['section'] = "<br><br><b><u>The trade station offers the following additional services!</u></b><br>"; 
+$lang['section'] = "<br><br><b><u>The trade station offers the following additional services!</u></b><br>";
 $lang['section2'] = "<br><br><b><u>Sounds Interesting? Wanna start a trade offer now? Oh wait!</u></b><br>";
 $lang['tax'] = "Note that a trade offer will incur a tax of: ";
 $lang['tax2'] = " {$mysidia->settings->cost}. Make sure you do have sufficient funds to complete a trade request.<br><br>";
@@ -61,7 +61,7 @@ $lang['view_partial'] = "Here you can go over partial trade requests.<br>";
 $lang['view_partial2'] = "Here you can work on partial trade requests sent to you.<br>";
 $lang['view_partial_empty'] = "<br>Currently there is no partial trade offer, please come back later.";
 $lang['revise_title'] = "Trade Offer Revised";
-$lang['revise'] = "You have successfully revised your trade offer id: {$mysidia->input->get("id")}."; 
+$lang['revise'] = "You have successfully revised your trade offer id: {$mysidia->input->get("id")}.";
 
 $lang['disabled_title'] = "Trading Not Enabled";
 $lang['disabled'] = "Trading is either not enabled or not currently available for this site.";
@@ -73,7 +73,7 @@ $lang['recipient_privacy'] = "It appears that the recipient has trade privacy se
                               In order to complete a trade offer with this user, you will need to become friends first.";
 $lang['recipient_public'] = "A public trade offer can NOT have a recipient!";
 $lang['recipient_partial'] = "A partial trade offer must have at least one of the asset(adopts, items or cash) included to be valid!";
-$lang['offers'] = "A trade offer is invalid if its sender offers nothing to the recipient, please include at least an adoptable, an item or some cash to continue.";							  
+$lang['offers'] = "A trade offer is invalid if its sender offers nothing to the recipient, please include at least an adoptable, an item or some cash to continue.";
 $lang['wanted'] = "A trade offer is invalid if its sender requests nothing in return, please include at least an adoptable or an item to continue.";
 $lang['publics'] = "A public trade offer isn invalid if the sender requests nothing in return, please include at least an adoptable species or an item type to continue.";
 $lang['public_adopt'] = "A fatal error has occurred, the species offered do not exist in database!";
@@ -92,5 +92,4 @@ $lang['usergroup'] = "It seems that you belong to the usergroup(s) that are disa
 $lang['item'] = "It appears that this trade offer involves un-tradable items, please remove them to proceed.";
 $lang['error'] = "Trade Error";
 $lang['invalid_title'] = "Invalid Trade";
-$lang['invalid'] = "We couldn't find this trade in the database.  Sorry.";	
-?>
+$lang['invalid'] = "We couldn't find this trade in the database.  Sorry.";

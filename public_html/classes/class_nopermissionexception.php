@@ -1,7 +1,5 @@
 <?php
 
-class NoPermissionException extends Exception{
-
+class NoPermissionException extends Exception
+{
 }
-    
-?>

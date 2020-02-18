@@ -1,7 +1,5 @@
 <?php
 
-class AlreadyLoggedinException extends Exception{
-
+class AlreadyLoggedinException extends Exception
+{
 }
-
-?>

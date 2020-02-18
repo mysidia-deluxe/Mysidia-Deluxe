@@ -1,7 +1,5 @@
 <?php
 
-class BlankFieldException extends Exception{
-
+class BlankFieldException extends Exception
+{
 }
-
-?>

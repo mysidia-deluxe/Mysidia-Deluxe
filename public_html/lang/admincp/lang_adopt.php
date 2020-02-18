@@ -4,7 +4,7 @@
 
 $lang['default_title'] = "Add / Edit / Manage Adoptables";
 $lang['default'] = "Here you can add or edit the adoptables that are available to your site's visitors.  
-				  Please choose an option below...<br /><br />";				 
+				  Please choose an option below...<br /><br />";
 $lang['add_title'] = "Create a new adoptable";
 $lang['add'] = "This page allows you to create a new adoptable that will be available to your site's visitors.
 			    Please fill in the form below and hit the <i>Create Adoptable</i> button below when you're ready to create the adoptable.";
@@ -17,9 +17,9 @@ $lang['edit'] = "Here you can edit info and images for existing adoptables.
 $lang['edit_adopt'] = "Editing {$mysidia->input->get("type")}";
 $lang['edited_title'] = "Adoptable Updated";
 $lang['edited'] = "Your changes have been saved. <a href='../adopt/edit'>Click Here</a> to manage your adoptables.";
-$lang['notexist_title'] = "Adoptable Does Not Exist"; 
+$lang['notexist_title'] = "Adoptable Does Not Exist";
 $lang['notexist'] = "The specified adoptable does not exist in the database.  Try going back and trying again.";
-$lang['type'] = "You did not enter in a type for the adoptable. Please go back and try again."; 
+$lang['type'] = "You did not enter in a type for the adoptable. Please go back and try again.";
 $lang['class'] = "You did not enter in a category for the adoptable. Please go back and try again.";
 $lang['image'] =  "You did not select an image for this adoptable. Please go back and make sure an image is selected for this adopt.";
 $lang['image2'] = "You selected two images for the adoptable's egg image. Please go back and make sure that either the image textbox is blank or the image dropdown box is set to No Exising Image.";
@@ -34,7 +34,7 @@ $lang['exist'] = "An adoptable with this name already exists in your database. P
 $lang['freeze_comment'] = "Freeze Deletion - This will not delete the adoptable, 
 						   but will freeze it to all new adoptions by members of your site. 
 						   You can undo this by checking the <em>Remove all adoption conditions from this adoptable</em> 
-						   checkbox the next time you edit this adoptable."; 
+						   checkbox the next time you edit this adoptable.";
 $lang['freeze_title'] = "Adoptable Frozen Successfully";
 $lang['freeze'] = "This adoptable will no longer appear available for new adoptions. 
 				   To reverse this you can manage this adoptable again and choose to remove all restrictions on its adoption.
@@ -48,7 +48,7 @@ $lang['soft_comment'] = "Soft Delete (Adoptable Retirement) - This option will d
 						 users who already adopted this creature. 
 						 Note that once you do a soft delete you will no longer be able to edit 
 						 the levels associated with that adoptable, 
-						 so think about this carefully."; 
+						 so think about this carefully.";
 $lang['soft_title'] = "Adoptable Deleted Successfully";
 $lang['soft'] = "A soft delete was performed successfully. <a href='../adopt/edit'>Click Here</a> to manage your adoptables.";
 $lang['hard_comment'] = "Hard Deletion (Purge) - This option will permanentally delete this adoptable from your site. 
@@ -62,5 +62,3 @@ $lang['condition_comment'] = "<strong>Remove all adoption conditions from this a
 $lang['condition'] = "You did not choose a valid scenario when this adoptable can be adopted. Please go back and either select the Always option, the Promo option or the Conditions option.";
 $lang['date_comment'] = "This setting allows you to change the date that an adoptable is available to a new date. 
 					     This is handy if you only want the adoptable to be available certain times in a given year.";
-
-?>

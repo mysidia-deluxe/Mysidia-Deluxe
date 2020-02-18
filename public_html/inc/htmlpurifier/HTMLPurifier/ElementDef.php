@@ -113,7 +113,8 @@ class HTMLPurifier_ElementDef
     /**
      * Low-level factory constructor for creating new standalone element defs
      */
-    public static function create($content_model, $content_model_type, $attr) {
+    public static function create($content_model, $content_model_type, $attr)
+    {
         $def = new HTMLPurifier_ElementDef();
         $def->content_model = $content_model;
         $def->content_model_type = $content_model_type;
@@ -126,10 +127,11 @@ class HTMLPurifier_ElementDef
      * Values from the new element def take precedence if a value is
      * not mergeable.
      */
-    public function mergeIn($def) {
+    public function mergeIn($def)
+    {
 
         // later keys takes precedence
-        foreach($def->attr as $k => $v) {
+        foreach ($def->attr as $k => $v) {
             if ($k === 0) {
                 // merge in the includes
                 // sorry, no way to override an include
@@ -139,7 +141,9 @@ class HTMLPurifier_ElementDef
                 continue;
             }
             if ($v === false) {
-                if (isset($this->attr[$k])) unset($this->attr[$k]);
+                if (isset($this->attr[$k])) {
+                    unset($this->attr[$k]);
+                }
                 continue;
             }
             $this->attr[$k] = $v;
@@ -148,19 +152,24 @@ class HTMLPurifier_ElementDef
         $this->_mergeAssocArray($this->attr_transform_post, $def->attr_transform_post);
         $this->_mergeAssocArray($this->excludes, $def->excludes);
 
-        if(!empty($def->content_model)) {
+        if (!empty($def->content_model)) {
             $this->content_model =
                 str_replace("#SUPER", $this->content_model, $def->content_model);
             $this->child = false;
         }
-        if(!empty($def->content_model_type)) {
+        if (!empty($def->content_model_type)) {
             $this->content_model_type = $def->content_model_type;
             $this->child = false;
         }
-        if(!is_null($def->child)) $this->child = $def->child;
-        if(!is_null($def->formatting)) $this->formatting = $def->formatting;
-        if($def->descendants_are_inline) $this->descendants_are_inline = $def->descendants_are_inline;
-
+        if (!is_null($def->child)) {
+            $this->child = $def->child;
+        }
+        if (!is_null($def->formatting)) {
+            $this->formatting = $def->formatting;
+        }
+        if ($def->descendants_are_inline) {
+            $this->descendants_are_inline = $def->descendants_are_inline;
+        }
     }
 
     /**
@@ -168,16 +177,18 @@ class HTMLPurifier_ElementDef
      * @param $a1 Array by reference that is merged into
      * @param $a2 Array that merges into $a1
      */
-    private function _mergeAssocArray(&$a1, $a2) {
+    private function _mergeAssocArray(&$a1, $a2)
+    {
         foreach ($a2 as $k => $v) {
             if ($v === false) {
-                if (isset($a1[$k])) unset($a1[$k]);
+                if (isset($a1[$k])) {
+                    unset($a1[$k]);
+                }
                 continue;
             }
             $a1[$k] = $v;
         }
     }
-
 }
 
 // vim: et sw=4 sts=4

@@ -19,7 +19,8 @@
  * @property Smarty_Config_Compiled $compiled
  * @ignore
  */
-class Smarty_Internal_Config {
+class Smarty_Internal_Config
+{
 
     /**
      * Samrty instance
@@ -142,7 +143,7 @@ class Smarty_Internal_Config {
     public function mustCompile()
     {
         return $this->mustCompile === null ?
-            $this->mustCompile = ($this->smarty->force_compile || $this->getCompiledTimestamp () === false || $this->smarty->compile_check && $this->getCompiledTimestamp () < $this->source->timestamp):
+            $this->mustCompile = ($this->smarty->force_compile || $this->getCompiledTimestamp() === false || $this->smarty->compile_check && $this->getCompiledTimestamp() < $this->source->timestamp):
             $this->mustCompile;
     }
 
@@ -296,7 +297,4 @@ class Smarty_Internal_Config {
 
         throw new SmartyException("config attribute '$property_name' does not exist.");
     }
-
 }
-
-?>

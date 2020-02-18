@@ -38,8 +38,6 @@ $lang['gd_explain'] = "If you enable GD Signature Images for GIF files then all 
 					   Please note that if GD is not installed or enabled on this server this setting will not take effect and all images will fall back to the default method of showing signature images.";
 $lang['altbb_explain'] = "If you enable this setting then an additional set of BBCode will be shown for all adoptables that will convert URLs such as click/siggy/20 to URLs such as /get/20.gif. 
                           You should only enable this if you have uploaded and edited the modified .htaccess file so that users can access the pets at their friendly URLs. 
-						  If you have not uploaded the .htaccess file required for this then users who use the alternate BBCodes will not have their signature images work properly.<br>";						
+						  If you have not uploaded the .htaccess file required for this then users who use the alternate BBCodes will not have their signature images work properly.<br>";
 $lang['settings_updated_title'] = "Settings Updated Successfully";
 $lang['settings_updated'] = "Your settings have been updated successfully. Please <a href='settings'>Click Here</a> to return to the settings manager.";
- 		
-?>

@@ -5,9 +5,8 @@ define("SUBDIR", "Install");
 $step = $_GET["step"];
 $step = preg_replace("/[^a-zA-Z0-9s]/", "", $step);
 
-if($step == 3 or $step == "3"){
-
-echo "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'
+if ($step == 3 or $step == "3") {
+    echo "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'
 'http://www.w3.org/TR/html4/loose.dtd'>
 <html>
 <head>
@@ -95,13 +94,11 @@ a:active {
 </center>
 </body>
 </html>";
-
-}
-else if($step == 2 or $step == "2"){
+} elseif ($step == 2 or $step == "2") {
 
 //Check file permissions...
-$flag = 0;
-echo"<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'
+    $flag = 0;
+    echo"<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'
 'http://www.w3.org/TR/html4/loose.dtd'>
 <html>
 <head>
@@ -151,87 +148,77 @@ a:active {
       <span class='style2'>This page will check that all of your file permissions and CHMOD settings are correct. It will also check the status of the GD image library on this server.  If any of the below read FAIL then please CHMOD the object so that it is writable, usually CHMOD 777 on most hosts.  
 	If an object is marked as WARNING then it is optional that you CHMOD it to 777, however failure to do this will cause the file upload functions of the Admin CP to not work correctly.</span></p>";
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//Check the file permissions here and echo the results...
+    //Check the file permissions here and echo the results...
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-if(is_writable("../inc/config.php")) {
-    echo "<p align='left'><img src='../templates/icons/yes.gif'> <b>PASS:</b>  Your config.php file is writable.<br></p>";
-} 
-else{
-    echo "<b><p align='left'><img src='../templates/icons/no.gif'> FAIL:</b> Your inc/config.php file does not exist. If you have config_adopts.php file, please change its name to config.php to proceed.<br></p>";
-    $flag = 1;
-}
+    if (is_writable("../inc/config.php")) {
+        echo "<p align='left'><img src='../templates/icons/yes.gif'> <b>PASS:</b>  Your config.php file is writable.<br></p>";
+    } else {
+        echo "<b><p align='left'><img src='../templates/icons/no.gif'> FAIL:</b> Your inc/config.php file does not exist. If you have config_adopts.php file, please change its name to config.php to proceed.<br></p>";
+        $flag = 1;
+    }
 
-if(is_writable("../picuploads/gif")) {
-    echo "<p align='left'><img src='../templates/icons/yes.gif'> <b>PASS:</b>  Your picuploads/gif directory is writable.<br></p>";
-} 
-else{
-    echo "<b><p align='left'><img src='../templates/icons/warning.gif'> WARNING:</b> Your picuploads/gif directory is not writable.  Please CHMOD the directory so that it is writable if you wish to be able to upload GIF images from your ACP.<br></p>";
-}
+    if (is_writable("../picuploads/gif")) {
+        echo "<p align='left'><img src='../templates/icons/yes.gif'> <b>PASS:</b>  Your picuploads/gif directory is writable.<br></p>";
+    } else {
+        echo "<b><p align='left'><img src='../templates/icons/warning.gif'> WARNING:</b> Your picuploads/gif directory is not writable.  Please CHMOD the directory so that it is writable if you wish to be able to upload GIF images from your ACP.<br></p>";
+    }
 
-if(is_writable("../picuploads/jpg")) {
-    echo "<p align='left'><img src='../templates/icons/yes.gif'> <b>PASS:</b>  Your picuploads/jpg directory is writable.<br></p>";
-} 
-else{
-    echo "<b><p align='left'><img src='../templates/icons/warning.gif'> WARNING:</b> Your picuploads/jpg directory is not writable.  Please CHMOD the directory so that it is writable if you wish to be able to upload JPG images from your ACP.<br></p>";   
-}
+    if (is_writable("../picuploads/jpg")) {
+        echo "<p align='left'><img src='../templates/icons/yes.gif'> <b>PASS:</b>  Your picuploads/jpg directory is writable.<br></p>";
+    } else {
+        echo "<b><p align='left'><img src='../templates/icons/warning.gif'> WARNING:</b> Your picuploads/jpg directory is not writable.  Please CHMOD the directory so that it is writable if you wish to be able to upload JPG images from your ACP.<br></p>";
+    }
 
-if(is_writable("../picuploads/png")) {
-    echo "<p align='left'><img src='../templates/icons/yes.gif'> <b>PASS:</b>  Your picuploads/png directory is writable.<br></p>";
-} 
-else{
-    echo "<b><p align='left'><img src='../templates/icons/warning.gif'> WARNING:</b> Your picuploads/png directory is not writable.  Please CHMOD the directory so that it is writable if you wish to be able to upload PNG images from your ACP.<br></p>";   
-}
+    if (is_writable("../picuploads/png")) {
+        echo "<p align='left'><img src='../templates/icons/yes.gif'> <b>PASS:</b>  Your picuploads/png directory is writable.<br></p>";
+    } else {
+        echo "<b><p align='left'><img src='../templates/icons/warning.gif'> WARNING:</b> Your picuploads/png directory is not writable.  Please CHMOD the directory so that it is writable if you wish to be able to upload PNG images from your ACP.<br></p>";
+    }
 
-// Check for PDO...
+    // Check for PDO...
 
-if(class_exists('PDO')){
-    echo "<p align='left'><img src='../templates/icons/yes.gif'> <b>PASS:</b>  Your server supports the PDO extension and can handle database requests..<br></p>";
-} 
-else{
-    echo "<b><p align='left'><img src='../templates/icons/warning.gif'> FAIL:</b> Your server does not appear to support the PDO extension for some reason.  Your site will not function well under this condition, please contact your host to enable PDO on your server.<br></p>";   
-    $flag = 1;
-}
+    if (class_exists('PDO')) {
+        echo "<p align='left'><img src='../templates/icons/yes.gif'> <b>PASS:</b>  Your server supports the PDO extension and can handle database requests..<br></p>";
+    } else {
+        echo "<b><p align='left'><img src='../templates/icons/warning.gif'> FAIL:</b> Your server does not appear to support the PDO extension for some reason.  Your site will not function well under this condition, please contact your host to enable PDO on your server.<br></p>";
+        $flag = 1;
+    }
 
-// Check for GD...
+    // Check for GD...
 
-if (function_exists('imagegif')) {
-    echo "<p align='left'><img src='../templates/icons/yes.gif'> <b>PASS:</b>  Your server supports the GD image libraries and can handle fancy signature images..<br></p>";
-} 
-else{
-    echo "<b><p align='left'><img src='../templates/icons/warning.gif'> FAIL:</b> Your server does not appear to support the GD image libraries.  You will not be able to use fancy signature images for your adoptables on this server.  You can still use the traditional images, however.<br></p>";   
-}
+    if (function_exists('imagegif')) {
+        echo "<p align='left'><img src='../templates/icons/yes.gif'> <b>PASS:</b>  Your server supports the GD image libraries and can handle fancy signature images..<br></p>";
+    } else {
+        echo "<b><p align='left'><img src='../templates/icons/warning.gif'> FAIL:</b> Your server does not appear to support the GD image libraries.  You will not be able to use fancy signature images for your adoptables on this server.  You can still use the traditional images, however.<br></p>";
+    }
 
 
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//END THE FILE PERMISSIONS CHECKS
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //END THE FILE PERMISSIONS CHECKS
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-if($flag == 0){
-
-echo "<br><p align='right'><br>
+    if ($flag == 0) {
+        echo "<br><p align='right'><br>
         <a href='index.php?step=3'><span class='style2'><img src='../templates/icons/yes.gif' border=0> Continue Installation</span></a> </p></td>";
+    }
 
-}
 
-
-echo"</tr>
+    echo"</tr>
 </table>
 </center>
 </body>
 </html>";
-
-}
-else{
-echo "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'
+} else {
+    echo "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'
 'http://www.w3.org/TR/html4/loose.dtd'>
 <html>
 <head>
@@ -295,5 +282,3 @@ a:active {
 </body>
 </html>";
 }
-
-?>

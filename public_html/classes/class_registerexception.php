@@ -1,7 +1,5 @@
 <?php
 
-class RegisterException extends Exception{
-
+class RegisterException extends Exception
+{
 }
-    
-?>

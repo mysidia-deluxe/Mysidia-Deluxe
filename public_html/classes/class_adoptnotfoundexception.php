@@ -1,6 +1,5 @@
 <?php
 
-class AdoptNotfoundException extends InvalidIDException{
-
+class AdoptNotfoundException extends InvalidIDException
+{
 }
-?>

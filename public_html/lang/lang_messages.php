@@ -40,5 +40,3 @@ $lang['report_title'] = "Reporting Private Message";
 $lang['report'] = "Here is the reported message below: <br /><br />";
 $lang['reported_title'] = "Report submitted";
 $lang['reported'] = "You have submitted the report successfully, an admin will go over it soon.";
-
-?>

@@ -13,7 +13,8 @@
  * @package Smarty
  * @subpackage PluginsInternal
  */
-class Smarty_Internal_Function_Call_Handler {
+class Smarty_Internal_Function_Call_Handler
+{
 
     /**
      * This function handles calls to template functions defined by {function}
@@ -49,7 +50,4 @@ class Smarty_Internal_Function_Call_Handler {
         }
         $_function($_template, $_params);
     }
-
 }
-
-?>

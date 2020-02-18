@@ -1,7 +1,5 @@
 <?php
 
-class LoginException extends InvalidActionException{
-    
+class LoginException extends InvalidActionException
+{
 }
-    
-?>

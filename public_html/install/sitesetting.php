@@ -4,14 +4,13 @@
 define("SUBDIR", "Install");
 include("../inc/config.php");
 
-//Now connecting to the adoptables database 
-try{
+//Now connecting to the adoptables database
+try {
     $dsn = "mysql:host=".constant("DBHOST").";dbname=".constant("DBNAME");
     $prefix = constant("PREFIX");
-	$adopts = new PDO($dsn, DBUSER, DBPASS) or die("Cannot connect to database.");
-}
-catch(PDOException $pe){
-    die("Could not connect to database, the following error has occurred: <br><b>{$pe->getmessage()}</b>");  
+    $adopts = new PDO($dsn, DBUSER, DBPASS) or die("Cannot connect to database.");
+} catch (PDOException $pe) {
+    die("Could not connect to database, the following error has occurred: <br><b>{$pe->getmessage()}</b>");
 }
 
 //The grabanysetting function needs to be defined here
@@ -32,14 +31,14 @@ $tradecost = $_POST["tradecost"];
 $tradeoffercost = $_POST["tradeoffercost"];
 $username = $_POST["username"];
 
-function passencr($username, $password, $salt){
-
+function passencr($username, $password, $salt)
+{
     $pepper = $_POST["peppercode"];
     $password = md5($password);
     $newpassword = sha1($username.$password);
     $finalpassword = hash('sha512', $pepper.$newpassword.$salt);
     return $finalpassword;
-}   
+}
 
 $stmt = $adopts->query("SELECT * FROM {$prefix}users WHERE `uid` = '1'");
 $admin = $stmt->fetchObject();
@@ -47,7 +46,7 @@ $encryptpass = passencr($admin->username, $admin->password, $admin->salt);
  
 // Update system settings
 
-if($theme == "" or $browsertitle == "" or $sitename == "" or $slogan == "" or $cost == "" or $startmoney == ""){
+if ($theme == "" or $browsertitle == "" or $sitename == "" or $slogan == "" or $cost == "" or $startmoney == "") {
     die("Something important was left blank.  Please try again!");
 }
 
@@ -173,6 +172,3 @@ a:active {
 </center>
 </body>
 </html>";
-
-
-?>

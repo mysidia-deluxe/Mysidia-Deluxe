@@ -15,7 +15,8 @@
 * @package Smarty
 * @subpackage Compiler
 */
-class Smarty_Internal_Compile_Include extends Smarty_Internal_CompileBase {
+class Smarty_Internal_Compile_Include extends Smarty_Internal_CompileBase
+{
 
     /**
     * caching mode to create nocache code but no cache file
@@ -130,7 +131,7 @@ class Smarty_Internal_Compile_Include extends Smarty_Internal_CompileBase {
                 $tpl_name = null;
                 eval("\$tpl_name = $include_file;");
                 if (!isset($compiler->smarty->merged_templates_func[$tpl_name]) || $compiler->inheritance) {
-                    $tpl = new $compiler->smarty->template_class ($tpl_name, $compiler->smarty, $compiler->template, $compiler->template->cache_id, $compiler->template->compile_id);
+                    $tpl = new $compiler->smarty->template_class($tpl_name, $compiler->smarty, $compiler->template, $compiler->template->cache_id, $compiler->template->compile_id);
                     // save unique function name
                     $compiler->smarty->merged_templates_func[$tpl_name]['func'] = $tpl->properties['unifunc'] = 'content_'. str_replace('.', '_', uniqid('', true));
                     // use current nocache hash for inlined code
@@ -175,7 +176,7 @@ class Smarty_Internal_Compile_Include extends Smarty_Internal_CompileBase {
                 foreach ($_attr as $key => $value) {
                     $_pairs[] = "'$key'=>$value";
                 }
-                $_vars = 'array('.join(',',$_pairs).')';
+                $_vars = 'array('.join(',', $_pairs).')';
                 $_has_vars = true;
             } else {
                 $compiler->trigger_template_error('variable passing not allowed in parent/global scope', $compiler->lex->taglineno);
@@ -203,13 +204,11 @@ class Smarty_Internal_Compile_Include extends Smarty_Internal_CompileBase {
 
         // was there an assign attribute
         if (isset($_assign)) {
-            $_output = "<?php \$_smarty_tpl->tpl_vars[$_assign] = new Smarty_variable(\$_smarty_tpl->getSubTemplate ($include_file, $_cache_id, $_compile_id, $_caching, $_cache_lifetime, $_vars, $_parent_scope));?>\n";;
+            $_output = "<?php \$_smarty_tpl->tpl_vars[$_assign] = new Smarty_variable(\$_smarty_tpl->getSubTemplate ($include_file, $_cache_id, $_compile_id, $_caching, $_cache_lifetime, $_vars, $_parent_scope));?>\n";
+            ;
         } else {
             $_output = "<?php echo \$_smarty_tpl->getSubTemplate ($include_file, $_cache_id, $_compile_id, $_caching, $_cache_lifetime, $_vars, $_parent_scope);?>\n";
         }
         return $_output;
     }
-
 }
-
-?>

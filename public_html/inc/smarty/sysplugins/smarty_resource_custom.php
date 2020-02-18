@@ -15,7 +15,8 @@
  * @package Smarty
  * @subpackage TemplateResources
  */
-abstract class Smarty_Resource_Custom extends Smarty_Resource {
+abstract class Smarty_Resource_Custom extends Smarty_Resource
+{
 
     /**
      * fetch template and its modification time from data source
@@ -24,7 +25,7 @@ abstract class Smarty_Resource_Custom extends Smarty_Resource {
      * @param string  &$source template source
      * @param integer &$mtime  template modification timestamp (epoch)
      */
-    protected abstract function fetch($name, &$source, &$mtime);
+    abstract protected function fetch($name, &$source, &$mtime);
 
     /**
      * Fetch template's modification timestamp from data source
@@ -57,8 +58,9 @@ abstract class Smarty_Resource_Custom extends Smarty_Resource {
         } else {
             $this->fetch($source->name, $content, $timestamp);
             $source->timestamp = isset($timestamp) ? $timestamp : false;
-            if( isset($content) )
+            if (isset($content)) {
                 $source->content = $content;
+            }
         }
         $source->exists = !!$source->timestamp;
     }
@@ -90,7 +92,4 @@ abstract class Smarty_Resource_Custom extends Smarty_Resource {
     {
         return basename($source->name);
     }
-
 }
-
-?>

@@ -18,7 +18,8 @@
  * @package Smarty
  * @subpackage TemplateResources
  */
-class Smarty_Internal_Resource_String extends Smarty_Resource {
+class Smarty_Internal_Resource_String extends Smarty_Resource
+{
 
     /**
      * populate Source Object with meta data from Resource
@@ -90,7 +91,4 @@ class Smarty_Internal_Resource_String extends Smarty_Resource {
     {
         return '';
     }
-
 }
-
-?>
